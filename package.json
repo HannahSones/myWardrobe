@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "lint": "eslint --ignore-path .gitignore .",
-    "test": "npm run lint --quiet"
+    "test": "npm run lint --quiet",
+    "fix": "eslint --fix --ignore-path .gitignore ."
   },
   "license": "ISC",
   "dependencies": {
