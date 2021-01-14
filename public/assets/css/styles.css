@@ -56,7 +56,7 @@ section {
 
 /* calander styling */
 
-#calander-container {
+#calendar-container {
   overflow-x: scroll;
   position: absolute; 
   bottom: 0; 
@@ -77,4 +77,9 @@ td {
   margin: 0;
   min-width: 50px;
   min-height: 150px; 
+}
+
+a:hover, td:hover {
+  background-color: rgba(235, 235, 235, 0.63);
+  cursor: pointer;
 }
