@@ -1,0 +1,80 @@
+/* body styling */
+html {
+  border:5px solid black;
+  min-height: 100vh;
+}
+
+body {
+  background-image: url(#);
+  background-repeat: repeat;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/*  main styling */
+
+main {
+  min-width: 90%;
+  min-height: 90vh;
+  margin: 4vh;
+  position: relative;
+  border: 1px solid red;
+} 
+
+
+div.row {
+  border: 1px solid green;
+  margin: 0;
+}
+
+.col {
+  margin: 0;
+  border: 1px solid blue;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+/* nav bar */
+
+aside.col {
+  padding: 0; 
+}
+
+
+/* Section styling */
+
+section {
+  position: relative;
+  width: 100%; 
+  height: 600px;
+}
+
+
+/* calander styling */
+
+#calander-container {
+  overflow-x: scroll;
+  position: absolute; 
+  bottom: 0; 
+  right: 15px;
+  left: 15px; 
+  min-height: 100px;
+  /* margin: 0 15px;  */
+}
+
+.nav-title {
+  padding: .5rem 1rem; 
+  display: block;
+  border-radius: .25rem;
+}
+
+td {
+  border: 1px solid orange;
+  margin: 0;
+  min-width: 50px;
+  min-height: 150px; 
+}
