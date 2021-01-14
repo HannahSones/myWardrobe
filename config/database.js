@@ -6,8 +6,7 @@ const password = ck.DB_PASSWORD
 module.exports = new Sequelize('sams-wardrobe', 'root', password, {
     host: 'localhost',
     dialect: 'mysql',
-    
-    pool: {
+    pool:{
         max: 5,
         min: 0,
         acquire: 30000,

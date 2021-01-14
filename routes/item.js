@@ -6,7 +6,7 @@ const Item = require('../models/Items');
 router.get('/', (req, res) => 
     Item.findAll()
         .then(item => {
-            console.log(item)
+            console.log(item);
             res.sendStatus(200);
         })
         .catch(err => console.log(err))

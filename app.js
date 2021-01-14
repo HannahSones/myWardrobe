@@ -3,13 +3,13 @@ const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-const db = require('./config/database.js')
+const db = require('./config/database.js');
 
 //test db
 
 db.authenticate()
     .then(() => console.log('Database connected...'))
-    .catch(err => console.log('Error: ', err))
+    .catch(err => console.log('Error: ', err));
 
 const app = express();
 
