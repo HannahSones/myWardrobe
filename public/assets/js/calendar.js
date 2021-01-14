@@ -1,25 +1,12 @@
 $(document).ready(function(){
 
-  const [currentMonth, currentYear, date, year, month, monthNames, weekDays] = getDateData();
+  const {currentMonth, currentYear, year, month, monthNames, weekDays} = getDateData();
 
   // set up elements from html
-  const calendarBar = $('#calendar-container');
-  const calendar = $('#calendar-table');
   const row = $('#calendar-row');
   const prev = $('a#btn-prev');
   const next = $('a#btn-next');
 
-  // create event listners
-
-  prev.on('click', previousMonth);
-  next.on('click', nextMonth);
-
-
-  // Populate page on load
-
-  currentYear.text(year);
-  currentMonth.text(monthNames[month]);
-  
 
   // FUNCTIONS
 
@@ -33,34 +20,6 @@ $(document).ready(function(){
     const days = 32 - new Date(year, month, 32).getDate();
     return days;
   }
-
-  // ---------------------- showMonth ------------------------------
-  // Display the Month in calander container. 
-  // ---------------------------------------------------------------
-  function showMonth(month){
-
-    if(month === 0) {
-      prev.addClass('hide');
-    }
-    
-    if (month > 0){
-      prev.removeClass('hide');
-    }
-    
-    if(month === 11){
-      next.addClass('hide');
-    }
-
-    if (month < 11){
-      next.removeClass('hide');
-    }
-    // how many days in the month.
-    const days = daysInMonth(year, month);
-    currentMonth.text(monthNames[month]);
-    showCalendar(year, month, days);
-
-  }
-
 
   // ---------------------- showCalander ------------------------------
   // Display the calander in html.
@@ -82,11 +41,38 @@ $(document).ready(function(){
 
   }
 
+  // ---------------------- showMonth ------------------------------
+  // Display the Month in calander container.
+  // ---------------------------------------------------------------
+  function showMonth(month){
+
+    if(month === 0) {
+      prev.addClass('hide');
+    }
+
+    if (month > 0){
+      prev.removeClass('hide');
+    }
+
+    if(month === 11){
+      next.addClass('hide');
+    }
+
+    if (month < 11){
+      next.removeClass('hide');
+    }
+    // how many days in the month.
+    const days = daysInMonth(year, month);
+    currentMonth.text(monthNames[month]);
+    showCalendar(year, month, days);
+
+  }
+
   // ---------------------- previous Month ---------------------------
   // Show the previous month
   // -----------------------------------------------------------------
   function previousMonth(){
-    console.log("prev month");
+    console.log('prev month');
     let text = currentMonth.text();
     let value = monthNames.indexOf(text);
     value--;
@@ -97,7 +83,7 @@ $(document).ready(function(){
   // show the next month
   // ----------------------------------------------------------------
   function nextMonth(){
-    console.log("next month");
+    console.log('next month');
     let text = currentMonth.text();
     let value = monthNames.indexOf(text);
     value++;
@@ -105,22 +91,26 @@ $(document).ready(function(){
   }
 
 
-
-
   // FUNCTION CALLS
 
   showMonth(month);
   // page always loads the current month first.
 
+  // Populate page on load
+  currentYear.text(year);
+  currentMonth.text(monthNames[month]);
+
+  // create event listners
+  prev.on('click', previousMonth);
+  next.on('click', nextMonth);
 
 
 });
 
 
-  // REFERENCES
-  
-  // patel,n.(2018). Challenge of building a calander with pure javascript. 
-  // Medium.com. 
-  // https://medium.com/@nitinpatel_20236/challenge-of-building-a-calendar-
-  // with-pure-javascript-a86f1303267d. (accessed: 14/02/2021). 
+// REFERENCES
 
+// patel,n.(2018). Challenge of building a calander with pure javascript.
+// Medium.com.
+// https://medium.com/@nitinpatel_20236/challenge-of-building-a-calendar-
+// with-pure-javascript-a86f1303267d. (accessed: 14/02/2021).
