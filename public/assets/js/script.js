@@ -1,19 +1,19 @@
 $(document).ready(function(){
 
   // import date elements from date.js
-  const [currentMonth, currentYear, date, year, month, monthNames, weekDays] = getDateData();
+  const {currentMonth, currentYear, monthNames} = getDateData();
 
   // set up elements from html
   const calendarDay = $('#calendar-row');
 
-  
-  
-  
+
+
+
   // FUNCTIONS
-  
+
   function getDayID(){
-    
-    const text = $(this).text().split(" ");
+
+    const text = $(this).text().split(' ');
     let textDate = text[1];
     const textMonth = currentMonth.text();
     const textYear = currentYear.text();
@@ -35,16 +35,16 @@ $(document).ready(function(){
     }
 
     const dayId = `${textYear}-${valueMonth}-${textDate}`;
-    // console.log("dayId =", dayId);
-    
+    console.log('dayId =', dayId);
+
     return dayId;
   }
-  
-  
+
+
   // create event listners
   calendarDay.on('click', 'td', getDayID);
-  
 
 
 
-}); 
+
+});
