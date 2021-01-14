@@ -1,139 +1,50 @@
 $(document).ready(function(){
 
+  // import date elements from date.js
+  const [currentMonth, currentYear, date, year, month, monthNames, weekDays] = getDateData();
+
   // set up elements from html
-  const calanderBar = $('#calander-container'); 
-  const calander = $('#calander-table'); 
-  const row = $('#calander-row'); 
-  const currentYear = $('#current-year'); 
-  const currentMonth = $('#current-month'); 
-  const prev = $('a#btn-prev');
-  const next = $('a#btn-next');
-
-  // create event listners 
-
-  prev.on('click', previousMonth);
-  next.on('click', nextMonth); 
-
-
-  // create the calander bar date content 
-
-  const date = new Date(); 
-  const year = date.getFullYear();
-  const month = date.getMonth(); 
-  // how many days in the month. 
-  // const monthDays = daysInMonth(year, month); 
-  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']; 
-
-  console.log('global, date =', date); 
-  console.log('global, year = ', year); 
-  console.log('global, month = ', month); 
+  const calendarDay = $('#calendar-row');
 
   
-  // Populate page on load
-
-  currentYear.text(year); 
-  currentMonth.text(monthNames[month]); 
   
   
-
-
   // FUNCTIONS
-
-  // ---------------------- Days in Month ------------------------------
-  // check how many days in a give month
-  // returns the 32nd day after the month started.  
-  // subtracts the day returned from 32 to find the final day of the month. 
-  // eg 32nd day in feb = 4th march, 32 - 4 = 28. 
-  // --------------------------------------------------------------------
-  function daysInMonth(year, month){ 
-    const days = 32 - new Date(year, month, 32).getDate(); 
-    return days;
-  }
-
-  // ---------------------- showMonth ------------------------------
-  // Display the Month in calander container. 
-  // -------------------------------------------------------------------- 
-  function showMonth(month){
-    const value = currentMonth.text();
-
-    if(month === 0) {
-      prev.addClass('hide'); 
-    } 
+  
+  function getDayID(){
     
-    if (month > 0){
-      prev.removeClass('hide');
-    } 
-    
-    if(month === 11){
-      next.addClass('hide');
-    } 
-    
-    if (month < 11){
-      next.removeClass('hide');
-    } 
-    const days = daysInMonth(year, month); 
-    currentMonth.text(monthNames[month]); 
-    showCalander(year, month, days);
-    
-  }
+    const text = $(this).text().split(" ");
+    let textDate = text[1];
+    const textMonth = currentMonth.text();
+    const textYear = currentYear.text();
 
-
-  // ---------------------- showCalander ------------------------------
-  // Display the calander in html. 
-  // ------------------------------------------------------------------
-  function showCalander(year, month, days){
-    let d = 1; 
-    row.empty();
-    // creating the cells for each day 
-    for(let i = 0 ; i < days; i++ ) {
-      
-      let day = (new Date(year, month, d)).getDay();
-      let dayName = weekDays[day];
-      let cell = document.createElement('td');
-      let cellText = `${dayName} ${d}`; 
-      cell.append(cellText); 
-      row.append(cell); 
-      d++
+    if(textDate.length === 1){
+      const zero = '0';
+      textDate = zero + textDate;
+      // console.log("textDate =", textDate, typeof(textDate));
     }
-      
-  }
 
-  // ---------------------- previous Month ------------------------------
-  // Show the previous month 
-  // ------------------------------------------------------------------
-  function previousMonth(){
-    let text = currentMonth.text();
-    let value = monthNames.indexOf(text);  
-    value--;
-    showMonth(value); 
-  }
+    // gets the index and plus 1 to account for indexing begining with zero.
+    const monthIndex = monthNames.indexOf(textMonth) + 1;
+    let valueMonth = monthIndex.toString();
+    // console.log("valueMonth =", valueMonth, typeof(valueMonth));
+    if(valueMonth.length === 1){
+      const zero = '0';
+      valueMonth = zero + valueMonth;
+      // console.log("valueMonth =", valueMonth, typeof(valueMonth));
+    }
 
-  // ---------------------- next month ------------------------------
-  // show the next month
-  // ------------------------------------------------------------------
-  function nextMonth(){
-    let text = currentMonth.text();
-    let value = monthNames.indexOf(text); 
-    value++;
-    showMonth(value); 
+    const dayId = `${textYear}-${valueMonth}-${textDate}`;
+    // console.log("dayId =", dayId);
+    
+    return dayId;
   }
   
-  // FUNCTION CALLS
-
-  showMonth(month); 
-  // showCalander(year, month, monthDays); 
-  // page always loads the current month first. 
-
-
-
-});
-
-
-  // REFERENCES
   
-  // patel,n.(2018). Challenge of building a calander with pure javascript. 
-  // Medium.com. 
-  // https://medium.com/@nitinpatel_20236/challenge-of-building-a-calendar-
-  // with-pure-javascript-a86f1303267d. (accessed: 14/02/2021). 
+  // create event listners
+  calendarDay.on('click', 'td', getDayID);
+  
 
+
+
+}); 
