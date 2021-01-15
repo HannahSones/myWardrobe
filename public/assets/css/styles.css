@@ -1,32 +1,33 @@
-/* body styling */
+/* ------------------------ body styling ------------------------------ */
 html {
   border:5px solid black;
   min-height: 100vh;
 }
 
 body {
-  background-image: url(#);
-  background-repeat: repeat;
+  background-color: #F0EFEB;
 }
 
 * {
   box-sizing: border-box;
 }
 
-/*  main styling */
+/* ------------------------ main styling ----------------------- */
 
 main {
   min-width: 90%;
   min-height: 90vh;
   margin: 4vh;
   position: relative;
-  border: 1px solid red;
+  border: 5px solid #DDBEA9;
+  background-color: #EDDCD2;
 } 
 
-
 div.row {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   margin: 0;
+  width: 100%;
+  position: relative;
 }
 
 .col {
@@ -38,32 +39,99 @@ div.row {
   visibility: hidden;
 }
 
-/* nav bar */
+a, li, p, td, h2 {
+  font-family: Comfortaa;
+}
 
-aside.col {
-  padding: 0; 
+a {
+  color: #41755d;
 }
 
 
-/* Section styling */
+/* ---------------------- nav bar ---------------------------------- */
 
-section {
+nav.row {
+  width: 100%;
+  background-color: #EDDCD2;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+nav>ul {
+  margin-top: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+nav>ul>li.nav-item {
+  background-image: url(../img/extras/coat-hanger.png);
+  background-size: contain;
+  height: 100px;
+  width: 320px; 
+  position: relative;
+  z-index: 1;
+}
+
+nav>ul>li.nav-item:hover {
+  background-image: url(../img/extras/coat-hanger-hover.png);
+  
+}
+
+nav>ul>li.nav-item>a.nav-link {
+  position: absolute;
+  bottom: 0;
+  padding: 3px 50px;
+  width:100%; 
+  text-align: center;
+  border-bottom: 3px solid black;
+}
+
+a.nav-link:hover, a:hover, .nav-item:hover {
+    background-color: unset;
+    border: unset;
+}
+
+nav>ul>li.nav-item>a.nav-link.active {
+  color: blue;
+  background-color: unset;
+  border: unset;
+}
+
+
+/* -------------------- Section styling ---------------------- */
+
+section.row {
   position: relative;
   width: 100%; 
-  height: 600px;
+  margin: 0;
+  padding: 0;
+  background-color: #EDDCD2;
+}
+
+section#content-view {
+  height: 600px; 
+  /* border: 1px solid hotpink; */
+  padding: 0 20px;
+}
+
+div#content-folder {
+  border: 3px solid black;
+  background-color: #f0efeb; 
+  height: 100%; 
+  width: 100%;
+  padding: 20px;
+  transform: translateY(-3px);
 }
 
 
-/* calander styling */
+/* ----------------- calander styling ---------------------- */
 
 #calendar-container {
-  overflow-x: scroll;
   position: absolute; 
   bottom: 0; 
-  right: 15px;
-  left: 15px; 
-  min-height: 100px;
-  /* margin: 0 15px;  */
+  min-height: 200px;
+  padding: 10px;
 }
 
 .nav-title {
@@ -72,14 +140,49 @@ section {
   border-radius: .25rem;
 }
 
-td {
-  border: 1px solid orange;
-  margin: 0;
-  min-width: 50px;
-  min-height: 150px; 
+table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
-a:hover, td:hover {
+td {
+  display: inline-block;
+  background-color: #F0EFEB;
+  width: 150px;
+  height: 200px;
+  margin: 6px 3px;
+}
+
+
+a.calendar-style:hover, td:hover {
   background-color: rgba(235, 235, 235, 0.63);
   cursor: pointer;
+}
+
+li.calendar-style, a.calendar-style {
+  font-size:20px;
+}
+
+
+/* -------------------  SCROLL BAR  ------------------------- */
+/* height */
+::-webkit-scrollbar {
+  height: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #F0EFEB; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #BDD2C3; 
+  border-radius: 3px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #8AB7A2; 
 }
