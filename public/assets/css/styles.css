@@ -39,7 +39,7 @@ div.row {
   visibility: hidden;
 }
 
-a, li, p, td, h2 {
+a, li, p, td, h2, h4 {
   font-family: Comfortaa;
 }
 
@@ -124,6 +124,9 @@ div#content-folder {
   padding: 20px;
   transform: translateY(-3px);
 }
+
+
+/* -------------------- Wardrobe carousel styling ---------------------- */
 
 
 /* ----------------- calander styling ---------------------- */
