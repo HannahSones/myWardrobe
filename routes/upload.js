@@ -1,4 +1,3 @@
-const fileupload = require("express-fileupload");
 const cloudinary = require("cloudinary").v2;
 const streamifier = require("streamifier");
 const multer = require("multer");
