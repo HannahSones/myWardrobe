@@ -1,106 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>My Wardrobe</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- add icon link -->
-    <link rel="icon" href="assets/images/icon.png" type="image/x-icon" />
+  <title>My Wardrobe</title>
 
-    <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-      crossorigin="anonymous"
-    />
+  <!-- add icon link -->
+  <link rel="icon" href="assets/images/icon.png" type="image/x-icon" />
 
-    <!-- My basic site style stylesheet -->
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+  <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
 
-    <!-- google fonts  -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Montserrat&family=Open+Sans&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+  <!-- My basic site style stylesheet -->
+  <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
 
-  <body>
-    <main>
-      <nav class="row">
-        <ul class="nav nav-tabs" role="tablist">
-          <li class="nav-item" role="presentation">
-            <a id="my-wardrobe-tab" class="nav-link active" data-toggle="tab" href="#my-wardrobe-content" role="tab" aria-controls="my-wardrobe-content" aria-selected="true"><span>My Wardrobe</span></a>  
-          </li>
-          <li id="saved-outfits-tab" class="nav-item" role="presentation">
-            <a class="nav-link" data-toggle="tab" href="#saved-outfits-content" role="tab" aria-controls="saved-outfits-content" aria-selected="false"><span>Saved Outfits</span></a>
-          </li>
-          <li id="wardrobe-stats-tab" class="nav-item" role="presentation">
-            <a class="nav-link" data-toggle="tab" href="#wardrobe-stats-content" role="tab" aria-controls="wardrobe-stats-content" aria-selected="false"><span>Wardrobe Stats</span></a>
-          </li>
-          <li id="add-new-tab" class="nav-item" role="presentation">
-            <a class="nav-link" data-toggle="tab" href="#add-new-content" role="tab" aria-controls="add-new-content" aria-selected="false"><span>Add New Item</span></a>
-          </li>
-        </ul>
-      </nav>
+  <!-- google fonts  -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Montserrat&family=Open+Sans&display=swap"
+    rel="stylesheet" />
+</head>
 
-      <section id="content-view" class="row">
-        <div id="content-folder" class="tab-content" >
+<body>
+  <main>
+    <nav class="row">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a id="my-wardrobe-tab" class="nav-link active" data-toggle="tab" href="#my-wardrobe-content" role="tab"
+            aria-controls="my-wardrobe-content" aria-selected="true"><span>My Wardrobe</span></a>
+        </li>
+        <li id="saved-outfits-tab" class="nav-item" role="presentation">
+          <a class="nav-link" data-toggle="tab" href="#saved-outfits-content" role="tab"
+            aria-controls="saved-outfits-content" aria-selected="false"><span>Saved Outfits</span></a>
+        </li>
+        <li id="wardrobe-stats-tab" class="nav-item" role="presentation">
+          <a class="nav-link" data-toggle="tab" href="#wardrobe-stats-content" role="tab"
+            aria-controls="wardrobe-stats-content" aria-selected="false"><span>Wardrobe Stats</span></a>
+        </li>
+        <li id="add-new-tab" class="nav-item" role="presentation">
+          <a class="nav-link" data-toggle="tab" href="#add-new-content" role="tab" aria-controls="add-new-content"
+            aria-selected="false"><span>Add New Item</span></a>
+        </li>
+      </ul>
+    </nav>
 
-          <div class="tab-pane fade show active" id="my-wardrobe-content" role="tabpanel" aria-labelledby="my-wardrobe-tab">
-            <h2>My Wardrobe</h2>
-            <!-- start content here for My wardrobe -->
+    <section id="content-view" class="row">
+      <div id="content-folder" class="tab-content">
 
-            <h4>Tops</h4>
+        <div class="tab-pane fade show active" id="my-wardrobe-content" role="tabpanel"
+          aria-labelledby="my-wardrobe-tab">
+          <h2>My Wardrobe</h2>
+          <!-- start content here for My wardrobe -->
 
-            
-                     
-            <div id="carousel-example-multi" class="carousel slide carousel-multi-item" data-ride="carousel">
-            
-              <!-- Indicators -->
-              <ol class="carousel-indicators">
-                <li data-target="#carousel-example-multi" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-example-multi" data-slide-to="1"></li>
-                <li data-target="#carousel-example-multi" data-slide-to="2"></li>
-                <li data-target="#carousel-example-multi" data-slide-to="3"></li>
-                <li data-target="#carousel-example-multi" data-slide-to="4"></li>
-                <li data-target="#carousel-example-multi" data-slide-to="5"></li>
-              </ol>
-            
-              <div class="carousel-inner" role="listbox">
-            
-                <div class="carousel-item active">
-                    <img src="assets/img/shirt-country-untucked.png"
-                        alt="Untucked country shirt" />
+              <h4>Tops</h4>
+
+              <!-- carousel of images -->
+                <div id="carousel-example-multi" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+                  <!-- Indicators -->
+                  <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-multi" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-multi" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-multi" data-slide-to="2"></li>
+                    <li data-target="#carousel-example-multi" data-slide-to="3"></li>
+                    <li data-target="#carousel-example-multi" data-slide-to="4"></li>
+                    <li data-target="#carousel-example-multi" data-slide-to="5"></li>
+                    <li data-target="#carousel-example-multi" data-slide-to="6"></li>
+                    <li data-target="#carousel-example-multi" data-slide-to="7"></li>
+                  </ol>
+
+                  <div class="carousel-inner" role="listbox">
+
+                    <div class="carousel-item active">
+                      <img src="assets/img/shirt-country-untucked.png" alt="Untucked country shirt" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="assets/img/tshirt-ls-baseball-untucked.png" alt="Baseball tshirt" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="assets/img/blouse-yellow.png" alt="Yellow blouse" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="assets/img/top-wool-burgundy.png" alt="Card image cap" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="assets/img/deco-military-burntorange.png" alt="Burnt orange military deco" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="assets/img/jumper-sport-blue.png" alt="Blue jumper" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="assets/img/shirt-face.png" alt="Shirt face" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="assets/img/jumper-cropped-green.png" alt="Cropped green jumper" />
+                    </div>
+
                   </div>
-                <div class="carousel-item">
-                      <img src="assets/img/tshirt-ls-baseball-untucked.png"
-                        alt="Baseball tshirt" />
-                    </div>
-                <div class="carousel-item">
-                      <img src="assets/img/blouse-yellow.png"
-                        alt="Yellow blouse" />
-                    </div>
-                <div class="carousel-item">
-                      <img src="assets/img/top-wool-burgundy.png"
-                        alt="Card image cap" />
-                    </div>
-                <div class="carousel-item">
-                      <img src="assets/img/deco-military-burntorange.png"
-                        alt="Burnt orange military deco" />
                 </div>
-                <div class="carousel-item">
-                      <img src="assets/img/jumper-sport-blue.png"
-                        alt="Blue jumper" />
-                    </div>
-            
-              </div>
-            
-            </div>
 
-              <!-- <img src="assets/img/blouse-flounce.png">
+          <!-- <img src="assets/img/blouse-flounce.png">
               <img src="assets/img/blouse-white-belle.png">
               <img src="assets/img/croptop-grey-armstripe.png">
               <img src="assets/img/deco-military-burntorange.png">
@@ -113,79 +114,77 @@
               <img src="assets/img/jumper-sport-blue.png">
               <img src="assets/img/shirt-country-untucked.png"> -->
 
-            <h4>Bottoms</h4>
 
-            <h4>Overalls</h4>
-
-            <!-- end content here for My wardrobe -->
-          </div>
-
-          <div class="tab-pane fade" id="saved-outfits-content" role="tabpanel" aria-labelledby="saved-outfits-tab">
-            <h2>Saved Outfits</h2>
-            <!-- start content here for saved outfits -->
-
-            <!-- end content here for saved outfits -->
-          </div>
-
-          <div class="tab-pane fade" id="wardrobe-stats-content" role="tabpanel" aria-labelledby="wardrobe-stats-tab">
-            <h2>Wardrobe Statistics</h2>
-            <!-- start content here for statistics -->
-
-            <!-- end content here for My statistics -->
-          </div>
-
-          <div class="tab-pane fade" id="add-new-content" role="tabpanel" aria-labelledby="add-new-tab">
-            <h2>Add New Item</h2>
-            <!-- start content here for add new item -->
-
-            <!-- end content here for My add new item -->
-          </div>
-
-
+          <!-- end content here for My wardrobe -->
         </div>
-      </section>
 
-      
-        <div id="calendar-container" class="row">
-          <div id="calendar-nav">
-            <ul class="nav nav-pills">
-              <li id="current-year" class="nav-title calendar-style">Year</li>
-              <li class="nav-item">
-                <a id="btn-prev" class="nav-link nav-title calendar-style" href="#">Prev</a>
-              </li>
-              <li id="current-month" class="nav-title calendar-style">month</li>
-              <li class="nav-item">
-                <a id="btn-next" class="nav-link nav-title calendar-style" href="#">Next</a>
-              </li>
-            </ul>
-          </div>
+        <div class="tab-pane fade" id="saved-outfits-content" role="tabpanel" aria-labelledby="saved-outfits-tab">
+          <h2>Saved Outfits</h2>
+          <!-- start content here for saved outfits -->
 
-          <div class="row">
-            <table id="calendar-table">
-              <tr id="calendar-row">
-              </tr>
-            </table>
-          </div>
+          <!-- end content here for saved outfits -->
         </div>
-      
-    </main>
 
-    <!-- jQuery CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <div class="tab-pane fade" id="wardrobe-stats-content" role="tabpanel" aria-labelledby="wardrobe-stats-tab">
+          <h2>Wardrobe Statistics</h2>
+          <!-- start content here for statistics -->
 
-    <!-- My javascript -->
-    <script src="assets/js/date.js"></script>
-    <script src="assets/js/calendar.js"></script>
-    <script src="assets/js/carousel.js"></script>
+          <!-- end content here for My statistics -->
+        </div>
 
-    <script src="assets/js/script.js"></script>
+        <div class="tab-pane fade" id="add-new-content" role="tabpanel" aria-labelledby="add-new-tab">
+          <h2>Add New Item</h2>
+          <!-- start content here for add new item -->
 
-    <!-- type="text/javascript" -->
+          <!-- end content here for My add new item -->
+        </div>
 
-    <!-- Bootstrap CDN -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-    <!-- moment CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  </body>
+      </div>
+    </section>
+
+
+    <div id="calendar-container" class="row">
+      <div id="calendar-nav">
+        <ul class="nav nav-pills">
+          <li id="current-year" class="nav-title calendar-style">Year</li>
+          <li class="nav-item">
+            <a id="btn-prev" class="nav-link nav-title calendar-style" href="#">Prev</a>
+          </li>
+          <li id="current-month" class="nav-title calendar-style">month</li>
+          <li class="nav-item">
+            <a id="btn-next" class="nav-link nav-title calendar-style" href="#">Next</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="row">
+        <table id="calendar-table">
+          <tr id="calendar-row">
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- jQuery CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- My javascript -->
+  <script src="assets/js/date.js"></script>
+  <script src="assets/js/calendar.js"></script>
+  <script src="assets/js/carousel.js"></script>
+
+  <script src="assets/js/script.js"></script>
+
+  <!-- type="text/javascript" -->
+
+  <!-- Bootstrap CDN -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <!-- moment CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+</body>
+
 </html>
