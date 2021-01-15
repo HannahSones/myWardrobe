@@ -17,7 +17,6 @@ cloudinary.config({
 });
 
 router.post("/", upload.single("image"), (req, res) => {
-  console.log(req.files);
   const cld_upload_stream = cloudinary.uploader.upload_stream(
     {
       folder: "myWardrobe",
