@@ -60,13 +60,14 @@ nav.row {
 
 nav>ul {
   margin-top: 20px;
-  justify-content: center;
+  margin-left: 35px;
+  /* justify-content: center; */
   width: 100%;
 }
 
 nav>ul>li.nav-item {
   background-image: url(../img/extras/coat-hanger.png);
-  background-size: contain;
+  background-repeat: none;
   height: 100px;
   width: 320px; 
   position: relative;
@@ -75,6 +76,7 @@ nav>ul>li.nav-item {
 
 nav>ul>li.nav-item:hover {
   background-image: url(../img/extras/coat-hanger-hover.png);
+  background-repeat: none;
   
 }
 
@@ -110,8 +112,7 @@ section.row {
 }
 
 section#content-view {
-  height: 600px; 
-  /* border: 1px solid hotpink; */
+  height: 600px;
   padding: 0 20px;
 }
 
