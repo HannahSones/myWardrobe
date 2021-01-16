@@ -60,7 +60,7 @@ nav.row {
 
 nav>ul {
   margin-top: 20px;
-  margin-left: 35px;
+  margin-left: 20px;
   /* justify-content: center; */
   width: 100%;
 }
@@ -69,7 +69,8 @@ nav>ul>li.nav-item {
   background-image: url(../img/extras/coat-hanger.png);
   background-repeat: none;
   height: 100px;
-  width: 320px; 
+  width: 200px; 
+  margin: 10px;
   position: relative;
   z-index: 1;
 }
@@ -77,13 +78,12 @@ nav>ul>li.nav-item {
 nav>ul>li.nav-item:hover {
   background-image: url(../img/extras/coat-hanger-hover.png);
   background-repeat: none;
-  
 }
 
 nav>ul>li.nav-item>a.nav-link {
   position: absolute;
   bottom: 0;
-  padding: 3px 50px;
+  padding: 3px 30px;
   width:100%; 
   text-align: center;
   border-bottom: 3px solid black;
@@ -98,6 +98,31 @@ nav>ul>li.nav-item>a.nav-link.active {
   color: blue;
   background-color: unset;
   border: unset;
+}
+
+div.folder {
+  position: absolute;
+  bottom: 0px;
+  width: 90%; 
+  margin: 0 20px;
+  height: 110px;
+  border: 3px solid black;
+  border-bottom: unset;
+  background-color: #f0efeb;
+  z-index: 0;
+  transform: translateY(-3px);
+}
+
+#second-folder {
+  bottom: 110px;
+  transform: translateY(-2px);
+  width: 85%; 
+}
+
+#third-folder {
+  bottom: 220px;
+  transform: translateY(0px);
+  width: 80%; 
 }
 
 
@@ -129,7 +154,6 @@ div#content-folder {
 /* ----------------- calander styling ---------------------- */
 
 #calendar-container {
-  position: absolute; 
   bottom: 0; 
   min-height: 200px;
   padding: 10px;
@@ -186,4 +210,102 @@ li.calendar-style, a.calendar-style {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #8AB7A2; 
+}
+
+/*  ------------------- Media queries ------------------------ */
+
+@media screen and (max-width: 575.98px) {
+    
+  #first-folder {
+    width: 82%;
+    transform: translateY(-2px);
+  }
+
+
+  #second-folder {
+    width: 78%;
+    transform: translateY(-1px);
+  }
+  
+  #third-folder {
+    width: 76%;
+    transform: translateY(0px);
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width: 576px) and (max-width: 790px) { 
+  
+  ul.nav.nav-tabs {
+    width: 576px;
+  }
+  
+  #third-folder {
+    display: none;
+  }
+
+  #second-folder {
+    display: none;
+  }
+
+  #first-folder {
+    transform: translateY(-2px);
+  }
+
+}
+  
+
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width: 790px) and (max-width: 991.98px) {
+
+  #third-folder {
+    display: none;
+  }
+
+  #second-folder {
+    display: none;
+  }
+  
+ ul.nav.nav-tabs {
+    width: 790px;
+  }
+}
+
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width: 992px) and (max-width: 1412px) { 
+  
+  #first-folder {
+    transform: translateY(-2px);
+  }
+
+  #third-folder {
+    display: none;
+  }
+
+  #second-folder {
+    display: none;
+  }
+
+  ul.nav.nav-tabs {
+    width: 790px;
+  }
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (min-width: 1412px) {
+  
+  #first-folder {
+    display: none;
+  }
+  
+  #second-folder {
+    display: none;
+  }
+
+  #third-folder {
+    display: none;
+  }
 }
