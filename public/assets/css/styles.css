@@ -32,6 +32,7 @@ div.row {
 
 .col {
   margin: 0;
+  padding: 0; 
   border: 1px solid blue;
 }
 
@@ -39,7 +40,7 @@ div.row {
   visibility: hidden;
 }
 
-a, li, p, td, h2, h4 {
+a, li, p, td, h2, h4, button  {
   font-family: Comfortaa;
 }
 
@@ -165,6 +166,44 @@ div#content-folder {
   overflow: hidden;
 }
 
+/* -------------------- saved outfits styling ---------------------- */
+
+button {
+  width: 150px; 
+  margin: 5px auto; 
+  border-radius: 5px;
+  background-color: #8AB7A2;
+  color: white;
+  border: 2px solid #BDD2C3; 
+}
+
+button:focus, button:active {
+  width: 150px; 
+  margin: 5px auto; 
+  border-radius: 5px;
+  background-color: #BDD2C3 ;
+  color: white;
+  border: 2px solid #8AB7A2; 
+}
+
+#outfits-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 5px; 
+}
+
+#outfits-creator {
+  height: 500px;
+}
+
+.outfit-box {
+  display: inline-block;
+  height: 500px;
+  width: 250px;
+  border: 5px solid #8AB7A2;
+  margin: 5px; 
+  padding: 12px; 
+}
 
 /* ----------------- calander styling ---------------------- */
 
