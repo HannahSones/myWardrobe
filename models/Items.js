@@ -2,10 +2,6 @@ const Sequelize = require("sequelize");
 const db = require("../config/database.js");
 
 const Category = db.define("category", {
-  id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-  },
   name: {
     // /type pf clothing eg top, trousers
     type: Sequelize.STRING,
@@ -13,10 +9,6 @@ const Category = db.define("category", {
 });
 
 const Selected = db.define("selected", {
-  id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-  },
   itemID: {
     // ref item ID
     type: Sequelize.INTEGER,
@@ -27,30 +19,18 @@ const Selected = db.define("selected", {
 });
 
 const Outfit = db.define("outfit", {
-  id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-  },
   name: {
     type: Sequelize.STRING,
   },
 });
 
 const User = db.define("user", {
-  id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-  },
   name: {
     type: Sequelize.STRING,
   },
 });
 
 const Item = db.define("item", {
-  id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-  },
   type: {
     type: Sequelize.STRING,
   },
