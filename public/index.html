@@ -14,6 +14,10 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
 
+  <!-- slick CSS for carousel -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" />
+
   <!-- My basic site style stylesheet -->
   <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
 
@@ -56,64 +60,43 @@
 
           <h4>Tops</h4>
 
-          <!-- carousel of images -->
-          <div id="carousel-example-multi" class="carousel slide carousel-multi-item" data-ride="carousel">
-
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-              <li data-target="#carousel-example-multi" data-slide-to="0" class="active"></li>
-              <li data-target="#carousel-example-multi" data-slide-to="1"></li>
-              <li data-target="#carousel-example-multi" data-slide-to="2"></li>
-              <li data-target="#carousel-example-multi" data-slide-to="3"></li>
-              <li data-target="#carousel-example-multi" data-slide-to="4"></li>
-              <li data-target="#carousel-example-multi" data-slide-to="5"></li>
-              <li data-target="#carousel-example-multi" data-slide-to="6"></li>
-              <li data-target="#carousel-example-multi" data-slide-to="7"></li>
-            </ol>
-
-            <div class="carousel-inner" role="listbox">
-
-              <div class="carousel-item active">
-                <img src="assets/img/shirt-country-untucked.png" alt="Untucked country shirt" />
-              </div>
-              <div class="carousel-item">
-                <img src="assets/img/tshirt-ls-baseball-untucked.png" alt="Baseball tshirt" />
-              </div>
-              <div class="carousel-item">
-                <img src="assets/img/blouse-yellow.png" alt="Yellow blouse" />
-              </div>
-              <div class="carousel-item">
-                <img src="assets/img/top-wool-burgundy.png" alt="Burgundy jumper" />
-              </div>
-              <div class="carousel-item">
-                <img src="assets/img/deco-military-burntorange.png" alt="Burnt orange military deco" />
-              </div>
-              <div class="carousel-item">
-                <img src="assets/img/jumper-sport-blue.png" alt="Blue jumper" />
-              </div>
-              <div class="carousel-item">
-                <img src="assets/img/shirt-face.png" alt="Shirt" />
-              </div>
-              <div class="carousel-item">
-                <img src="assets/img/jumper-cropped-green.png" alt="Cropped green jumper" />
-              </div>
-
-            </div>
+          <div class="topsCarousel">
+            <img src="assets/img/shirt-country-untucked.png" alt="Untucked country shirt" />
+            <img src="assets/img/shirt-face.png" alt="Shirt" />
+            <img src="assets/img/top-orange-stripe-tshirt.png" alt="Striped orange tshirt" />
+            <img src="assets/img/deco-military-burntorange.png" alt="Burnt orange military deco" />
+            <img src="assets/img/blouse-yellow.png" alt="Yellow blouse" />
+            <img src="assets/img/tshirt-ls-baseball-untucked.png" alt="Baseball tshirt" />
+            <img src="assets/img/top-blue-highneck.png" alt="Blue highneck top" />
           </div>
 
-          <!-- <img src="assets/img/blouse-flounce.png">
-              <img src="assets/img/blouse-white-belle.png">
-              <img src="assets/img/croptop-grey-armstripe.png">
-              <img src="assets/img/deco-military-burntorange.png">
-              <img src="assets/img/tshirt-sport-blue.png">
-              <img src="assets/img/tshirt-ls-baseball-untucked.png">
-              <img src="assets/img/top-wool-burgundy.png">
-              <img src="assets/img/shirt-face.png">
-              <img src="assets/img/blouse-yellow.png">
-              <img src="assets/img/jumper-cropped-green.png">
-              <img src="assets/img/jumper-sport-blue.png">
-              <img src="assets/img/shirt-country-untucked.png"> -->
 
+          <h4>Bottoms</h4>
+
+          <div class="bottomsCarousel" dir="rtl">
+            <img src="assets/img/skirt-sailor.png" alt="Sailor skirt" />
+            <img src="assets/img/trousers-camo.png" alt="Camo trousers" />
+            <img src="assets/img/trousers-military.png" alt="Military trousers" />
+            <img src="assets/img/jeans-skinny-denim-dark.png" alt="Skinny denim dark jeans" />
+            <img src="assets/img/jeans-straight-blue.png" alt="Straight blue jeans" />
+            <img src="assets/img/skirt-pink-flower.png" alt="Pink flower skirt" />
+            <img src="assets/img/tights-black.png" alt="Black tights" />
+
+          </div>
+
+
+          <h4>Overalls</h4>
+
+          <div class="overallsCarousel">
+            <img src="assets/img/top-wool-burgundy.png" alt="Burgundy jumper" />
+            <img src="assets/img/jumper-sport-blue.png" alt="Blue jumper" />
+            <img src="assets/img/dress-jumper-tokyo-grey.png" alt="Tokyo dress" />
+            <img src="assets/img/overall-dungerees-cord.png" alt="Cord dungarees" />
+            <img src="assets/img/overall-dungerees-yellow-skirt.png" alt="Yellow skirt dungarees" />
+            <img src="assets/img/jeans-skinny-teal.png" alt="Skinny teal jeans" />
+            <img src="assets/img/jumper-rainbow.png" alt="Rainbow jumper" />
+
+          </div>
 
           <!-- end content here for My wardrobe -->
         </div>
@@ -185,6 +168,12 @@
 
   <!-- moment CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+  <!-- slick cdn for carousels -->
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+
 </body>
 
 </html>
