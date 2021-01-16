@@ -1,103 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Insert Title</title>
 
     <!-- add icon link -->
-	<link rel="icon" href="assets/images/icon.png" type="image/x-icon" />
+    <link rel="icon" href="assets/images/icon.png" type="image/x-icon" />
 
     <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
-        
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+
     <!-- My basic site style stylesheet -->
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
 
     <!-- google fonts  -->
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Montserrat&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-</head>
-
-<body>
-    
+  <body>
     <main>
-      <div class="row">
+      <nav class="row">
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a id="my-wardrobe-tab" class="nav-link active" data-toggle="tab" href="#my-wardrobe-content" role="tab" aria-controls="my-wardrobe-content" aria-selected="true"><span>My Wardrobe</span></a>  
+          </li>
+          <li id="saved-outfits-tab" class="nav-item" role="presentation">
+            <a class="nav-link" data-toggle="tab" href="#saved-outfits-content" role="tab" aria-controls="saved-outfits-content" aria-selected="false"><span>Saved Outfits</span></a>
+          </li>
+          <li id="wardrobe-stats-tab" class="nav-item" role="presentation">
+            <a class="nav-link" data-toggle="tab" href="#wardrobe-stats-content" role="tab" aria-controls="wardrobe-stats-content" aria-selected="false"><span>Wardrobe Stats</span></a>
+          </li>
+          <li id="add-new-tab" class="nav-item" role="presentation">
+            <a class="nav-link" data-toggle="tab" href="#add-new-content" role="tab" aria-controls="add-new-content" aria-selected="false"><span>Add New Item</span></a>
+          </li>
+        </ul>
+      </nav>
 
-        <aside class="col col-3">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Active</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
-        </aside>
-         
-        <section class="col col-9"> 
-          
-          <div id="clothes-view" class="row"> clothes content</div>
-          <div  id="calendar-container" class="row">
-            <div id="calendar-nav">
-              <ul class="nav nav-pills">
-                <li id="current-year" class="nav-title">
-                  Year 
-                </li>
-                <li class="nav-item">
-                  <a id="btn-prev" class="nav-link" href="#">Prev</a>
-                </li>
-                <li id="current-month" class="nav-title">
-                  month
-                </li>
-                <li class="nav-item">
-                  <a id="btn-next" class="nav-link" href="#">Next</a>
-                </li>
-                
-              </ul>
-            </div>
+      <section id="content-view" class="row">
+        <div id="content-folder" class="tab-content" >
 
-            <div class="row">
-              <table id="calendar-table">
-                <tr id="calendar-row"></tr>
-              </table>
-            </div>
+          <div class="tab-pane fade show active" id="my-wardrobe-content" role="tabpanel" aria-labelledby="my-wardrobe-tab">
+            <h2>My Wardrobe</h2>
+            <!-- start content here for My wardrobe -->
+
+            <!-- end content here for My wardrobe -->
           </div>
 
-        </section>
+          <div class="tab-pane fade" id="saved-outfits-content" role="tabpanel" aria-labelledby="saved-outfits-tab">
+            <h2>Saved Outfits</h2>
+            <!-- start content here for saved outfits -->
 
-      </div>
+            <!-- end content here for saved outfits -->
+          </div>
+
+          <div class="tab-pane fade" id="wardrobe-stats-content" role="tabpanel" aria-labelledby="wardrobe-stats-tab">
+            <h2>Wardrobe Statistics</h2>
+            <!-- start content here for statistics -->
+
+            <!-- end content here for My statistics -->
+          </div>
+
+          <div class="tab-pane fade" id="add-new-content" role="tabpanel" aria-labelledby="add-new-tab">
+            <h2>Add New Item</h2>
+            <!-- start content here for add new item -->
+
+            <!-- end content here for My add new item -->
+          </div>
+
+
+        </div>
+      </section>
+
+      
+        <div id="calendar-container" class="row">
+          <div id="calendar-nav">
+            <ul class="nav nav-pills">
+              <li id="current-year" class="nav-title calendar-style">Year</li>
+              <li class="nav-item">
+                <a id="btn-prev" class="nav-link nav-title calendar-style" href="#">Prev</a>
+              </li>
+              <li id="current-month" class="nav-title calendar-style">month</li>
+              <li class="nav-item">
+                <a id="btn-next" class="nav-link nav-title calendar-style" href="#">Next</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="row">
+            <table id="calendar-table">
+              <tr id="calendar-row">
+              </tr>
+            </table>
+          </div>
+        </div>
+      
     </main>
 
-    
-
-
     <!-- jQuery CDN -->
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<!-- My javascript -->
-<script src="assets/js/date.js"></script> 
-<script src="assets/js/calendar.js"></script> 
+    <!-- My javascript -->
+    <script src="assets/js/date.js"></script>
+    <script src="assets/js/calendar.js"></script>
 
-<script src="assets/js/script.js"></script> 
+    <script src="assets/js/script.js"></script>
 
-    
     <!-- type="text/javascript" -->
 
     <!-- Bootstrap CDN -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    
+
     <!-- moment CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-
-   </body>
+  </body>
 </html>
