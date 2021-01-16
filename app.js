@@ -2,14 +2,16 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
 const path = require("path");
-const fileupload = require("express-fileupload");
 
 const db = require("./config/database.js");
+const Model = require("./models/Items");
 
 //test db
 
 db.authenticate()
-  .then(() => console.log("Database connected..."))
+  .then(() => {
+    db.sync();
+  })
   .catch((err) => console.log("Error: ", err));
 
 const app = express();
