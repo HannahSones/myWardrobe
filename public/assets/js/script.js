@@ -46,5 +46,19 @@ $(document).ready(function(){
 
 
 
+  // function for displaying categories based on type selection
+
+  if (document.getElementById("typeSelection").value === "Top"){
+    document.getElementsByClassName("topTypeSelected").show();
+  }
+  else if (document.getElementById("typeSelection").value === "Bottom"){
+    document.getElementsByClassName("bottomTypeSelected").show();
+  }
+  else if (document.getElementById("typeSelection").value === "Overall"){
+    document.getElementsByClassName("overallTypeSelected").show();
+  };
+
+
+
 
 });

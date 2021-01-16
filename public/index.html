@@ -30,25 +30,29 @@
 
 <body>
   <main>
-   <nav class="row">
-        <ul class="nav nav-tabs" role="tablist">
-          <li id="my-wardrobe-tab" class="nav-item" role="presentation">
-            <a  class="nav-link active" data-toggle="tab" href="#my-wardrobe-content" role="tab" aria-controls="my-wardrobe-content" aria-selected="true"><span>My Wardrobe</span></a>  
-          </li>
-          <li id="saved-outfits-tab" class="nav-item" role="presentation">
-            <a class="nav-link" data-toggle="tab" href="#saved-outfits-content" role="tab" aria-controls="saved-outfits-content" aria-selected="false"><span>Saved Outfits</span></a>
-          </li>
-          <li id="wardrobe-stats-tab" class="nav-item" role="presentation">
-            <a class="nav-link" data-toggle="tab" href="#wardrobe-stats-content" role="tab" aria-controls="wardrobe-stats-content" aria-selected="false"><span>Wardrobe Stats</span></a>
-          </li>
-          <li id="add-new-tab" class="nav-item" role="presentation">
-            <a class="nav-link" data-toggle="tab" href="#add-new-content" role="tab" aria-controls="add-new-content" aria-selected="false"><span>Add New Item</span></a>
-          </li>
-        </ul>
-        <div id="third-folder" class="folder"> </div>
-        <div id="second-folder" class="folder"> </div>
-        <div id="first-folder" class="folder"> </div>
-      </nav>
+    <nav class="row">
+      <ul class="nav nav-tabs" role="tablist">
+        <li id="my-wardrobe-tab" class="nav-item" role="presentation">
+          <a class="nav-link active" data-toggle="tab" href="#my-wardrobe-content" role="tab"
+            aria-controls="my-wardrobe-content" aria-selected="true"><span>My Wardrobe</span></a>
+        </li>
+        <li id="saved-outfits-tab" class="nav-item" role="presentation">
+          <a class="nav-link" data-toggle="tab" href="#saved-outfits-content" role="tab"
+            aria-controls="saved-outfits-content" aria-selected="false"><span>Saved Outfits</span></a>
+        </li>
+        <li id="wardrobe-stats-tab" class="nav-item" role="presentation">
+          <a class="nav-link" data-toggle="tab" href="#wardrobe-stats-content" role="tab"
+            aria-controls="wardrobe-stats-content" aria-selected="false"><span>Wardrobe Stats</span></a>
+        </li>
+        <li id="add-new-tab" class="nav-item" role="presentation">
+          <a class="nav-link" data-toggle="tab" href="#add-new-content" role="tab" aria-controls="add-new-content"
+            aria-selected="false"><span>Add New Item</span></a>
+        </li>
+      </ul>
+      <div id="third-folder" class="folder"> </div>
+      <div id="second-folder" class="folder"> </div>
+      <div id="first-folder" class="folder"> </div>
+    </nav>
 
     <section id="content-view" class="row">
       <div id="content-folder" class="tab-content">
@@ -91,7 +95,7 @@
             <img src="assets/img/dress-jumper-tokyo-grey.png" alt="Tokyo dress" />
             <img src="assets/img/overall-dungerees-cord.png" alt="Cord dungarees" />
             <img src="assets/img/overall-dungerees-yellow-skirt.png" alt="Yellow skirt dungarees" />
-            <img src="assets/img/jeans-skinny-teal.png" alt="Skinny teal jeans" />
+            <img src="assets/img/dress-jumper-oatmeal.png" alt="Oatmeal jumper" />
             <img src="assets/img/jumper-rainbow.png" alt="Rainbow jumper" />
 
           </div>
@@ -113,7 +117,7 @@
               <div class="outfit-box"></div>
             </div>
           </div>
-          
+
 
           <!-- end content here for saved outfits -->
         </div>
@@ -128,6 +132,106 @@
         <div class="tab-pane fade" id="add-new-content" role="tabpanel" aria-labelledby="add-new-tab">
           <h2>Add New Item</h2>
           <!-- start content here for add new item -->
+
+
+          <form>
+            <h4>Upload a photo</h4>
+            <div class="input-group mb-3">
+              <input type="file" class="form-control" id="itemUpload">
+              <label class="input-group-text" for="inputGroup">Upload</label>
+            </div>
+            </br>
+            <div class="mb-3">
+              <label for="typeSelection" class="form-label">Type</label>
+              <select id="typeSelection" class="form-select" aria-label="Default select example">
+                <option selected>Select item type from the menu</option>
+                <option value="Top">Top</option>
+                <option value="Bottom">Bottom</option>
+                <option value="Overall">Overall</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="category" class="form-label">Category</label>
+
+              <div class="topTypeSelected">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="T-shirt">
+                  <label class="form-check-label" for="flexCheckDefault">
+                    T-shirt
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Shirt">
+                  <label class="form-check-label" for="flexCheckChecked">
+                    Shirt
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Top">
+                  <label class="form-check-label" for="flexCheckChecked">
+                    Top
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Blouse">
+                  <label class="form-check-label" for="flexCheckChecked">
+                    Blouse
+                  </label>
+                </div>
+              </div>
+
+              <div class="bottomTypeSelected">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Trousers">
+                  <label class="form-check-label" for="flexCheckDefault">
+                    Trousers
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Jeans">
+                  <label class="form-check-label" for="flexCheckChecked">
+                    Jeans
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Skirts">
+                  <label class="form-check-label" for="flexCheckChecked">
+                    Skirts
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Tights">
+                  <label class="form-check-label" for="flexCheckChecked">
+                    Tights
+                  </label>
+                </div>
+              </div>
+
+
+              <div class="overallTypeSelected">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Trousers">
+                  <label class="form-check-label" for="flexCheckDefault">
+                    Jumper
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Jeans">
+                  <label class="form-check-label" for="flexCheckChecked">
+                    Dress
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Skirts">
+                  <label class="form-check-label" for="flexCheckChecked">
+                    Dungarees
+                  </label>
+                </div>
+              </div>
+
+            </div>
+            <button type="submit">Add to wardrobe</button>
+          </form>
 
           <!-- end content here for My add new item -->
         </div>
