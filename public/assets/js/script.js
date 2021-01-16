@@ -49,13 +49,13 @@ $(document).ready(function(){
   // function for displaying categories based on type selection
 
   if (document.getElementById("typeSelection").value === "Top"){
-    document.getElementsByClassName("topTypeSelected").show();
+    document.getElementsByClassName("topTypeSelected").css("display: block");
   }
   else if (document.getElementById("typeSelection").value === "Bottom"){
-    document.getElementsByClassName("bottomTypeSelected").show();
+    document.getElementsByClassName("bottomTypeSelected").css("display: block");
   }
   else if (document.getElementById("typeSelection").value === "Overall"){
-    document.getElementsByClassName("overallTypeSelected").show();
+    document.getElementsByClassName("overallTypeSelected").css("display: block");
   };
 
 
