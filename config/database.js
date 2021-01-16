@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const ck = require('ckey');
 
-const password = ck.DB_PASSWORD
+const password = ck.DB_PASSWORD;
 
 module.exports = new Sequelize('sams-wardrobe', 'root', password, {
     host: 'localhost',
