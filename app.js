@@ -7,10 +7,14 @@ const db = require("./config/database.js");
 const Model = require("./models/Items");
 
 //test db
+const inserts = require("./models/inserts");
+const query = require("./models/query");
 
 db.authenticate()
-  .then(() => {
+  .then(async () => {
     db.sync();
+    const sel = await db.selectOneUser("jann");
+    console.log(sel);
   })
   .catch((err) => console.log("Error: ", err));
 
