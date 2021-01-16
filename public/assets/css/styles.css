@@ -39,7 +39,7 @@ div.row {
   visibility: hidden;
 }
 
-a, li, p, td, h2 {
+a, li, p, td, h2, h4 {
   font-family: Comfortaa;
 }
 
@@ -137,7 +137,7 @@ section.row {
 }
 
 section#content-view {
-  height: 600px;
+  min-height: 600px;
   padding: 0 20px;
 }
 
@@ -151,9 +151,25 @@ div#content-folder {
 }
 
 
+/* -------------------- Wardrobe carousel styling ---------------------- */
+
+.topsCarousel {
+  overflow: hidden;
+}
+
+.bottomsCarousel {
+  overflow: hidden;
+}
+
+.overallsCarousel {
+  overflow: hidden;
+}
+
+
 /* ----------------- calander styling ---------------------- */
 
-#calendar-container {
+
+#calendar-container { 
   bottom: 0; 
   min-height: 200px;
   padding: 10px;
