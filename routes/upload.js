@@ -5,6 +5,7 @@ const ck = require("ckey");
 const cloud_name = ck.cloud_name;
 const api_key = ck.api_key;
 const api_secret = ck.api_secret;
+const db = require("../config/database");
 
 const upload = multer();
 
@@ -41,6 +42,31 @@ router.post("/", upload.array("image", 5), async (req, res) => {
     resArray.push(upload);
   }
   res.send(resArray);
+});
+
+router.post("/user", async function (req, res) {
+  try {
+    const insert = await db.insertUser(req.body.name);
+    res.send(insert);
+  } catch {
+    res.status(401);
+    res.end();
+  }
+});
+
+router.post("/item", async function (req, res) {
+  const items = req.body;
+  items.forEach((item) => {
+    db.insertItem(
+      item.type,
+      item.name,
+      item.colour,
+      item.imageURL,
+      item.categoryID,
+      item.userID
+    );
+  });
+  res.send({ success: true });
 });
 
 module.exports = router;
