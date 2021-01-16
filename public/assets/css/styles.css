@@ -214,7 +214,7 @@ li.calendar-style, a.calendar-style {
 
 /*  ------------------- Media queries ------------------------ */
 
-@media screen and (max-width: 575.98px) {
+@media screen and (max-width: 550px) {
     
   #first-folder {
     width: 82%;
@@ -234,7 +234,7 @@ li.calendar-style, a.calendar-style {
 }
 
 /* Small devices (landscape phones, 576px and up) */
-@media screen and (min-width: 576px) and (max-width: 790px) { 
+@media screen and (min-width: 550px) and (max-width: 790px) { 
   
   ul.nav.nav-tabs {
     width: 576px;
@@ -270,11 +270,13 @@ li.calendar-style, a.calendar-style {
  ul.nav.nav-tabs {
     width: 790px;
   }
+
+
 }
 
 
 /* Large devices (desktops, 992px and up) */
-@media screen and (min-width: 992px) and (max-width: 1412px) { 
+@media screen and (min-width: 992px) and (max-width: 1200px) { 
   
   #first-folder {
     transform: translateY(-2px);
@@ -295,7 +297,7 @@ li.calendar-style, a.calendar-style {
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
-@media screen and (min-width: 1412px) {
+@media screen and (min-width: 1200px) {
   
   #first-folder {
     display: none;
