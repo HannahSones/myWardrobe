@@ -15,21 +15,32 @@ cloudinary.config({
   api_secret: api_secret,
 });
 
-router.post("/", upload.single("image"), (req, res) => {
-  const cld_upload_stream = cloudinary.uploader.upload_stream(
-    {
-      folder: "myWardrobe",
-    },
-    (err, result) => {
-      if (err)
-        return res.status(500).json({
-          success: false,
-          payload: { message: "Unable to upload image" },
-        });
-      return res.json({ success: true, payload: result });
-    }
-  );
-  streamifier.createReadStream(req.files.image.data).pipe(cld_upload_stream);
+const uploadFile = (file) => {
+  return new Promise((resolve, reject) => {
+    const cld_upload_stream = cloudinary.uploader.upload_stream(
+      {
+        folder: "myWardrobe",
+      },
+      (err, result) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(result);
+        }
+      }
+    );
+    streamifier.createReadStream(file.buffer).pipe(cld_upload_stream);
+  });
+};
+
+router.post("/", upload.array("image", 5), async (req, res) => {
+  const files = req.files;
+  const resArray = [];
+  for (const file of files) {
+    const upload = await uploadFile(file);
+    resArray.push(upload);
+  }
+  res.send(resArray);
 });
 
 module.exports = router;
