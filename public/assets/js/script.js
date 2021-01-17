@@ -5,7 +5,7 @@ $(document).ready(function () {
 
   // set up elements from html
   const calendarDay = $('#calendar-row');
-  const carousel = $('.carousel'); 
+  const carousel = $('.carousel');
 
 
 
@@ -54,22 +54,22 @@ $(document).ready(function () {
       $('#topTypeSelected').css('display', 'block');
       $('#bottomTypeSelected').css('display', 'none');
       $('#overallTypeSelected').css('display', 'none');
-    }
-    else if (selection === 'Bottom') {
+
+    } else if (selection === 'Bottom') {
       $('#topTypeSelected').css('display', 'none');
       $('#bottomTypeSelected').css('display', 'block');
       $('#overallTypeSelected').css('display', 'none');
-    }
-    else if (selection === 'Overall') {
+
+    } else if (selection === 'Overall') {
       $('#topTypeSelected').css('display', 'none');
       $('#bottomTypeSelected').css('display', 'none');
       $('#overallTypeSelected').css('display', 'block');
-    };
+    }
   });
 
   // ---- get ItemId --------------------------------
-  // on click of item image from carousel, 
-  // return which item was chosen. 
+  // on click of item image from carousel,
+  // return which item was chosen.
   // ------------------------------------------------
   function getItemId(){
     console.log('item info =', $(this).attr('alt'));
@@ -83,7 +83,7 @@ $(document).ready(function () {
   calendarDay.on('click', 'td', getDayId);
   carousel.on('click', 'img', getItemId);
 
-  // function calls if needed. 
+  // function calls if needed.
 
 
 
