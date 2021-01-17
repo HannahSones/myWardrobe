@@ -3,7 +3,11 @@ const db = require("../config/database.js");
 
 const Category = db.define("category", {
   name: {
-    // /type pf clothing eg top, trousers
+    // format of clothing eg jumper, trousers
+    type: Sequelize.STRING,
+  },
+  type: {
+    // type of garment eg top, bottom, overall. 
     type: Sequelize.STRING,
   },
 });
@@ -31,13 +35,17 @@ const User = db.define("user", {
 });
 
 const Item = db.define("item", {
-  type: {
-    type: Sequelize.STRING,
-  },
+  
   name: {
     type: Sequelize.STRING,
   },
   colour: {
+    type: Sequelize.STRING,
+  },
+  pattern: {
+    type: Sequelize.STRING,
+  },
+  weight: {
     type: Sequelize.STRING,
   },
   imageURL: {

@@ -4,7 +4,10 @@ const { User, Category, Item } = require("./define.js");
 
 // Our side not neccessary for user
 const insertCategory = async (name) => {
-  const create = await Category.create({ name: name });
+  const create = await Category.create({
+    name: name,
+    type: type,
+  });
   return create;
 };
 

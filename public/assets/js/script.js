@@ -6,6 +6,7 @@ $(document).ready(function () {
   // set up elements from html
   const calendarDay = $('#calendar-row');
   const carousel = $('.carousel');
+  const outfits = $('#outfits-container');
 
 
 
@@ -73,6 +74,31 @@ $(document).ready(function () {
   // ------------------------------------------------
   function getItemId(){
     console.log('item info =', $(this).attr('alt'));
+  }
+
+  // ------ getOutfitCount -------------------------
+  // how many outfits are there in the outfits table. 
+  // -----------------------------------------------
+  function getOutfitCount(){
+
+    $.ajax({
+      type: 'GET', 
+      url: '/outfits',
+    }).then(dataReturned => {
+      console.log("data from GET =", dataReturned);
+
+      outfits.empty();
+      for(let i = 0; i < ; i++){
+        let outfitBox = document.createElement('div');
+        outfitBox.attr('class', 'outfit-box');
+        outfits.append(outfitBox);
+
+      }
+
+    }).catch(err => {
+      if(err) throw err; 
+    }); 
+
   }
 
   // end of FUNCTIONS ----------------------------------------------------
