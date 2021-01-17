@@ -212,15 +212,15 @@ form {
   padding-top: 15px;
 }
 
-.topTypeSelected {
+#topTypeSelected {
   display: none;
 }
 
-.bottomTypeSelected {
+#bottomTypeSelected {
   display: none;
 }
 
-.overallTypeSelected {
+#overallTypeSelected {
   display: none;
 }
 

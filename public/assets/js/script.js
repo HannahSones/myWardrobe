@@ -51,13 +51,13 @@ $(document).ready(function(){
   $("select").change(function() {
     const selection = document.getElementById("typeSelection").value;
   if (selection === "Top"){
-    document.getElementById("topTypeSelected").css("display", "block");
+    $("topTypeSelected").css("display", "block");
   }
   else if (selection === "Bottom"){
-    document.getElementById("bottomTypeSelected").css("display", "block");
+    $("bottomTypeSelected").css("display", "block");
   }
   else if (selection === "Overall"){
-    document.getElementById("overallTypeSelected").css("display", "block");
+    $("overallTypeSelected").css("display: block");
   };
 
   console.log(selection);
