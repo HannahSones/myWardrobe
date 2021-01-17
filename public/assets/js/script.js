@@ -48,16 +48,21 @@ $(document).ready(function(){
 
   // function for displaying categories based on type selection
 
-  if (document.getElementById("typeSelection").value === "Top"){
-    document.getElementsByClassName("topTypeSelected").css("display: block");
+  $("select").change(function() {
+    const selection = document.getElementById("typeSelection").value;
+  if (selection === "Top"){
+    document.getElementById("topTypeSelected").css("display", "block");
   }
-  else if (document.getElementById("typeSelection").value === "Bottom"){
-    document.getElementsByClassName("bottomTypeSelected").css("display: block");
+  else if (selection === "Bottom"){
+    document.getElementById("bottomTypeSelected").css("display", "block");
   }
-  else if (document.getElementById("typeSelection").value === "Overall"){
-    document.getElementsByClassName("overallTypeSelected").css("display: block");
+  else if (selection === "Overall"){
+    document.getElementById("overallTypeSelected").css("display", "block");
   };
 
+  console.log(selection);
+
+  });
 
 
 
