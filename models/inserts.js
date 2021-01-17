@@ -21,12 +21,7 @@ const insertItem = async (type, name, colour, imageURL, categoryID, userID) => {
   return create;
 };
 
-const insertCategory = async (name) => {
-  const create = await Category.create({ name: name });
-  return create;
-};
 db.insertUser = insertUser;
 db.insertItem = insertItem;
-db.insertCategory = insertCategory;
 
 module.exports = db;
