@@ -5,13 +5,18 @@ $(document).ready(function () {
 
   // set up elements from html
   const calendarDay = $('#calendar-row');
+  const carousel = $('.carousel');
 
 
 
 
-  // FUNCTIONS
+  // FUNCTIONS ----------------------------------------------------
 
-  function getDayID() {
+  // --------- get day ----------------
+  // When day in planner is clicked,
+  // returns the date format of selected day YYYY-MM-DD
+  // -----------------------------------
+  function getDayId() {
 
     const text = $(this).text().split(' ');
     let textDate = text[1];
@@ -40,32 +45,48 @@ $(document).ready(function () {
     return dayId;
   }
 
+  // ------- unnamed function ------------------------
+  // Displaying categories based on type selection in Add Item form.
+  // -------------------------------------------------
+  $('select').change(function () {
+    const selection = document.getElementById('typeSelection').value;
+    if (selection === 'Top') {
+      $('#topTypeSelected').css('display', 'block');
+      $('#bottomTypeSelected').css('display', 'none');
+      $('#overallTypeSelected').css('display', 'none');
+
+    } else if (selection === 'Bottom') {
+      $('#topTypeSelected').css('display', 'none');
+      $('#bottomTypeSelected').css('display', 'block');
+      $('#overallTypeSelected').css('display', 'none');
+
+    } else if (selection === 'Overall') {
+      $('#topTypeSelected').css('display', 'none');
+      $('#bottomTypeSelected').css('display', 'none');
+      $('#overallTypeSelected').css('display', 'block');
+    }
+  });
+
+  // ---- get ItemId --------------------------------
+  // on click of item image from carousel,
+  // return which item was chosen.
+  // ------------------------------------------------
+  function getItemId(){
+    console.log('item info =', $(this).attr('alt'));
+  }
+
+  // end of FUNCTIONS ----------------------------------------------------
+
+
 
   // create event listners
-  calendarDay.on('click', 'td', getDayID);
+  calendarDay.on('click', 'td', getDayId);
+  carousel.on('click', 'img', getItemId);
+
+  // function calls if needed.
 
 
 
-  // function for displaying categories based on type selection in Add Item form
-
-  $("select").change(function () {
-    const selection = document.getElementById("typeSelection").value;
-    if (selection === "Top") {
-      $("#topTypeSelected").css("display", "block");
-      $("#bottomTypeSelected").css("display", "none");
-      $("#overallTypeSelected").css("display", "none");
-    }
-    else if (selection === "Bottom") {
-      $("#topTypeSelected").css("display", "none");
-      $("#bottomTypeSelected").css("display", "block");
-      $("#overallTypeSelected").css("display", "none");
-    }
-    else if (selection === "Overall") {
-      $("#topTypeSelected").css("display", "none");
-      $("#bottomTypeSelected").css("display", "none");
-      $("#overallTypeSelected").css("display", "block");
-    };
-  });
 
 
 
