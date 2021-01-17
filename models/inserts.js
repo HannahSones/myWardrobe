@@ -9,11 +9,12 @@ const insertUser = async (name) => {
   return create;
 };
 
-const insertItem = async (type, name, colour, imageURL, categoryID, userID) => {
+const insertItem = async (name, colour, pattern, weight, imageURL, categoryID, userID) => {
   const create = await Item.create({
-    type: type,
     name: name,
     colour: colour,
+    pattern: pattern,
+    weight: weight, 
     imageURL: imageURL,
     categoryID: categoryID,
     userID: userID,
