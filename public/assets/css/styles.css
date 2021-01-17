@@ -212,6 +212,12 @@ form {
   padding-top: 15px;
 }
 
+#typeSelection {
+  height: 40px;
+  border: 1px solid #ced4da;
+  color: #495057;
+}
+
 #topTypeSelected {
   display: none;
 }
