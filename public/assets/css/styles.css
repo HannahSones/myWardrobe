@@ -166,6 +166,10 @@ div#content-folder {
   overflow: hidden;
 }
 
+.topsCarousel>img:hover, .bottomsCarousel>img:hover .overallsCarousel>img:hover {
+  transform: scale(1.1);
+}
+
 /* -------------------- saved outfits styling ---------------------- */
 
 button {
