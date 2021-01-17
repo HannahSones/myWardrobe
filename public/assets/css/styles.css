@@ -40,7 +40,7 @@ div.row {
   visibility: hidden;
 }
 
-a, li, p, td, h2, h4, button  {
+a, li, p, td, h2, h4, button, form  {
   font-family: Comfortaa;
 }
 
@@ -205,7 +205,33 @@ button:focus, button:active {
   padding: 12px; 
 }
 
-/* ----------------- calander styling ---------------------- */
+
+/* ----------------- form styling ---------------------- */
+
+form {
+  padding-top: 15px;
+}
+
+#typeSelection {
+  height: 40px;
+  border: 1px solid #ced4da;
+  color: #495057;
+}
+
+#topTypeSelected {
+  display: none;
+}
+
+#bottomTypeSelected {
+  display: none;
+}
+
+#overallTypeSelected {
+  display: none;
+}
+
+
+/* ----------------- calendar styling ---------------------- */
 
 
 #calendar-container { 
