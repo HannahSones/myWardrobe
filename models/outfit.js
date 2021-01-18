@@ -5,9 +5,7 @@ const { Item, Outfit, OutfitItem } = require('./define.js');
 const selectUsersOutfits = async (userID) => {
   console.log('selectUsersOutfits function called');
   const select = await Outfit.findAll({
-    where: {
-      userID: userID,
-    },
+    
     raw: true,
   });
   return select;

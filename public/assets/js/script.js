@@ -6,7 +6,7 @@ $(document).ready(function () {
   // set up elements from html
   const calendarDay = $('#calendar-row');
   const carousel = $('.carousel');
-  const outfits = $('#outfits-container');
+  
 
 
 
@@ -76,30 +76,31 @@ $(document).ready(function () {
     console.log('item info =', $(this).attr('alt'));
   }
 
-  // ------ getOutfitCount -------------------------
-  // how many outfits are there in the outfits table. 
+  
+
+  // ------ getOutfits -------------------------
+  // 
   // -----------------------------------------------
-  function getOutfitCount(){
+
+  function getOutfits(outfitID){
 
     $.ajax({
       type: 'GET', 
-      url: '/outfits',
+      url: '/query/outfit/' + outfitID,
+
     }).then(dataReturned => {
-      console.log("data from GET =", dataReturned);
+      console.log("data from GET outfit by id =", dataReturned);
+      console.log("walking the data = ", 
+        dataReturned[0].items.length
+      );
 
-      outfits.empty();
-      for(let i = 0; i < ; i++){
-        let outfitBox = document.createElement('div');
-        outfitBox.attr('class', 'outfit-box');
-        outfits.append(outfitBox);
-
-      }
 
     }).catch(err => {
       if(err) throw err; 
     }); 
 
   }
+
 
   // end of FUNCTIONS ----------------------------------------------------
 
@@ -110,8 +111,7 @@ $(document).ready(function () {
   carousel.on('click', 'img', getItemId);
 
   // function calls if needed.
-
-
+  // getOutfits(1);
 
 
 
