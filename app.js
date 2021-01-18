@@ -17,6 +17,12 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
+// Set Handlebars
+app.set('view engine', 'handlebars');
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+
+
 //item routes
 
 // query the database ...
