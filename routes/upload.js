@@ -1,15 +1,16 @@
-const cloudinary = require("cloudinary").v2;
-const streamifier = require("streamifier");
-const multer = require("multer");
-const ck = require("ckey");
+const express = require('express');
+const router = express.Router();
+const db = require('../config/database');
+
+const streamifier = require('streamifier');
+const multer = require('multer');
+const ck = require('ckey');
 const cloud_name = ck.cloud_name;
 const api_key = ck.api_key;
 const api_secret = ck.api_secret;
-const db = require("../config/database");
-
 const upload = multer();
 
-const router = require("./item");
+const cloudinary = require('cloudinary').v2;
 cloudinary.config({
   cloud_name: cloud_name,
   api_key: api_key,
@@ -20,7 +21,7 @@ const uploadFile = (file) => {
   return new Promise((resolve, reject) => {
     const cld_upload_stream = cloudinary.uploader.upload_stream(
       {
-        folder: "myWardrobe",
+        folder: 'myWardrobe',
       },
       (err, result) => {
         if (err) {
@@ -34,7 +35,8 @@ const uploadFile = (file) => {
   });
 };
 
-router.post("/", upload.array("image", 5), async (req, res) => {
+// add new image of new item
+router.post('/', upload.array('image', 5), async (req, res) => {
   const files = req.files;
   const resArray = [];
   for (const file of files) {
@@ -44,23 +46,16 @@ router.post("/", upload.array("image", 5), async (req, res) => {
   res.send(resArray);
 });
 
-router.post("/user", async function (req, res) {
-  try {
-    const insert = await db.insertUser(req.body.name);
-    res.send(insert);
-  } catch {
-    res.status(401);
-    res.end();
-  }
-});
-
-router.post("/item", async function (req, res) {
+//  add new item of clothing to wardrobe.
+router.post('/item', async function (req, res) {
   const items = req.body;
+  console.log('items =', items);
   items.forEach((item) => {
-    db.insertItem(
-      item.type,
+    db.addNewItem(
       item.name,
       item.colour,
+      item.pattern,
+      item.weight,
       item.imageURL,
       item.categoryID,
       item.userID

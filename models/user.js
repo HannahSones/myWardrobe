@@ -1,6 +1,5 @@
-const Sequelize = require("sequelize");
-const db = require("../config/database.js");
-const { User } = require("./define.js");
+const db = require('../config/database.js');
+const { User } = require('./define.js');
 
 const selectAllUsers = async () => {
   const all = await User.findAll({});

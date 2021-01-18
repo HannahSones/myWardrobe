@@ -1,14 +1,18 @@
-const Sequelize = require("sequelize");
-const db = require("../config/database.js");
+const Sequelize = require('sequelize');
+const db = require('../config/database.js');
 
-const Category = db.define("category", {
+const Category = db.define('category', {
   name: {
-    // /type pf clothing eg top, trousers
+    // format of clothing eg jumper, trousers
+    type: Sequelize.STRING,
+  },
+  type: {
+    // type of garment eg top, bottom, overall.
     type: Sequelize.STRING,
   },
 });
 
-const Selected = db.define("selected", {
+const Selected = db.define('selected', {
   itemID: {
     // ref item ID
     type: Sequelize.INTEGER,
@@ -18,26 +22,48 @@ const Selected = db.define("selected", {
   },
 });
 
-const Outfit = db.define("outfit", {
+const Outfit = db.define('outfit', {
   name: {
     type: Sequelize.STRING,
   },
 });
 
-const User = db.define("user", {
+const OutfitItem = db.define('outfitItem', {
+  outfitID: {
+    // ref outfit ID
+    type: Sequelize.INTEGER,
+    references: {
+      model: 'items',
+      key: 'id',
+    },
+  },
+  itemID: {
+    // ref item ID
+    type: Sequelize.INTEGER,
+    references: {
+      model: 'outfits',
+      key: 'id',
+    },
+  },
+});
+
+const User = db.define('user', {
   name: {
     type: Sequelize.STRING,
   },
 });
 
-const Item = db.define("item", {
-  type: {
-    type: Sequelize.STRING,
-  },
+const Item = db.define('item', {
   name: {
     type: Sequelize.STRING,
   },
   colour: {
+    type: Sequelize.STRING,
+  },
+  pattern: {
+    type: Sequelize.STRING,
+  },
+  weight: {
     type: Sequelize.STRING,
   },
   imageURL: {
@@ -57,7 +83,7 @@ const Item = db.define("item", {
   },
 });
 
-const Planner = db.define("planner", {
+const Planner = db.define('planner', {
   date: {
     type: Sequelize.INTEGER,
   },
@@ -67,11 +93,17 @@ const Planner = db.define("planner", {
   },
 });
 
-Item.belongsTo(Category, { foreignKey: "categoryID" });
-Selected.belongsTo(Item, { foreignKey: "itemID" });
-Outfit.belongsToMany(Item, { through: "outfitItem" });
-Item.belongsToMany(Outfit, { through: "outfitItem" });
-Item.belongsTo(User, { foreignKey: "userID" });
-Planner.belongsTo(Outfit, { foreignKey: "outfitID" });
+Item.belongsTo(Category, { foreignKey: 'categoryID' });
+Selected.belongsTo(Item, { foreignKey: 'itemID' });
+Outfit.belongsToMany(Item, {
+  foreignKey: 'outfitID',
+  through: OutfitItem,
+});
+Item.belongsToMany(Outfit, {
+  foreignKey: 'itemID',
+  through: OutfitItem,
+});
+Item.belongsTo(User, { foreignKey: 'userID' });
+Planner.belongsTo(Outfit, { foreignKey: 'outfitID' });
 
-module.exports = { Category, Selected, Outfit, Item, User };
+module.exports = { Category, Selected, Outfit, OutfitItem, Item, User };
