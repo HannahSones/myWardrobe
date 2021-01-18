@@ -23,7 +23,6 @@ $(document).ready(function () {
     let textDate = text[1];
     const textMonth = currentMonth.text();
     const textYear = currentYear.text();
-
     if (textDate.length === 1) {
       const zero = '0';
       textDate = zero + textDate;

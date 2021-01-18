@@ -1,4 +1,3 @@
-const { raw } = require('body-parser');
 const db = require('../config/database.js');
 const { Item } = require('./define.js');
 
