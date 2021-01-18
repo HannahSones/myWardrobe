@@ -1,16 +1,16 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const db = require("../config/database");
+const db = require('../config/database');
 
-const streamifier = require("streamifier");
-const multer = require("multer");
-const ck = require("ckey");
+const streamifier = require('streamifier');
+const multer = require('multer');
+const ck = require('ckey');
 const cloudName = ck.cloud_name;
 const apiKey = ck.api_key;
 const apiSecret = ck.api_secret;
 const upload = multer();
 
-const cloudinary = require("cloudinary").v2;
+const cloudinary = require('cloudinary').v2;
 cloudinary.config({
   cloud_name: cloudName,
   api_key: apiKey,
@@ -21,7 +21,7 @@ const uploadFile = (file) => {
   return new Promise((resolve, reject) => {
     const cld_upload_stream = cloudinary.uploader.upload_stream(
       {
-        folder: "myWardrobe",
+        folder: 'myWardrobe',
       },
       (err, result) => {
         if (err) {
@@ -36,7 +36,7 @@ const uploadFile = (file) => {
 };
 
 // add new image of new item
-router.post("/", upload.array("image", 5), async (req, res) => {
+router.post('/', upload.array('image', 5), async (req, res) => {
   const files = req.files;
   const resArray = [];
   for (const file of files) {
@@ -47,9 +47,9 @@ router.post("/", upload.array("image", 5), async (req, res) => {
 });
 
 //  add new item of clothing to wardrobe.
-router.post("/item", async function (req, res) {
+router.post('/item', async function (req, res) {
   const items = req.body;
-  console.log("items =", items);
+  console.log('items =', items);
   items.forEach((item) => {
     db.addNewItem(
       item.name,
