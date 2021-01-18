@@ -19,17 +19,17 @@ app.use(express.json());
 
 //item routes
 
-// update existing... 
-app.use('/update', require('./routes/update'));
-// upload new item 
-app.use('/add', require('./routes/upload'));
-
-// create new x in database ... 
-app.use('/create', require('./routes/create'));
-
 // query the database ...
 app.use('/query', require('./routes/query'));
 
+// update existing... 
+app.use('/update', require('./routes/update'));
+
+// upload new item 
+app.use('/upload', require('./routes/upload'));
+
+// create new x in database ... 
+app.use('/create', require('./routes/create'));
 
 app.get('/', function (req, res) {
   res.sendFile('views/test.html', { root: __dirname });

@@ -1,15 +1,16 @@
-const cloudinary = require('cloudinary').v2;
+const express = require('express');
+const router = express.Router();
+const db = require('../config/database');
+
 const streamifier = require('streamifier');
 const multer = require('multer');
 const ck = require('ckey');
 const cloud_name = ck.cloud_name;
 const api_key = ck.api_key;
 const api_secret = ck.api_secret;
-const db = require('../config/database');
-
 const upload = multer();
 
-const router = require('./update');
+const cloudinary = require('cloudinary').v2;
 cloudinary.config({
   cloud_name: cloud_name,
   api_key: api_key,

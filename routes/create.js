@@ -1,4 +1,5 @@
-const router = require('./update');
+const express = require('express');
+const router = express.Router();
 const db = require('../models/addNew');
 
 // add new user

@@ -29,14 +29,23 @@ const Outfit = db.define("outfit", {
 });
 
 const OutfitItem = db.define("outfitItem", {
-  // outfitID : {
-  //   // ref outfit ID
-  //   type: Sequelize.INTEGER,
-  // },
-  // itemID : {
-  //   // ref item ID
-  //   type : Sequelize.INTEGER,
-  // }
+  outfitID : {
+    // ref outfit ID
+    type: Sequelize.INTEGER,
+    references: {
+      model: 'items', 
+      key: 'id'
+    }
+  },
+  itemID : {
+    // ref item ID
+    type : Sequelize.INTEGER,
+    references: {
+      model: 'outfits', 
+      key: 'id'
+    }
+  }
+
 });
 
 const User = db.define("user", {
@@ -89,11 +98,11 @@ const Planner = db.define("planner", {
 Item.belongsTo(Category, { foreignKey: "categoryID" });
 Selected.belongsTo(Item, { foreignKey: "itemID" });
 Outfit.belongsToMany(Item, { 
-  foreignKey: "itemID",
+  foreignKey: "outfitID",
   through: OutfitItem 
 });
 Item.belongsToMany(Outfit, { 
-  foreignKey: "outfitID",
+  foreignKey: "itemID",
   through: OutfitItem 
 });
 Item.belongsTo(User, { foreignKey: "userID" });
