@@ -5,16 +5,16 @@ const db = require('../config/database');
 const streamifier = require('streamifier');
 const multer = require('multer');
 const ck = require('ckey');
-const cloud_name = ck.cloud_name;
-const api_key = ck.api_key;
-const api_secret = ck.api_secret;
+const cloudName = ck.cloud_name;
+const apiKey = ck.api_key;
+const apiSecret = ck.api_secret;
 const upload = multer();
 
 const cloudinary = require('cloudinary').v2;
 cloudinary.config({
-  cloud_name: cloud_name,
-  api_key: api_key,
-  api_secret: api_secret,
+  cloud_name: cloudName,
+  api_key: apiKey,
+  api_secret: apiSecret,
 });
 
 const uploadFile = (file) => {

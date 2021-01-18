@@ -1,6 +1,5 @@
-const Sequelize = require('sequelize');
 const db = require('../config/database.js');
-const { User, Category, Item } = require('./define.js');
+const { Category, Item } = require('./define.js');
 
 // Our side not neccessary for user
 const insertCategory = async (name) => {
