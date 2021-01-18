@@ -1,6 +1,5 @@
-const Sequelize = require("sequelize");
 const db = require("../config/database.js");
-const { Item, Outfit } = require("./define.js");
+const { Outfit, OutfitItem } = require("./define.js");
 
 const selectUsersOutfits = async (userID) => {
   const select = await Outfit.findAll({
@@ -12,4 +11,16 @@ const selectUsersOutfits = async (userID) => {
   return select;
 };
 
-module.exports = { selectUsersOutfits };
+const addItemToOutfit = async (itemID, outfitID) => {
+  const add = await OutfitItem.create({
+    itemID = itemID,
+    outfitID = outfitID
+  })
+  return add;
+};
+
+db.selectUsersOutfits = selectUsersOutfits;
+db.addItemToOutfit = addItemToOutfit; 
+
+module.exports = db;
+  

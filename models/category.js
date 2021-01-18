@@ -1,6 +1,6 @@
-const Sequelize = require("sequelize");
-const db = require("../config/database.js");
-const { User, Category, Item } = require("./define.js");
+const Sequelize = require('sequelize');
+const db = require('../config/database.js');
+const { User, Category, Item } = require('./define.js');
 
 // Our side not neccessary for user
 const insertCategory = async (name) => {
@@ -19,6 +19,17 @@ const selectByCategory = async (id, userID) => {
   return select;
 };
 
+const getCategoryID = async (name) => {
+  const select = await Category.findAll({
+    attributes: ['id', 'type'],
+    where: { name: name },
+    raw: true,
+  });
+  return select;
+};
+
 db.insertCategory = insertCategory;
 db.selectByCategory = selectByCategory;
+db.getCategoryID = getCategoryID;
+
 module.exports = db;
