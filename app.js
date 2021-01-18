@@ -28,13 +28,13 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 // query the database ...
 app.use('/query', require('./routes/query'));
 
-// update existing... 
+// update existing...
 app.use('/update', require('./routes/update'));
 
-// upload new item 
+// upload new item
 app.use('/upload', require('./routes/upload'));
 
-// create new x in database ... 
+// create new x in database ...
 app.use('/create', require('./routes/create'));
 
 app.get('/', function (req, res) {

@@ -46,8 +46,8 @@ router.post('/', upload.array('image', 5), async (req, res) => {
   res.send(resArray);
 });
 
- //  add new item of clothing to wardrobe.
- router.post('/item', async function (req, res) {
+//  add new item of clothing to wardrobe.
+router.post('/item', async function (req, res) {
   const items = req.body;
   console.log('items =', items);
   items.forEach((item) => {
@@ -63,7 +63,5 @@ router.post('/', upload.array('image', 5), async (req, res) => {
   });
   res.send({ success: true });
 });
-
-
 
 module.exports = router;

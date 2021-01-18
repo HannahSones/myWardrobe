@@ -28,10 +28,10 @@ router.get('/catID', async function (req, res) {
 
 // get all items in a specified outfit.
 router.get('/outfit/:outfitID', async function (req, res) {
-  console.log('outfit/:outfitID req.params =', req.params); 
+  console.log('outfit/:outfitID req.params =', req.params);
   const select = await outModel.selectOutfitItems(req.params.outfitID);
   res.send(select);
-})
+});
 
 router.get('/', function (req, res) {
   res.send('hit');

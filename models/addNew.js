@@ -1,6 +1,6 @@
-const Sequelize = require("sequelize");
-const db = require("../config/database.js");
-const { User, Item, Category, Outfit } = require("./define.js");
+const Sequelize = require('sequelize');
+const db = require('../config/database.js');
+const { User, Item, Category, Outfit } = require('./define.js');
 
 const addNewUser = async (name) => {
   const create = await User.create({
@@ -9,13 +9,21 @@ const addNewUser = async (name) => {
   return create;
 };
 
-const addNewItem = async (name, colour, pattern, weight, imageURL, categoryID, userID) => {
+const addNewItem = async (
+  name,
+  colour,
+  pattern,
+  weight,
+  imageURL,
+  categoryID,
+  userID
+) => {
   console.log('addNewItem function called');
   const create = await Item.create({
     name: name,
     colour: colour,
     pattern: pattern,
-    weight: weight, 
+    weight: weight,
     imageURL: imageURL,
     categoryID: categoryID,
     userID: userID,
@@ -25,8 +33,8 @@ const addNewItem = async (name, colour, pattern, weight, imageURL, categoryID, u
 
 const addNewCategory = async (name) => {
   console.log('addNewCategory function called');
-  const create = await Category.create({ 
-    name: name 
+  const create = await Category.create({
+    name: name,
   });
   return create;
 };
@@ -34,9 +42,9 @@ const addNewCategory = async (name) => {
 const addNewOutfit = async (name) => {
   console.log('addNewOutfit function called');
   const add = await Outfit.create({
-    name: name
-  })
-  return add; 
+    name: name,
+  });
+  return add;
 };
 
 db.addNewUser = addNewUser;
