@@ -1,7 +1,6 @@
-const { raw } = require("body-parser");
-const Sequelize = require("sequelize");
-const db = require("../config/database.js");
-const { User, Category, Item } = require("./define.js");
+const { raw } = require('body-parser');
+const db = require('../config/database.js');
+const { Item } = require('./define.js');
 
 const selectItemsByID = async (userID) => {
   const sel = Item.findAll({ where: { userID: userID }, raw: true });

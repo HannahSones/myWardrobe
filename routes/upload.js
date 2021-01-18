@@ -1,15 +1,16 @@
-const cloudinary = require('cloudinary').v2;
+const express = require('express');
+const router = express.Router();
+const db = require('../config/database');
+
 const streamifier = require('streamifier');
 const multer = require('multer');
 const ck = require('ckey');
 const cloud_name = ck.cloud_name;
 const api_key = ck.api_key;
 const api_secret = ck.api_secret;
-const db = require('../config/database');
-
 const upload = multer();
 
-const router = require('./item');
+const cloudinary = require('cloudinary').v2;
 cloudinary.config({
   cloud_name: cloud_name,
   api_key: api_key,
@@ -34,6 +35,7 @@ const uploadFile = (file) => {
   });
 };
 
+// add new image of new item
 router.post('/', upload.array('image', 5), async (req, res) => {
   const files = req.files;
   const resArray = [];
@@ -44,21 +46,12 @@ router.post('/', upload.array('image', 5), async (req, res) => {
   res.send(resArray);
 });
 
-router.post('/user', async function (req, res) {
-  try {
-    const insert = await db.insertUser(req.body.name);
-    res.send(insert);
-  } catch {
-    res.status(401);
-    res.end();
-  }
-});
-
+//  add new item of clothing to wardrobe.
 router.post('/item', async function (req, res) {
   const items = req.body;
-  console.log('items =',items); 
+  console.log('items =', items);
   items.forEach((item) => {
-    db.insertItem(
+    db.addNewItem(
       item.name,
       item.colour,
       item.pattern,
