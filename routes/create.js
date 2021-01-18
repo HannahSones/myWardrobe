@@ -15,7 +15,7 @@ router.post('/user', async function (req, res) {
 
 // add new outfit
 router.post('/newOutfit', async function (req, res) {
-  console.log('req.body=', req.body); 
+  console.log('req.body=', req.body);
   try {
     const add = await db.addNewOutfit(req.body.name);
     res.send(add);
@@ -23,6 +23,6 @@ router.post('/newOutfit', async function (req, res) {
     res.status(401);
     res.end();
   }
-}); 
+});
 
 module.exports = router;
