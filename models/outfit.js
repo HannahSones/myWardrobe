@@ -1,4 +1,3 @@
-const Sequelize = require('sequelize');
 const db = require('../config/database.js');
 const { Item, Outfit, OutfitItem } = require('./define.js');
 

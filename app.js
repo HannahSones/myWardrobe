@@ -1,7 +1,6 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
-// const bodyParser = require('body-parser');
-// const path = require('path');
+
 
 const db = require('./config/database.js');
 const app = express();
@@ -20,7 +19,6 @@ app.use(express.static('public/'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
 // Set Handlebars
 app.engine('handlebars', exphbs({ 
   defaultLayout: 'main' 
@@ -28,7 +26,6 @@ app.engine('handlebars', exphbs({
 );
 
 app.set('view engine', 'handlebars');
-
 
 //item routes
 
