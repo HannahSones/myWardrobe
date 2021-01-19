@@ -14,7 +14,7 @@ $(document).ready(function () {
       url: '/query/outfits',
     })
       .then((dataReturned) => {
-        console.log('data from GET outfits =', dataReturned);
+        // console.log('data from GET outfits =', dataReturned);
         // const count = dataReturned;
         // console.log('getOutfitCount function: count = ', count);
         callback(dataReturned);
@@ -29,9 +29,8 @@ $(document).ready(function () {
   // called from showSavedOutfits function.
   // -------------------------------------------------
   function fillOutfits(outfitID) {
-    console.log('here');
     getOutfitItems(outfitID, function (callback) {
-      console.log('callback', callback);
+      // console.log('callback', callback);
       const div = $(`#outfit-${callback[0].id}`);
       for (let i = 0; i < callback[0].items.length; i++) {
         let item = `<p>${callback[0].items[i].name}</p>`;

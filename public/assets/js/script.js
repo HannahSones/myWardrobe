@@ -121,6 +121,11 @@ $(document).ready(function () {
     },5000); 
   }
 
+  // ------ addToPlannerTable ---------------------------
+  // searches planner table for the selected date.
+  // if date not yet saved create date
+  // if date already exists in table update the outfit.  
+  // ----------------------------------------------------
   function addToPlannerTable(){
     console.log('addToPlannerTable function called');
     if (selectedOutfit === 0) {
