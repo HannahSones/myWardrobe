@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 
 // required models
-const db = require('../config/database');
 const itemsModel = require('../models/items');
 const categoryModel = require('../models/category');
 const outfitModel = require('../models/outfit');
@@ -39,7 +38,7 @@ router.get('/outfit/:outfitID', async function (req, res) {
 });
 
 
-//  just gets outfits from the outfit table: id and name. 
+//  just gets outfits from the outfit table: id and name.
 router.get('/outfits', async function (req, res) {
   const select = await outfitModel.selectUsersOutfits();
   res.send(select);
