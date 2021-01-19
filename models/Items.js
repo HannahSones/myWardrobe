@@ -10,4 +10,5 @@ const selectItemsByID = async (userName) => {
 };
 
 db.selectItemsByID = selectItemsByID;
+
 module.exports = db;

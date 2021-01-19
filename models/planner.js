@@ -19,10 +19,15 @@ const updatingOutfit = async (dateString, outfitID) => {
     }
   });
   return update;
+};
 
-}
+const getExisitngDates = async () => {
+  const select = await Planner.findAll({raw: true});
+  return select;
+};
 
 db.getDate = getDate; 
 db.updatingOutfit = updatingOutfit;
+db.getExisitngDates = getExisitngDates;
 
 module.exports = db;

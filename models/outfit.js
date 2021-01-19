@@ -9,6 +9,17 @@ const selectUsersOutfits = async (userID) => {
   return select;
 };
 
+const selectUsersOutfit = async (outfitID) => {
+  console.log('selectUsersOutfit function called');
+  const select = await Outfit.findAll({
+    where: {
+      id: outfitID,
+    },
+    raw: true,
+  });
+  return select;
+};
+
 const addToOutfit = async (itemID, outfitID) => {
   console.log('addToOutfit function called');
   const add = await OutfitItem.create({
@@ -54,6 +65,7 @@ const deleteOutfit = async (outfitID) => {
 };
 
 db.selectUsersOutfits = selectUsersOutfits;
+db.selectUsersOutfit = selectUsersOutfit;
 db.addToOutfit = addToOutfit;
 db.selectOutfitItems = selectOutfitItems;
 db.deleteOutfit = deleteOutfit;
