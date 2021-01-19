@@ -20,8 +20,26 @@ $(document).ready(function () {
         callback(dataReturned);
       })
       .catch((err) => {
-        if (err) throw err;
+        if (err){throw err;} 
       });
+  }
+
+  // ------ getOutfitItems -------------------------
+  // populates showSavedOutfits divs with items from getOutfit Items
+  // called from showSavedOutfits function.
+  // -------------------------------------------------
+  function fillOutfits(outfitID) {
+    console.log('here');
+    getOutfitItems(outfitID, function (callback) {
+      console.log('callback', callback);
+      const div = $(`#outfit-${callback[0].id}`);
+      for (let i = 0; i < callback[0].items.length; i++) {
+        let item = `<p>${callback[0].items[i].name}</p>`;
+        div.append(item);
+      }
+      const btn = `<button class="select-outfit" name="${callback[0].id}"> Select Outfit </button>`;
+      div.append(btn);
+    });
   }
 
   // ------ showSavedOutfits -------------------------
@@ -64,24 +82,6 @@ $(document).ready(function () {
       .catch((err) => {
         if (err) throw err;
       });
-  }
-
-  // ------ getOutfitItems -------------------------
-  // populates showSavedOutfits divs with items from getOutfit Items
-  // called from showSavedOutfits function.
-  // -------------------------------------------------
-  function fillOutfits(outfitID) {
-    console.log('here');
-    getOutfitItems(outfitID, function (callback) {
-      console.log('callback', callback);
-      const div = $(`#outfit-${callback[0].id}`);
-      for (let i = 0; i < callback[0].items.length; i++) {
-        let item = `<p>${callback[0].items[i].name}</p>`;
-        div.append(item);
-      }
-      const btn = `<button class="select-outfit" name="${callback[0].id}"> Select Outfit </button>`;
-      div.append(btn);
-    });
   }
 
   // EXAMPLE ajax call on page load calls items from DB and displays using image url
