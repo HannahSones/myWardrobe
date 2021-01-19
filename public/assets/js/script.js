@@ -6,7 +6,7 @@ $(document).ready(function () {
   const calendarDay = $('#calendar-row');
   const carousel = $('.carousel');
   const deleteOutfitBtn = $('#delete-outfit');
-  let selectedOutfit = 0;
+  let selectedOutfit = 1;
 
   // FUNCTIONS ----------------------------------------------------
 
@@ -70,7 +70,9 @@ $(document).ready(function () {
   }
 
   // ------ deleteOutfit ---------------------------
-  //
+  // an outfit must be selected first
+  // outfitID is save to selected outfit
+  // function deletes the outfit if there is one selected. 
   // -----------------------------------------------
   function deleteOutfit() {
     console.log('delete outfit fucntion called');
@@ -86,6 +88,8 @@ $(document).ready(function () {
           console.log('data from DELETE outfit =', dataReturned);
           selectedOutfit = 0;
           console.log('selectedOutfit =', selectedOutfit);
+          // the data returned successful is {outfit:1, outfitItems: 2}
+          // the data returned unsuccessful is {outfit:0, outfitItems: 0}
         })
         .catch((err) => {
           if (err) {throw err;}
