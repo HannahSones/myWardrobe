@@ -6,14 +6,18 @@ $(document).ready(function () {
   const calendarDay = $('#calendar-row');
   const carousel = $('.carousel');
   const deleteOutfitBtn = $('#delete-outfit');
-  let selectedOutfit = 1;
+  const addToCalendar = $('#add-to-calendar');
+
+  // global variables
+  let selectedOutfit = 0;
+  let calendarDayString = "noneSelected"; 
 
   // FUNCTIONS ----------------------------------------------------
 
-  // --------- get day ----------------
+  // --------- get day ID ----------------
   // When day in planner is clicked,
   // returns the date format of selected day YYYY-MM-DD
-  // -----------------------------------
+  // -------------------------------------
   function getDayId() {
     const text = $(this).text().split(' ');
     let textDate = text[1];
@@ -36,9 +40,15 @@ $(document).ready(function () {
     }
 
     const dayId = `${textYear}-${valueMonth}-${textDate}`;
-    console.log('dayId =', dayId);
+    console.log('dayId =', dayId, typeof(dayId));
 
-    return dayId;
+    calendarDayString = dayId;
+    console.log('calendarDayString = ', calendarDayString);
+    setTimeout(function(){
+      calendarDayString = "noneSelected";
+      console.log('timeout on calendarDayString =', calendarDayString)
+    },5000);
+
   }
 
   // ------- unnamed function ------------------------
@@ -75,7 +85,7 @@ $(document).ready(function () {
   // function deletes the outfit if there is one selected. 
   // -----------------------------------------------
   function deleteOutfit() {
-    console.log('delete outfit fucntion called');
+    console.log('delete outfit function called');
     if (selectedOutfit === 0) {
       console.log('do nothing');
     } else {
@@ -99,11 +109,79 @@ $(document).ready(function () {
 
   // ------ selectOutfit ---------------------------
   // sets which outfit has been selected.
+  // you have 5 seconds to choose next action or it reverts to 0.
+  // this saves from accidental delete. 
   // -----------------------------------------------
   function selectOutfit() {
     selectedOutfit = this.name;
     console.log('selectedOutfit = ', selectedOutfit);
+    setTimeout(function(){
+      selectedOutfit = 0;
+      console.log('timeout on selected outfit =',selectedOutfit)
+    },5000); 
   }
+
+  function addToPlannerTable(){
+    console.log('addToPlannerTable function called');
+    if (selectedOutfit === 0) {
+      console.log('do nothing');
+    } else {
+      console.log('adding to calander', selectedOutfit, calendarDayString);
+      const outfit = selectedOutfit;
+      const date = calendarDayString;
+
+      $.ajax({
+        type: 'GET',
+        url: '/query/planner/' + date,
+      })
+        .then((dataReturned) => {
+          console.log('data from calendar GET outfit =', dataReturned);
+          console.log('datareturned.id =', dataReturned.id);
+
+          if (dataReturned.id === 0){
+            $.ajax({
+              type: 'POST',
+              url: `/create/newDate`,
+              data: {
+                dateString: date,
+                outfitID: outfit,
+              }
+            })
+              .then((dataReturned) => {  
+                console.log('data from calendar POST outfit =', dataReturned);             
+              })
+              .catch((err) => {
+                console.log(err);
+                if (err) {throw err;}
+              });
+          
+
+          } else {
+
+            $.ajax({
+              type: 'PUT',
+              url: `/update/existingDate`,
+              data: {
+                dateString: date,
+                outfitID: outfit,
+              }
+            })
+              .then((dataReturned) => {   
+                console.log('data from calendar PUT outfit =', dataReturned);            
+              })
+              .catch((err) => {
+                if (err) {throw err;}
+              });
+
+          }
+          
+        })
+        .catch((err) => {
+          if (err) {throw err;}
+        });
+    }
+  }
+  
 
   // end of FUNCTIONS ----------------------------------------------------
 
@@ -111,6 +189,7 @@ $(document).ready(function () {
   calendarDay.on('click', 'td', getDayId);
   carousel.on('click', 'img', getItemId);
   deleteOutfitBtn.click(deleteOutfit);
+  addToCalendar.click(addToPlannerTable);
   $(document).on('click', '.select-outfit', selectOutfit);
 
   // function calls if needed.
