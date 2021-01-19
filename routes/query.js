@@ -47,6 +47,7 @@ router.get('/outfits', async function (req, res) {
 router.get('/planner/:dateString', async function (req, res){
   console.log('/planner/:dateString req.params =', req.params);
   const select = await plannerModel.getDate(req.params.dateString);
+  console.log('planner/:dateString: select =', select);
   res.send(select);
 })
 

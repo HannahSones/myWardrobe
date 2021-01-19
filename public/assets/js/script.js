@@ -129,12 +129,51 @@ $(document).ready(function () {
       console.log('adding to calander', selectedOutfit, calendarDayString);
       const outfit = selectedOutfit;
       const date = calendarDayString;
+
       $.ajax({
         type: 'GET',
         url: '/query/planner/' + date,
       })
         .then((dataReturned) => {
           console.log('data from calendar GET outfit =', dataReturned);
+          console.log('datareturned.id =', dataReturned.id);
+
+          if (dataReturned.id === 0){
+            $.ajax({
+              type: 'POST',
+              url: `/create/newDate`,
+              data: {
+                dateString: date,
+                outfitID: outfit,
+              }
+            })
+              .then((dataReturned) => {  
+                console.log('data from calendar POST outfit =', dataReturned);             
+              })
+              .catch((err) => {
+                console.log(err);
+                if (err) {throw err;}
+              });
+          
+
+          } else {
+
+            $.ajax({
+              type: 'PUT',
+              url: `/update/existingDate`,
+              data: {
+                dateString: date,
+                outfitID: outfit,
+              }
+            })
+              .then((dataReturned) => {   
+                console.log('data from calendar PUT outfit =', dataReturned);            
+              })
+              .catch((err) => {
+                if (err) {throw err;}
+              });
+
+          }
           
         })
         .catch((err) => {

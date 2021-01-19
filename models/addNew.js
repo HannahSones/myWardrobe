@@ -1,5 +1,5 @@
 const db = require('../config/database.js');
-const { User, Item, Category, Outfit } = require('./define.js');
+const { User, Item, Category, Outfit, Planner } = require('./define.js');
 
 const addNewUser = async (name) => {
   const create = await User.create({
@@ -46,9 +46,19 @@ const addNewOutfit = async (name) => {
   return add;
 };
 
+const addNewCalanderEntry = async (date, outfit) => {
+  console.log('addNewCalanderEntry function called');
+  const add = await Planner.create({
+    date: date,
+    outfitID: outfit, 
+  });
+  return add;
+}
+
 db.addNewUser = addNewUser;
 db.addNewItem = addNewItem;
 db.addNewCategory = addNewCategory;
 db.addNewOutfit = addNewOutfit;
+db.addNewCalanderEntry = addNewCalanderEntry;
 
 module.exports = db;

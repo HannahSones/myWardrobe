@@ -32,18 +32,12 @@ const OutfitItem = db.define('outfitItem', {
   outfitID: {
     // ref outfit ID
     type: Sequelize.INTEGER,
-    references: {
-      model: 'items',
-      key: 'id',
-    },
+    
   },
   itemID: {
     // ref item ID
     type: Sequelize.INTEGER,
-    references: {
-      model: 'outfits',
-      key: 'id',
-    },
+    
   },
 });
 
