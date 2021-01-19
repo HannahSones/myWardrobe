@@ -42,6 +42,9 @@ app.use('/upload', require('./routes/upload'));
 // create new x in database ...
 app.use('/create', require('./routes/create'));
 
+// drop items from the database ...
+app.use('/delete', require('./routes/delete'));
+
 // we set the handlebars main.handlebars in the server file as the body of the html.
 // use res.render for handlebars
 
