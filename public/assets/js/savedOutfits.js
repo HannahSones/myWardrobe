@@ -85,11 +85,11 @@ $(document).ready(function () {
   }
 
   // EXAMPLE ajax call on page load calls items from DB and displays using image url
-  (async function itemCheck() {
+  /*(async function itemCheck() {
     // ignore commented code thats my testing
-    /*     const get = await localStorage.getItem('User');
+        const get = await localStorage.getItem('User');
     console.log(get);
-    if (get == 'corey') {} */
+    if (get == 'corey') {} 
     const select = await $.get('query/Corey/items').then((res) => {
       res.forEach((item) => {
         $('.exampleDiv').append(
@@ -97,7 +97,9 @@ $(document).ready(function () {
         );
       });
     });
-  })();
+
+  })();*/
+
 
   // end of FUNCTIONS ----------------------------------------------------
 
@@ -105,4 +107,5 @@ $(document).ready(function () {
 
   // function calls
   showSavedOutfits();
+
 });

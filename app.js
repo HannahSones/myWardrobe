@@ -49,7 +49,7 @@ app.use('/delete', require('./routes/delete'));
 // use res.render for handlebars
 
 app.get('/', async function (req, res) {
-  res.render('index', { wardrobe: res });
+  res.render('index', { wardrobe: sel });
 });
 
 const PORT = process.env.PORT || 5000;
