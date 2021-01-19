@@ -40,7 +40,7 @@ div.row {
   visibility: hidden;
 }
 
-a, li, p, td, h2, h4, button, form  {
+a, li, p, td, h2, h3, h4, button, form  {
   font-family: Comfortaa;
 }
 
@@ -151,9 +151,6 @@ div#content-folder {
   transform: translateY(-3px);
 }
 
-
-
-
 /* -------------------- Wardrobe carousel styling ---------------------- */
 
 .topsCarousel {
@@ -177,52 +174,6 @@ div#content-folder {
 .topsCarousel>div>div>img:hover, .bottomsCarousel>div>div>img:hover, .overallsCarousel>div>div>img:hover {
   transform: scale(1.1);
 }
-
-/* -------------------- saved outfits styling ---------------------- */
-
-button {
-  width: 150px; 
-  margin: 5px auto; 
-  border-radius: 5px;
-  background-color: #8AB7A2;
-  color: white;
-  border: 2px solid #BDD2C3; 
-}
-
-button:focus, button:active {
-  width: 150px; 
-  margin: 5px auto; 
-  border-radius: 5px;
-  background-color: #BDD2C3 ;
-  color: white;
-  border: 2px solid #8AB7A2; 
-}
-
-#outfits-container {
-  overflow-x: auto;
-  white-space: nowrap;
-  padding: 5px; 
-}
-
-#outfits-creator {
-  height: 500px;
-}
-
-.outfit-box {
-  display: inline-block;
-  height: 500px;
-  width: 250px;
-  border: 5px solid #8AB7A2;
-  margin: 5px; 
-  padding: 12px; 
-}
-
-#outfit-view {
-  width: 100%;
-  max-height: 250px;
-  /* max-height: 500px; */
-}
-
 
 /* ----------------- form styling ---------------------- */
 
@@ -249,46 +200,6 @@ form {
 }
 
 
-/* ----------------- calendar styling ---------------------- */
-
-
-#calendar-container { 
-  bottom: 0; 
-  min-height: 200px;
-  padding: 10px;
-}
-
-.nav-title {
-  padding: .5rem 1rem; 
-  display: block;
-  border-radius: .25rem;
-}
-
-table {
-  display: block;
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
-td {
-  display: inline-block;
-  background-color: #F0EFEB;
-  width: 150px;
-  height: 200px;
-  margin: 6px 3px;
-}
-
-
-a.calendar-style:hover, td:hover {
-  background-color: rgba(235, 235, 235, 0.63);
-  cursor: pointer;
-}
-
-li.calendar-style, a.calendar-style {
-  font-size:20px;
-}
-
-
 /* -------------------  SCROLL BAR  ------------------------- */
 /* height */
 ::-webkit-scrollbar {
@@ -312,102 +223,3 @@ li.calendar-style, a.calendar-style {
   background: #8AB7A2; 
 }
 
-/*  ------------------- Media queries ------------------------ */
-
-@media screen and (max-width: 550px) {
-    
-  #first-folder {
-    width: 82%;
-    transform: translateY(-2px);
-  }
-
-
-  #second-folder {
-    width: 78%;
-    transform: translateY(-1px);
-  }
-  
-  #third-folder {
-    width: 76%;
-    transform: translateY(0px);
-  }
-}
-
-/* Small devices (landscape phones, 576px and up) */
-@media screen and (min-width: 550px) and (max-width: 790px) { 
-  
-  ul.nav.nav-tabs {
-    width: 576px;
-  }
-  
-  #third-folder {
-    display: none;
-  }
-
-  #second-folder {
-    display: none;
-  }
-
-  #first-folder {
-    transform: translateY(-2px);
-  }
-
-}
-  
-
-
-/* Medium devices (tablets, 768px and up) */
-@media screen and (min-width: 790px) and (max-width: 991.98px) {
-
-  #third-folder {
-    display: none;
-  }
-
-  #second-folder {
-    display: none;
-  }
-  
- ul.nav.nav-tabs {
-    width: 790px;
-  }
-
-
-}
-
-
-/* Large devices (desktops, 992px and up) */
-@media screen and (min-width: 992px) and (max-width: 1200px) { 
-  
-  #first-folder {
-    transform: translateY(-2px);
-  }
-
-  #third-folder {
-    display: none;
-  }
-
-  #second-folder {
-    display: none;
-  }
-
-  ul.nav.nav-tabs {
-    width: 790px;
-  }
-
-}
-
-/* Extra large devices (large desktops, 1200px and up) */
-@media screen and (min-width: 1200px) {
-  
-  #first-folder {
-    display: none;
-  }
-  
-  #second-folder {
-    display: none;
-  }
-
-  #third-folder {
-    display: none;
-  }
-}
