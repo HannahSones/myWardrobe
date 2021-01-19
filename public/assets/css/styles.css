@@ -40,7 +40,7 @@ div.row {
   visibility: hidden;
 }
 
-a, li, p, td, h2, h4, button, form  {
+a, li, p, td, h2, h3, h4, button, form  {
   font-family: Comfortaa;
 }
 
@@ -208,6 +208,10 @@ button:focus, button:active {
   margin: 5px; 
   padding: 12px; 
 }
+
+/* .outfit-box>p {
+  display:inline-block;
+} */
 
 
 /* ----------------- form styling ---------------------- */
