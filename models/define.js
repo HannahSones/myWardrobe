@@ -85,7 +85,7 @@ const Item = db.define('item', {
 
 const Planner = db.define('planner', {
   date: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
   },
   outfitID: {
     // ref outfit ID
@@ -106,4 +106,4 @@ Item.belongsToMany(Outfit, {
 Item.belongsTo(User, { foreignKey: 'userID' });
 Planner.belongsTo(Outfit, { foreignKey: 'outfitID' });
 
-module.exports = { Category, Selected, Outfit, OutfitItem, Item, User };
+module.exports = { Category, Selected, Outfit, OutfitItem, Item, User, Planner };

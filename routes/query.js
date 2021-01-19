@@ -5,6 +5,7 @@ const router = express.Router();
 const itemsModel = require('../models/items');
 const categoryModel = require('../models/category');
 const outfitModel = require('../models/outfit');
+const plannerModel = require('../models/planner');
 
 router.get('/:userName/items', async function (req, res) {
   // console.log(req.params);
@@ -37,12 +38,17 @@ router.get('/outfit/:outfitID', async function (req, res) {
   res.send(select);
 });
 
-
 //  just gets outfits from the outfit table: id and name.
 router.get('/outfits', async function (req, res) {
   const select = await outfitModel.selectUsersOutfits();
   res.send(select);
 });
+
+router.get('/planner/:dateString', async function (req, res){
+  console.log('/planner/:dateString req.params =', req.params);
+  const select = await plannerModel.getDate(req.params.dateString);
+  res.send(select);
+})
 
 router.get('/', function (req, res) {
   res.send('hit');

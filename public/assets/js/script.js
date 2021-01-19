@@ -127,16 +127,15 @@ $(document).ready(function () {
       console.log('do nothing');
     } else {
       console.log('adding to calander', selectedOutfit, calendarDayString);
+      const outfit = selectedOutfit;
+      const date = calendarDayString;
       $.ajax({
-        type: 'PUT',
-        url: '/create/outfit/' + selectedOutfit,
+        type: 'GET',
+        url: '/query/planner/' + date,
       })
         .then((dataReturned) => {
-          console.log('data from  outfit =', dataReturned);
-          selectedOutfit = 0;
-          console.log('selectedOutfit =', selectedOutfit);
-          // the data returned successful is {outfit:1, outfitItems: 2}
-          // the data returned unsuccessful is {outfit:0, outfitItems: 0}
+          console.log('data from calendar GET outfit =', dataReturned);
+          
         })
         .catch((err) => {
           if (err) {throw err;}
@@ -151,8 +150,8 @@ $(document).ready(function () {
   calendarDay.on('click', 'td', getDayId);
   carousel.on('click', 'img', getItemId);
   deleteOutfitBtn.click(deleteOutfit);
-  $(document).on('click', '.select-outfit', selectOutfit);
   addToCalendar.click(addToPlannerTable);
+  $(document).on('click', '.select-outfit', selectOutfit);
 
   // function calls if needed.
 });
