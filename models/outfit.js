@@ -4,7 +4,7 @@ const { Item, Outfit, OutfitItem } = require('./define.js');
 const selectUsersOutfits = async (userID) => {
   console.log('selectUsersOutfits function called');
   const select = await Outfit.findAll({
-
+    where: { userID: userID },
     raw: true,
   });
   return select;
@@ -41,17 +41,17 @@ const selectOutfitItems = async (outfitID) => {
 const deleteOutfit = async (outfitID) => {
   console.log('deleteOutfit function called');
   const outfit = await Outfit.destroy({
-    where:{
+    where: {
       id: outfitID,
-    }
+    },
   });
   const outfitItems = await OutfitItem.destroy({
-    where:{
+    where: {
       outfitID: outfitID,
-    }
+    },
   });
 
-  return { outfit , outfitItems};
+  return { outfit, outfitItems };
 };
 
 db.selectUsersOutfits = selectUsersOutfits;
