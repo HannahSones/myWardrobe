@@ -152,6 +152,8 @@ div#content-folder {
 }
 
 
+
+
 /* -------------------- Wardrobe carousel styling ---------------------- */
 
 .topsCarousel {
@@ -160,13 +162,19 @@ div#content-folder {
 
 .bottomsCarousel {
   overflow: hidden;
+
 }
 
 .overallsCarousel {
   overflow: hidden;
+  
 }
 
-.topsCarousel>img:hover, .bottomsCarousel>img:hover .overallsCarousel>img:hover {
+/* .carousel>div>div>img {
+  max-width: 75px;
+} */
+
+.topsCarousel>div>div>img:hover, .bottomsCarousel>div>div>img:hover, .overallsCarousel>div>div>img:hover {
   transform: scale(1.1);
 }
 
@@ -207,6 +215,12 @@ button:focus, button:active {
   border: 5px solid #8AB7A2;
   margin: 5px; 
   padding: 12px; 
+}
+
+#outfit-view {
+  width: 100%;
+  max-height: 250px;
+  /* max-height: 500px; */
 }
 
 
