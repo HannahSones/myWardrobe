@@ -6,10 +6,8 @@ $(document).ready(function () {
   // set up elements from html
   const calendarDay = $('#calendar-row');
   const carousel = $('.carousel');
-  
-
-
-
+  const deleteOutfitBtn = $('#delete-outfit');
+  let selectedOutfit = 0; 
 
   // FUNCTIONS ----------------------------------------------------
 
@@ -77,29 +75,40 @@ $(document).ready(function () {
 
   
 
-  // ------ getOutfits -------------------------
+  // ------ deleteOutfit ---------------------------
   // 
   // -----------------------------------------------
+  function deleteOutfit(){
+    console.log('delete outfit fucntion called');
+    if (selectedOutfit === 0){
+      console.log('do nothing');
 
-  function getOutfits(outfitID){
+    } else {
+      console.log('deleting', selectedOutfit);
+      $.ajax({
+        type: 'DELETE',
+        url: ,
+      })
+        .then((dataReturned) => {
+          // console.log('data from GET items =', dataReturned);
+          // const count = dataReturned;
+          // console.log('getOutfitCount function: count = ', count);
+          callback(dataReturned);
+        })
+        .catch((err) => {
+          if (err) throw err;
+        });
 
-    $.ajax({
-      type: 'GET', 
-      url: '/query/outfit/' + outfitID,
-
-    }).then(dataReturned => {
-      console.log("data from GET outfit by id =", dataReturned);
-      console.log("walking the data = ", 
-        dataReturned[0].items.length
-      );
-
-
-    }).catch(err => {
-      if(err) throw err; 
-    }); 
-
+    }
   }
-
+  
+  // ------ selectOutfit ---------------------------
+  // sets which outfit has been selected. 
+  // -----------------------------------------------
+  function selectOutfit(){
+    selectedOutfit = this.name; 
+    console.log('selectedOutfit = ', selectedOutfit); 
+  }
 
   // end of FUNCTIONS ----------------------------------------------------
 
@@ -108,9 +117,11 @@ $(document).ready(function () {
   // create event listners
   calendarDay.on('click', 'td', getDayId);
   carousel.on('click', 'img', getItemId);
+  deleteOutfitBtn.click(deleteOutfit);
+  $(document).on('click', '.select-outfit', selectOutfit);
 
   // function calls if needed.
-  // getOutfits(1);
+  
 
 
 

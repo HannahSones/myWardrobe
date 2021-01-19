@@ -6,7 +6,7 @@ $(document).ready(function () {
 
   // ------ getOutfitInfo -------------------------
   // how many outfits are there in the outfits table.
-  // What is the Outfit id and name. 
+  // What is the Outfit id and name.
   // -----------------------------------------------
   function getOutfitInfo(callback) {
     $.ajax({
@@ -25,7 +25,7 @@ $(document).ready(function () {
   }
 
   // ------ showSavedOutfits -------------------------
-  // Shows the outfits saved in the outfits table. 
+  // Shows the outfits saved in the outfits table.
   // uses a callback function to get the outfits from the getOutfitInfo function
   // ---- need to fill ----
   // -------------------------------------------------
@@ -40,18 +40,17 @@ $(document).ready(function () {
         let div = `<div id="outfit-${outfitData[i].id}" class="outfit-box"> <h3>${outfitData[i].name}</h3> </div>`;
         outfits.append(div);
       }
-      for(let j = 0; j < count; j++) {
+      for (let j = 0; j < count; j++) {
         fillOutfits(outfitData[j].id);
       }
     });
-
   }
 
   // ------ getOutfitItems -------------------------
   // gets the itemss that make up a chosen outfit specified by id
   // -------------------------------------------------
 
-  function getOutfitItems(outfitID, callback){
+  function getOutfitItems(outfitID, callback) {
     $.ajax({
       type: 'GET',
       url: '/query/outfit/' + outfitID,
@@ -65,24 +64,24 @@ $(document).ready(function () {
       .catch((err) => {
         if (err) throw err;
       });
-
   }
-
 
   // ------ getOutfitItems -------------------------
   // populates showSavedOutfits divs with items from getOutfit Items
-  // called from showSavedOutfits function. 
+  // called from showSavedOutfits function.
   // -------------------------------------------------
-  function fillOutfits(outfitID){
-    console.log("here");
-    getOutfitItems(outfitID,function(callback){
-      console.log("callback", callback);
+  function fillOutfits(outfitID) {
+    console.log('here');
+    getOutfitItems(outfitID, function (callback) {
+      console.log('callback', callback);
       const div = $(`#outfit-${callback[0].id}`);
-      for(let i = 0 ; i< callback[0].items.length; i++){
-        let item =`<p>${callback[0].items[i].name}</p>` ; 
+      for (let i = 0; i < callback[0].items.length; i++) {
+        let item = `<p>${callback[0].items[i].name}</p>`;
         div.append(item);
       }
-    }) 
+      const btn = `<button class="select-outfit" name="${callback[0].id}"> Select Outfit </button>`;
+      div.append(btn);
+    });
   }
 
   // EXAMPLE ajax call on page load calls items from DB and displays using image url
@@ -106,5 +105,4 @@ $(document).ready(function () {
 
   // function calls
   showSavedOutfits();
-  
 });
