@@ -36,18 +36,12 @@ const OutfitItem = db.define('outfitItem', {
   outfitID: {
     // ref outfit ID
     type: Sequelize.INTEGER,
-    references: {
-      model: 'items',
-      key: 'id',
-    },
+    
   },
   itemID: {
     // ref item ID
     type: Sequelize.INTEGER,
-    references: {
-      model: 'outfits',
-      key: 'id',
-    },
+    
   },
 });
 
@@ -89,7 +83,7 @@ const Item = db.define('item', {
 
 const Planner = db.define('planner', {
   date: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
   },
   outfitID: {
     // ref outfit ID
@@ -111,4 +105,4 @@ Item.belongsTo(User, { foreignKey: 'userID' });
 Planner.belongsTo(Outfit, { foreignKey: 'outfitID' });
 Outfit.belongsTo(User, { foreignKey: 'userID' });
 
-module.exports = { Category, Selected, Outfit, OutfitItem, Item, User };
+module.exports = { Category, Selected, Outfit, OutfitItem, Item, User, Planner };
