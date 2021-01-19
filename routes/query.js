@@ -2,13 +2,14 @@ const express = require('express');
 const router = express.Router();
 
 // required models
+const db = require('../config/database');
 const itemsModel = require('../models/items');
 const categoryModel = require('../models/category');
 const outfitModel = require('../models/outfit');
 
-router.get('/:userID/items', async function (req, res) {
+router.get('/:userName/items', async function (req, res) {
   // console.log(req.params);
-  const query = await db.selectItemsByID(req.params.userID);
+  const query = await db.selectItemsByID(req.params.userName);
   res.send(query);
 });
 
@@ -18,7 +19,10 @@ router.get('/:userID/items', async function (req, res) {
 }); */
 
 router.get('/itemByCat', async function (req, res) {
-  const select = await categoryModel.selectByCategory(req.body.id, req.body.userID);
+  const select = await categoryModel.selectByCategory(
+    req.body.id,
+    req.body.userID
+  );
   res.send(select);
 });
 
@@ -35,14 +39,12 @@ router.get('/outfit/:outfitID', async function (req, res) {
 });
 
 router.get('/outfits', async function (req, res) {
-  const select = await outfitModel.selectUsersOutfits(); 
+  const select = await outfitModel.selectUsersOutfits();
   res.send(select);
-})
+});
 
 router.get('/', function (req, res) {
   res.send('hit');
 });
-
-
 
 module.exports = router;
