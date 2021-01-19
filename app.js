@@ -1,7 +1,6 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 
-
 const db = require('./config/database.js');
 const app = express();
 
@@ -20,9 +19,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Set Handlebars
-app.engine('handlebars', exphbs({ 
-  defaultLayout: 'main' 
-})
+app.engine(
+  'handlebars',
+  exphbs({
+    defaultLayout: 'main',
+  })
 );
 
 app.set('view engine', 'handlebars');
@@ -41,12 +42,12 @@ app.use('/upload', require('./routes/upload'));
 // create new x in database ...
 app.use('/create', require('./routes/create'));
 
-// we set the handlebars main.handlebars in the server file as the body of the html. 
-// use res.render for handlebars 
-app.get('/', function (req, res) {
-  res.render('index', {wardrobe: res});
-});
+// we set the handlebars main.handlebars in the server file as the body of the html.
+// use res.render for handlebars
 
+app.get('/', async function (req, res) {
+  res.render('index', { wardrobe: res });
+});
 
 const PORT = process.env.PORT || 5000;
 
