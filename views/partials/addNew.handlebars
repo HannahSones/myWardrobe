@@ -1,12 +1,13 @@
-<div class="tab-pane fade" id="add-new-content" role="tabpanel" aria-labelledby="add-new-tab">
+<div id="add-new-content" role="tabpanel" aria-labelledby="add-new-tab">
     <h2>Add New Item</h2>
 
     <form>
         <p>Upload a photo</p>
         <div class="input-group col-md-6">
-            <input type="file" class="form-control" id="itemUpload">
-            <button class="input-group-text">Upload</button>
-            <label class="input-group-text" for="input-group-text">Upload</label>
+            <form>
+                <input type="file" id="myFile" name="myFile" multiple enctype="multipart/form-data">
+                <button class='myForm' type="submit">Submit</button>
+            </form>
         </div>
         </br>
         <div class="mb-3">
@@ -18,7 +19,7 @@
                 <option value="Overall">Overall</option>
             </select>
         </div>
-        <div class="mb-3">
+        <div class="mb-3 userSelection">
             <label for="category" class="form-label">Category</label>
 
             <div id="topTypeSelected">
@@ -122,7 +123,7 @@
             </div>
 
         </div>
-        <button type="submit">Add to wardrobe</button>
+        <button class='wardrobeSubmit' type="submit">Add to wardrobe</button>
     </form>
 
 </div>

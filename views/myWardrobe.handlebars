@@ -2,20 +2,16 @@
     <nav class="row">
         <ul class="nav nav-tabs" role="tablist">
             <li id="my-wardrobe-tab" class="nav-item" role="presentation">
-                <a class="nav-link active" data-toggle="tab" href="#my-wardrobe-content" role="tab"
-                    aria-controls="my-wardrobe-content" aria-selected="true"><span>My Wardrobe</span></a>
+                <a class="nav-link active" href="myWardrobe"><span>My Wardrobe</span></a>
             </li>
             <li id="saved-outfits-tab" class="nav-item" role="presentation">
-                <a class="nav-link" data-toggle="tab" href="#saved-outfits-content" role="tab"
-                    aria-controls="saved-outfits-content" aria-selected="false"><span>Saved Outfits</span></a>
+                <a class="nav-link" href="myOutfits"><span>Saved Outfits</span></a>
             </li>
             <li id="wardrobe-stats-tab" class="nav-item" role="presentation">
-                <a class="nav-link" data-toggle="tab" href="#wardrobe-stats-content" role="tab"
-                    aria-controls="wardrobe-stats-content" aria-selected="false"><span>Wardrobe Stats</span></a>
+                <a class="nav-link" href="myAccount"><span>My Account</span></a>
             </li>
             <li id="add-new-tab" class="nav-item" role="presentation">
-                <a class="nav-link" data-toggle="tab" href="#add-new-content" role="tab" aria-controls="add-new-content"
-                    aria-selected="false"><span>Add New Item</span></a>
+                <a class="nav-link" href="addNew"><span>Add New Item</span></a>
             </li>
         </ul>
         <div id="third-folder" class="folder"> </div>
@@ -27,13 +23,14 @@
         <div id="content-folder" class="tab-content">
 
             <!-- Tab content to render here - My Wardrobe, saved outfits, stats, add item -->
-            {{> wardrobe}}
-            {{> outfits}}
+            {{> wardrobe this }}
+            {{!-- {{> outfits}}
             {{> statistics}}
-            {{> addNew}}
+            {{> addNew}} --}}
 
         </div>
     </section>
+
 
     <div id="calendar-container" class="row">
         <div id="calendar-nav">
@@ -48,7 +45,6 @@
                 </li>
             </ul>
         </div>
-
         <div class="row">
             <table id="calendar-table">
                 <tr id="calendar-row">
@@ -56,4 +52,5 @@
             </table>
         </div>
     </div>
+
 </main>

@@ -33,13 +33,10 @@ const selectOutfitItems = async (outfitID) => {
   console.log('selectOutfitItems function called');
   const select = await Outfit.findAll({
     attributes: ['id', 'name'],
-    where: {
-      id: outfitID,
-    },
     include: [
       {
         model: Item,
-        attributes: ['id', 'name'],
+        attributes: ['id', 'name', 'imageURL'],
         through: { attributes: [] },
         required: true,
       },
@@ -51,17 +48,17 @@ const selectOutfitItems = async (outfitID) => {
 const deleteOutfit = async (outfitID) => {
   console.log('deleteOutfit function called');
   const outfitItems = await OutfitItem.destroy({
-    where:{
+    where: {
       outfitID: outfitID,
-    }
+    },
   });
   const outfit = await Outfit.destroy({
-    where:{
+    where: {
       id: outfitID,
-    }
+    },
   });
 
-  return { outfit , outfitItems};
+  return { outfit, outfitItems };
 };
 
 db.selectUsersOutfits = selectUsersOutfits;
