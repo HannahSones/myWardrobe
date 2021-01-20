@@ -38,6 +38,14 @@ router.get('/outfit/:outfitID', async function (req, res) {
   res.send(select);
 });
 
+//  just gets one outfit by specified id
+router.get('/plannedOutfit/:outfitID', async function (req, res) {
+  console.log("req.body.outfitID =", req.params.outfitID);
+  const select = await outfitModel.selectUsersOutfit(req.params.outfitID);
+  console.log('select =', select); 
+  res.send(select);
+});
+
 //  just gets outfits from the outfit table: id and name.
 router.get('/outfits', async function (req, res) {
   const select = await outfitModel.selectUsersOutfits();
@@ -45,9 +53,14 @@ router.get('/outfits', async function (req, res) {
 });
 
 router.get('/planner/:dateString', async function (req, res){
-  console.log('/planner/:dateString req.params =', req.params);
+  // console.log('/planner/:dateString req.params =', req.params);
   const select = await plannerModel.getDate(req.params.dateString);
   console.log('planner/:dateString: select =', select);
+  res.send(select);
+});
+
+router.get('/planner', async function (req, res){
+  const select = await plannerModel.getExisitngDates();
   res.send(select);
 })
 

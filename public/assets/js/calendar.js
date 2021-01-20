@@ -38,6 +38,7 @@ $(document).ready(function () {
       let dayName = weekDays[day];
       let cell = document.createElement('td');
       let cellText = `${dayName} ${d}`;
+
       cell.append(cellText);
       row.append(cell);
       d++;
@@ -91,10 +92,63 @@ $(document).ready(function () {
     showMonth(value);
   }
 
+  // ---------------------- getOutfitsInPlanner ------------------------------
+  // show the next month
+  // ----------------------------------------------------------------
+  function getOutfitsInPlanner() {
+    $.ajax({
+      type: 'GET',
+      url: `/query/planner`,
+    })
+      .then((dataReturned) => {
+        console.log('data from calendar GET planner =', dataReturned);
+        console.log('datareturned.length =', dataReturned.length);
+        for (let i = 0; i < dataReturned.length; i++) {
+          console.log(
+            'i =',
+            i,
+            'dataReturned[i].outfitID =',
+            dataReturned[i].outfitID
+          );
+          getOutfitName(dataReturned[i].outfitID, function (outfitData) {
+            console.log('outfitData get outfits in planner =', outfitData);
+          });
+        }
+      })
+      .catch((err) => {
+        if (err) {
+          throw err;
+        }
+      });
+  }
+
+  // ------ getOutfitName -------------------------
+  // gets the outfit name by specified id
+  // -----------------------------------------------
+  function getOutfitName(outfitID, callback) {
+    console.log('getOutfitName function called');
+    $.ajax({
+      type: 'GET',
+      url: '/query/plannedOutfit/' + outfitID,
+    })
+      .then((dataReturned) => {
+        console.log('data from GET outfits =', dataReturned);
+        // const count = dataReturned;
+        // console.log('getOutfitCount function: count = ', count);
+        callback(dataReturned);
+      })
+      .catch((err) => {
+        if (err) {
+          throw err;
+        }
+      });
+  }
+
   // FUNCTION CALLS
 
   showMonth(month);
   // page always loads the current month first.
+  getOutfitsInPlanner();
 
   // Populate page on load
   currentYear.text(year);
