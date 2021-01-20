@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 // required models
-const itemsModel = require('../models/items');
+const itemsModel = require('../models/Items');
 const categoryModel = require('../models/category');
 const outfitModel = require('../models/outfit');
 const plannerModel = require('../models/planner');
