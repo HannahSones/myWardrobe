@@ -1,0 +1,53 @@
+<main>
+    <nav class="row">
+        <ul class="nav nav-tabs" role="tablist">
+            <li id="my-wardrobe-tab" class="nav-item" role="presentation">
+                <a class="nav-link" href="myWardrobe"><span>My Wardrobe</span></a>
+            </li>
+            <li id="saved-outfits-tab" class="nav-item" role="presentation">
+                <a class="nav-link active" href="myOutfits"><span>Saved Outfits</span></a>
+            </li>
+            <li id="wardrobe-stats-tab" class="nav-item" role="presentation">
+                <a class="nav-link" href="myAccount"><span>My Account</span></a>
+            </li>
+            <li id="add-new-tab" class="nav-item" role="presentation">
+                <a class="nav-link" href="addNew"><span>Add New Item</span></a>
+            </li>
+        </ul>
+        <div id="third-folder" class="folder"> </div>
+        <div id="second-folder" class="folder"> </div>
+        <div id="first-folder" class="folder"> </div>
+    </nav>
+
+    <section id="content-view" class="row">
+        <div id="content-folder" class="tab-content">
+
+            <!-- Tab content to render here - My Wardrobe, saved outfits, stats, add item -->
+            {{> outfits this }}
+            {{!-- {{> outfits}}
+            {{> statistics}}
+            {{> addNew}} --}}
+
+        </div>
+    </section>
+    <div id="calendar-container" class="row">
+        <div id="calendar-nav">
+            <ul class="nav nav-pills">
+                <li id="current-year" class="nav-title calendar-style">Year</li>
+                <li class="nav-item">
+                    <a id="btn-prev" class="nav-link nav-title calendar-style" href="#">Prev</a>
+                </li>
+                <li id="current-month" class="nav-title calendar-style">month</li>
+                <li class="nav-item">
+                    <a id="btn-next" class="nav-link nav-title calendar-style" href="#">Next</a>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <table id="calendar-table">
+                <tr id="calendar-row">
+                </tr>
+            </table>
+        </div>
+    </div>
+</main>

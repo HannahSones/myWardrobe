@@ -21,7 +21,9 @@ $(document).ready(function () {
   // ------------------------------------------------
   function getDayId() {
     const id = $(this).attr('id');
+
     // console.log('id =', id, typeof(id));
+
 
     calendarDayString = id;
     console.log('calendarDayString = ', calendarDayString);
@@ -57,6 +59,7 @@ $(document).ready(function () {
   // ------------------------------------------------
   function getItemId() {
     console.log('item info =', $(this).attr('alt'));
+    console.log('item info =', $(this).attr('data-id'));
   }
 
   // ------ deleteOutfit ---------------------------
@@ -110,8 +113,10 @@ $(document).ready(function () {
   // if date already exists in table update the outfit.
   // ----------------------------------------------------
   function addToPlannerTable() {
+
     // console.log('addToPlannerTable function called');
     if (selectedOutfit === 0 || calendarDayString === 'noneSelected') {
+
       console.log('do nothing');
     } else {
       // console.log('adding to calander', selectedOutfit, calendarDayString);
@@ -136,10 +141,12 @@ $(document).ready(function () {
               },
             })
               .then((dataReturned) => {
+
                 // console.log('data from calendar POST outfit =', dataReturned);
                 selectedOutfit = 0;
                 calendarDayString = 'noneSelected';
                 getOutfitsInPlanner();
+
               })
               .catch((err) => {
                 console.log(err);
@@ -157,8 +164,10 @@ $(document).ready(function () {
               },
             })
               .then((dataReturned) => {
+
                 // console.log('data from calendar PUT outfit =', dataReturned);
                 getOutfitsInPlanner();
+
               })
               .catch((err) => {
                 if (err) {
@@ -174,6 +183,7 @@ $(document).ready(function () {
         });
     }
   }
+
 
   // ------ remove from planner table ---------------------------
   // remove an outfit from the planner

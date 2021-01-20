@@ -1,4 +1,5 @@
-$(document).ready(function () {
+console.log('hello');
+/* $(document).ready(function () {
   // set up elements from html
   const outfits = $('#outfits-container');
 
@@ -99,12 +100,11 @@ $(document).ready(function () {
 
   })();*/
 
+// end of FUNCTIONS ----------------------------------------------------
 
-  // end of FUNCTIONS ----------------------------------------------------
+// create event listners
 
-  // create event listners
+// function calls
+//showSavedOutfits();
 
-  // function calls
-  showSavedOutfits();
-
-});
+//});
