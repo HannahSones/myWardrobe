@@ -161,12 +161,10 @@ div#content-folder {
 
 .bottomsCarousel {
   overflow: hidden;
-
 }
 
 .overallsCarousel {
   overflow: hidden;
-  
 }
 
 .carousel>div>div>img:hover{
@@ -178,9 +176,17 @@ div#content-folder {
   z-index: 3;
 }
 
+button.slick-prev.slick-arrow {
+  border: unset;
+}
+
 .slick-next {
   margin-right: 40px;
   z-index: 3;
+}
+
+button.slick-next.slick-arrow {
+  border: unset;
 }
 
 [dir='rtl'] .slick-prev {
