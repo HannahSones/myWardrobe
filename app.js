@@ -23,6 +23,7 @@ app.engine(
   'handlebars',
   exphbs({
     defaultLayout: 'main',
+    partialsDir: __dirname + '/views/partials',
   })
 );
 
@@ -48,9 +49,7 @@ app.use('/delete', require('./routes/delete'));
 // we set the handlebars main.handlebars in the server file as the body of the html.
 // use res.render for handlebars
 
-app.get('/', async function (req, res) {
-  res.render('index', { wardrobe: sel });
-});
+app.use('/', require('./routes/views'));
 
 const PORT = process.env.PORT || 5000;
 

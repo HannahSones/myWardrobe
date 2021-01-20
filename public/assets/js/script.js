@@ -21,7 +21,7 @@ $(document).ready(function () {
   // ------------------------------------------------
   function getDayId() {
     const id = $(this).attr('id');
-    // console.log('id =', id, typeof(id));
+    // console.log('id =', id, typeof id);
 
     calendarDayString = id;
     console.log('calendarDayString = ', calendarDayString);
@@ -57,6 +57,7 @@ $(document).ready(function () {
   // ------------------------------------------------
   function getItemId() {
     console.log('item info =', $(this).attr('alt'));
+    console.log('item info =', $(this).attr('data-id'));
   }
 
   // ------ deleteOutfit ---------------------------

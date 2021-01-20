@@ -35,13 +35,10 @@ const selectOutfitItems = async (outfitID) => {
   console.log('selectOutfitItems function called');
   const select = await Outfit.findAll({
     attributes: ['id', 'name'],
-    where: {
-      id: outfitID,
-    },
     include: [
       {
         model: Item,
-        attributes: ['id', 'name'],
+        attributes: ['id', 'name', 'imageURL'],
         through: { attributes: [] },
         required: true,
       },
@@ -63,7 +60,7 @@ const deleteOutfit = async (outfitID) => {
     }
   });
 
-  return { outfit , outfitItems};
+  return { outfit, outfitItems };
 };
 
 db.selectUsersOutfits = selectUsersOutfits;
