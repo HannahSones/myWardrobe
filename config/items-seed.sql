@@ -237,11 +237,11 @@ INSERT INTO
     )
 VALUES
     (
-        'Yellow SD Jumper Dress',
-        'Yellow',
-        'Graphic Logo',
-        'Medium',
-        'https://res.cloudinary.com/dqqklkmfr/image/upload/v1611065637/myWardrobe/dress-jumper-yellow_rmus3a.png',
+        'Wool Dress',
+        'Oatmeal',
+        'Plain',
+        'Light',
+        'https://res.cloudinary.com/dqqklkmfr/image/upload/v1611065636/myWardrobe/dress-jumper-wool_ur8kdh.png',
         3,
         1,
         '2021-01-17 17:21:00',
@@ -262,8 +262,8 @@ INSERT INTO
     )
 VALUES
     (
-        'Wool Dress',
-        'Oatmeal',
+        'Denim Dungaree',
+        'Navy',
         'Plain',
         'Light',
         'https://res.cloudinary.com/dqqklkmfr/image/upload/v1611065636/myWardrobe/dress-jumper-wool_ur8kdh.png',
@@ -592,6 +592,31 @@ VALUES
         'Graphic Logo',
         'Medium',
         'https://res.cloudinary.com/dqqklkmfr/image/upload/v1611065634/myWardrobe/jumper-sport-red_alzulx.png',
+        6,
+        1,
+        '2021-01-17 17:21:00',
+        '2021-01-17 17:21:00'
+    );
+
+INSERT INTO
+    items (
+        name,
+        colour,
+        pattern,
+        weight,
+        imageURL,
+        categoryID,
+        userID,
+        createdAt,
+        updatedAt
+    )
+VALUES
+    (
+        'Yellow SD Jumper',
+        'Yellow',
+        'Graphic Logo',
+        'Medium',
+        'https://res.cloudinary.com/dqqklkmfr/image/upload/v1611065637/myWardrobe/dress-jumper-yellow_rmus3a.png',
         6,
         1,
         '2021-01-17 17:21:00',

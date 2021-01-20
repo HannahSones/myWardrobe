@@ -49,6 +49,7 @@ const selectOutfitItems = async (outfitID) => {
 
 const deleteOutfit = async (outfitID) => {
   console.log('deleteOutfit function called');
+
   const outfit = await Outfit.destroy({
     where:{
       id: outfitID,
@@ -58,6 +59,7 @@ const deleteOutfit = async (outfitID) => {
     where:{
       outfitID: outfitID,
     }
+
   });
 
   return { outfit, outfitItems };

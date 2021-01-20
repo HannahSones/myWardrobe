@@ -38,20 +38,24 @@ const OutfitItem = db.define('outfitItem', {
   outfitID: {
     // ref outfit ID
     type: Sequelize.INTEGER,
+
     primaryKey: false,
     references: {
       model: 'outfit',
       key: 'id',
     },
+
   },
   itemID: {
     // ref item ID
     type: Sequelize.INTEGER,
+
     primaryKey: false,
     references: {
       model: 'item',
       key: 'id',
     },
+
   },
 });
 
@@ -125,6 +129,7 @@ OutfitItem.belongsTo(Item, {
   targetKey: 'id',
   as: 'item',
 });
+
 
 Item.belongsToMany(Outfit, { through: OutfitItem, foreignKey: 'itemID' });
 
