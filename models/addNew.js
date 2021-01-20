@@ -50,15 +50,26 @@ const addNewCalanderEntry = async (date, outfit) => {
   console.log('addNewCalanderEntry function called');
   const add = await Planner.create({
     date: date,
-    outfitID: outfit, 
+    outfitID: outfit,
   });
   return add;
-}
+};
+
+const addNewItemBasic = async (imageURL, name, categoryID) => {
+  const create = await Item.create({
+    name: name,
+    imageURL: imageURL,
+    categoryID: categoryID,
+    userID: 1,
+  });
+  return create;
+};
 
 db.addNewUser = addNewUser;
 db.addNewItem = addNewItem;
 db.addNewCategory = addNewCategory;
 db.addNewOutfit = addNewOutfit;
 db.addNewCalanderEntry = addNewCalanderEntry;
+db.addNewItemBasic = addNewItemBasic;
 
 module.exports = db;

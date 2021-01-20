@@ -48,19 +48,16 @@ router.post('/', upload.array('image', 5), async (req, res) => {
 
 //  add new item of clothing to wardrobe.
 router.post('/item', async function (req, res) {
-  const items = req.body;
-  console.log('items =', items);
-  items.forEach((item) => {
-    db.addNewItem(
-      item.name,
-      item.colour,
-      item.pattern,
-      item.weight,
-      item.imageURL,
-      item.categoryID,
-      item.userID
-    );
-  });
+  const item = req.body;
+  db.addNewItem(
+    item.name,
+    item.colour,
+    item.pattern,
+    item.weight,
+    item.imageURL,
+    item.categoryID,
+    1
+  );
   res.send({ success: true });
 });
 
