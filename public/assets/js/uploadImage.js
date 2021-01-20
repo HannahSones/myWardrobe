@@ -1,3 +1,4 @@
+// Initial code for saving outfits, needs work
 const button = $('.myForm');
 const fileInput = $('#myFile');
 const uploadArray = [];
