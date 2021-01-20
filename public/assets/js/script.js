@@ -7,6 +7,7 @@ $(document).ready(function () {
   const carousel = $('.carousel');
   const deleteOutfitBtn = $('#delete-outfit');
   const addToCalendar = $('#add-to-calendar');
+  const removeFromCalendar = $('#remove-from-calendar');
 
   // global variables
   let selectedOutfit = 0;
@@ -20,7 +21,9 @@ $(document).ready(function () {
   // ------------------------------------------------
   function getDayId() {
     const id = $(this).attr('id');
-    console.log('id =', id, typeof id);
+
+    // console.log('id =', id, typeof(id));
+
 
     calendarDayString = id;
     console.log('calendarDayString = ', calendarDayString);
@@ -65,20 +68,21 @@ $(document).ready(function () {
   // function deletes the outfit if there is one selected.
   // -----------------------------------------------
   function deleteOutfit() {
-    console.log('delete outfit function called');
+    // console.log('delete outfit function called');
     if (selectedOutfit === 0) {
       console.log('do nothing');
     } else {
-      console.log('deleting', selectedOutfit);
+      // console.log('deleting', selectedOutfit);
       $.ajax({
         type: 'DELETE',
         url: '/delete/outfit/' + selectedOutfit,
       })
         .then((dataReturned) => {
-          console.log('data from DELETE outfit =', dataReturned);
+          // console.log('data from DELETE outfit =', dataReturned);
           selectedOutfit = 0;
-          console.log('selectedOutfit =', selectedOutfit);
-          // the data returned successful is {outfit:1, outfitItems: 2}
+          showSavedOutfits();
+          // console.log('selectedOutfit =', selectedOutfit);
+          // the data returned successful is {outfit:1, outfitItems: 2} where 1 and 2 are the number of items changed/deleted
           // the data returned unsuccessful is {outfit:0, outfitItems: 0}
         })
         .catch((err) => {
@@ -109,11 +113,13 @@ $(document).ready(function () {
   // if date already exists in table update the outfit.
   // ----------------------------------------------------
   function addToPlannerTable() {
-    console.log('addToPlannerTable function called');
-    if (selectedOutfit === 0) {
+
+    // console.log('addToPlannerTable function called');
+    if (selectedOutfit === 0 || calendarDayString === 'noneSelected') {
+
       console.log('do nothing');
     } else {
-      console.log('adding to calander', selectedOutfit, calendarDayString);
+      // console.log('adding to calander', selectedOutfit, calendarDayString);
       const outfit = selectedOutfit;
       const date = calendarDayString;
 
@@ -122,8 +128,8 @@ $(document).ready(function () {
         url: '/query/planner/' + date,
       })
         .then((dataReturned) => {
-          console.log('data from calendar GET outfit =', dataReturned);
-          console.log('datareturned.id =', dataReturned.id);
+          // console.log('data from calendar GET outfit =', dataReturned);
+          // console.log('datareturned.id =', dataReturned.id);
 
           if (dataReturned.id === 0) {
             $.ajax({
@@ -135,7 +141,12 @@ $(document).ready(function () {
               },
             })
               .then((dataReturned) => {
-                console.log('data from calendar POST outfit =', dataReturned);
+
+                // console.log('data from calendar POST outfit =', dataReturned);
+                selectedOutfit = 0;
+                calendarDayString = 'noneSelected';
+                getOutfitsInPlanner();
+
               })
               .catch((err) => {
                 console.log(err);
@@ -153,7 +164,10 @@ $(document).ready(function () {
               },
             })
               .then((dataReturned) => {
-                console.log('data from calendar PUT outfit =', dataReturned);
+
+                // console.log('data from calendar PUT outfit =', dataReturned);
+                getOutfitsInPlanner();
+
               })
               .catch((err) => {
                 if (err) {
@@ -170,6 +184,48 @@ $(document).ready(function () {
     }
   }
 
+
+  // ------ remove from planner table ---------------------------
+  // remove an outfit from the planner
+  // ----------------------------------------------------
+  function removeFromPlannerTable() {
+    console.log('removeFromPlannerTable clicked');
+    if (calendarDayString === 'noneSelected') {
+      console.log('do nothing');
+    } else {
+      const day = $(`#${calendarDayString}`).attr('id');
+      console.log('day =', day);
+
+      const child = $(`#${calendarDayString}`).children('h3').text();
+      console.log('child =', child, typeof child);
+
+      if (child === '') {
+        console.log('no outfit here');
+
+      } else {
+        console.log('removing from planner', day);
+        $.ajax({
+          type: 'DELETE',
+          url: '/delete/plannerDate/' + day,
+        })
+          .then((dataReturned) => {
+            console.log('data from DELETE plannerEntry =', dataReturned);
+            selectedOutfit = 0;
+            calendarDayString ='noneSelected';
+            getOutfitsInPlanner();
+            // console.log('selectedOutfit =', selectedOutfit);
+            // the data returned successful is {outfit:1, outfitItems: 2} where 1 and 2 are the number of items changed/deleted
+            // the data returned unsuccessful is {outfit:0, outfitItems: 0}
+          })
+          .catch((err) => {
+            if (err) {
+              throw err;
+            }
+          });
+      }
+    }
+  }
+
   // end of FUNCTIONS ----------------------------------------------------
 
   // create event listners
@@ -177,6 +233,7 @@ $(document).ready(function () {
   carousel.on('click', 'img', getItemId);
   deleteOutfitBtn.click(deleteOutfit);
   addToCalendar.click(addToPlannerTable);
+  removeFromCalendar.click(removeFromPlannerTable);
   $(document).on('click', '.select-outfit', selectOutfit);
 
   // function calls if needed.
