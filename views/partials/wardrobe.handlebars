@@ -1,6 +1,16 @@
 <div class="tab-pane fade show active" id="my-wardrobe-content" role="tabpanel" aria-labelledby="my-wardrobe-tab">
     <h2>My Wardrobe</h2>
-
+    <div id="outfit-view" class="outfit-box row">
+        <div class="col-2">
+            <button id="create-outfit">Create Outfit</button>
+            <button id="clear-outfit">Clear Outfit</button>
+            <lable for="outfit-name" class="display-none">Outfit Name</lable>
+            <input type="text" id="outfit-name" name="outfit-name" placeholder="Outfit Name" />
+        </div>
+        <div class="col-9">
+            <div id="outfit-creator"></div>
+        </div>
+    </div>
     <h4>Tops</h4>
     <div class="topsCarousel carousel">
         {{#each tops}}

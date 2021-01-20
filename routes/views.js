@@ -26,11 +26,13 @@ router.get('/myOutfits', async function (req, res) {
     outfits: outfits,
   });
 });
+
 router.get('/addNew', async function (req, res) {
   res.render('newItem', {
     layouts: 'main',
   });
 });
+
 router.get('/myAccount', async function (req, res) {
   res.render('myAccount', {
     layouts: 'main',

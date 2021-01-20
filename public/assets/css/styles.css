@@ -30,10 +30,15 @@ div.row {
   position: relative;
 }
 
-.col {
-  margin: 0;
-  padding: 0;
+.col-9,
+.col-11,
+.col-10,
+.col-2 {
+  /* margin: 0;
+  padding: 0;  */
   border: 1px solid blue;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .hide {
@@ -173,13 +178,7 @@ div#content-folder {
   overflow: hidden;
 }
 
-/* .carousel>div>div>img {
-  max-width: 75px;
-} */
-
-.topsCarousel > div > div > img:hover,
-.bottomsCarousel > div > div > img:hover,
-.overallsCarousel > div > div > img:hover {
+.carousel > div > div > img:hover {
   transform: scale(1.1);
 }
 
