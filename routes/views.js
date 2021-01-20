@@ -17,9 +17,8 @@ router.get('/myWardrobe', async function (req, res) {
 });
 
 router.get('/myOutfits', async function (req, res) {
-  const outfits = await db.selectUsersOutfits(1);
-  console.log(outfits);
-  const outfitItems = await db.selectOutfitItems(outfits.id);
+  const outfits = await db.selectOutfitItems(1);
+  console.log('meee', outfits[0].dataValues);
   res.render('myOutfits', {
     layouts: 'main',
     outfits: outfits,
