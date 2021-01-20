@@ -1,4 +1,4 @@
-<div class="tab-pane fade" id="saved-outfits-content" role="tabpanel" aria-labelledby="saved-outfits-tab">
+<div class="" id=" saved-outfits-content" role="tabpanel" aria-labelledby="saved-outfits-tab">
     <h2>Saved Outfits</h2>
     <button id="delete-outfit">Delete Outfit</button>
     <button id="add-to-calendar">Add to calender </button>
@@ -6,8 +6,17 @@
 </div>
 <!-- start content here for saved outfits -->
 
-{{!-- <div id="outfits-container">
+<div id="outfits-container">
     {{#each outfits}}
-    <div class="outfit-box">{{dataValues.name}}</div>
+    <div class="outfit-box">
+        <p>{{dataValues.name}}</p>
+        {{#each dataValues.items}}
+        <div>
+            <p> {{dataValues.name}}</p>
+            <img height="100" width="100" src="{{dataValues.imageURL}}" />
+
+        </div>
+        {{/each}}
+    </div>
     {{/each}}
-</div> --}}
+</div>

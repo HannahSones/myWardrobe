@@ -18,10 +18,22 @@ router.get('/myWardrobe', async function (req, res) {
 
 router.get('/myOutfits', async function (req, res) {
   const outfits = await db.selectOutfitItems(1);
-  console.log('meee', outfits[0].dataValues);
+  /* console.log(outfits[0].dataValues.items); */
+  console.log(outfits[0].dataValues.items[0]);
+  outfits.for;
   res.render('myOutfits', {
     layouts: 'main',
     outfits: outfits,
+  });
+});
+router.get('/addNew', async function (req, res) {
+  res.render('newItem', {
+    layouts: 'main',
+  });
+});
+router.get('/myAccount', async function (req, res) {
+  res.render('myAccount', {
+    layouts: 'main',
   });
 });
 

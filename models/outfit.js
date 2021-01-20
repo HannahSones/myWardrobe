@@ -33,13 +33,10 @@ const selectOutfitItems = async (outfitID) => {
   console.log('selectOutfitItems function called');
   const select = await Outfit.findAll({
     attributes: ['id', 'name'],
-    where: {
-      id: outfitID,
-    },
     include: [
       {
         model: Item,
-        attributes: ['id', 'name'],
+        attributes: ['id', 'name', 'imageURL'],
         through: { attributes: [] },
         required: true,
       },

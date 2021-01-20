@@ -97,7 +97,6 @@ Item.belongsToMany(Outfit, {
 });
 Item.belongsTo(User, { foreignKey: 'userID' });
 Planner.belongsTo(Outfit, { foreignKey: 'outfitID' });
-Outfit.belongsTo(User, { foreignKey: 'userID' });
 
 module.exports = {
   Category,
