@@ -26,19 +26,44 @@ $(document).ready(function () {
     return days;
   }
 
+  // ---------------------- generateID --------------------------------
+  // generates the id string for each calendar day generated for showCalander.
+  // ------------------------------------------------------------------
+  function generateID(year, month, day) {
+    const ys = year.toString();
+    let ds = day.toString();
+    month += 1;
+    let ms = month.toString();
+    const zero = '0';
+
+    if (ms.length === 1) {
+      ms = zero + ms;
+    }
+    if (ds.length === 1) {
+      ds = zero + ds;
+    }
+
+    const id = `${ys}-${ms}-${ds}`;
+    // console.log('id =', id);
+    return id;
+  }
+
   // ---------------------- showCalander ------------------------------
   // Display the calander in html.
   // ------------------------------------------------------------------
   function showCalendar(year, month, days) {
+    // console.log('year', year, 'month', month, 'days', days);
     let d = 1;
+
     row.empty();
     // creating the cells for each day
     for (let i = 0; i < days; i++) {
+      let id = generateID(year, month, d);
       let day = new Date(year, month, d).getDay();
       let dayName = weekDays[day];
       let cell = document.createElement('td');
+      cell.setAttribute('id', id);
       let cellText = `${dayName} ${d}`;
-
       cell.append(cellText);
       row.append(cell);
       d++;
@@ -47,6 +72,7 @@ $(document).ready(function () {
 
   // ---------------------- showMonth ------------------------------
   // Display the Month in calander container.
+  // for some reason it did not read if else properly for === 11.
   // ---------------------------------------------------------------
   function showMonth(month) {
     if (month === 0) {
@@ -92,8 +118,8 @@ $(document).ready(function () {
     showMonth(value);
   }
 
-  // ---------------------- getOutfitsInPlanner ------------------------------
-  // show the next month
+  // ---------------------- getOutfitsInPlanner ---------------------
+  //
   // ----------------------------------------------------------------
   function getOutfitsInPlanner() {
     $.ajax({
@@ -112,6 +138,9 @@ $(document).ready(function () {
           );
           getOutfitName(dataReturned[i].outfitID, function (outfitData) {
             console.log('outfitData get outfits in planner =', outfitData);
+            console.log('outfitData.name =', outfitData[0].name);
+            const name = `<h3>${outfitData[0].name}</h3>`;
+            $(`td#${dataReturned[i].date}`).append(name);
           });
         }
       })
@@ -132,7 +161,7 @@ $(document).ready(function () {
       url: '/query/plannedOutfit/' + outfitID,
     })
       .then((dataReturned) => {
-        console.log('data from GET outfits =', dataReturned);
+        console.log('data from GET outfitname =', dataReturned);
         // const count = dataReturned;
         // console.log('getOutfitCount function: count = ', count);
         callback(dataReturned);

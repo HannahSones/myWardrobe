@@ -20,10 +20,22 @@ table {
 
 td {
   display: inline-block;
+  position: relative;
   background-color: #f0efeb;
   width: 150px;
   height: 200px;
   margin: 6px 3px;
+  word-wrap: normal;
+  white-space: normal;
+}
+
+td > h3 {
+  text-align: center;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 a.calendar-style:hover,

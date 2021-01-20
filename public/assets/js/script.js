@@ -14,46 +14,27 @@ $(document).ready(function () {
 
   // FUNCTIONS ----------------------------------------------------
 
-  // --------- get day ID ----------------
+  // --------- get day ID ---------------------------
   // When day in planner is clicked,
   // returns the date format of selected day YYYY-MM-DD
-  // -------------------------------------
+  // ------------------------------------------------
   function getDayId() {
-    const text = $(this).text().split(' ');
-    let textDate = text[1];
-    const textMonth = currentMonth.text();
-    const textYear = currentYear.text();
-    if (textDate.length === 1) {
-      const zero = '0';
-      textDate = zero + textDate;
-      // console.log("textDate =", textDate, typeof(textDate));
-    }
 
-    // gets the index and plus 1 to account for indexing begining with zero.
-    const monthIndex = monthNames.indexOf(textMonth) + 1;
-    let valueMonth = monthIndex.toString();
-    // console.log("valueMonth =", valueMonth, typeof(valueMonth));
-    if (valueMonth.length === 1) {
-      const zero = '0';
-      valueMonth = zero + valueMonth;
-      // console.log("valueMonth =", valueMonth, typeof(valueMonth));
-    }
+    const id = $(this).attr('id');
+    console.log('id =', id, typeof(id));
 
-    const dayId = `${textYear}-${valueMonth}-${textDate}`;
-    console.log('dayId =', dayId, typeof(dayId));
-
-    calendarDayString = dayId;
+    calendarDayString = id;
     console.log('calendarDayString = ', calendarDayString);
     setTimeout(function(){
       calendarDayString = "noneSelected";
       console.log('timeout on calendarDayString =', calendarDayString)
     },5000);
-
+    
   }
 
-  // ------- unnamed function ------------------------
+  // ------- unnamed function -----------------------------------
   // Displaying categories based on type selection in Add Item form.
-  // -------------------------------------------------
+  // ------------------------------------------------------------
   $('select').change(function () {
     const selection = document.getElementById('typeSelection').value;
     if (selection === 'Top') {
