@@ -135,7 +135,6 @@ Item.belongsToMany(Outfit, { through: OutfitItem, foreignKey: 'itemID' });
 
 Outfit.belongsToMany(Item, { through: OutfitItem, foreignKey: 'outfitID' });
 
-
 module.exports = {
   Category,
   Selected,
