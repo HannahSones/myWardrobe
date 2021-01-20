@@ -40,6 +40,8 @@ button:focus, button:active {
   border: 5px solid #8AB7A2;
   margin: 5px; 
   padding: 12px; 
+  word-wrap: normal;
+  white-space:normal;
   overflow:hidden;
   position: relative;
 }

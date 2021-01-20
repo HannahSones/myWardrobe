@@ -100,7 +100,7 @@ $(document).ready(function () {
   // Show the previous month
   // -----------------------------------------------------------------
   function previousMonth() {
-    console.log('prev month');
+    // console.log('prev month');
     let text = currentMonth.text();
     let value = monthNames.indexOf(text);
     value--;
@@ -111,7 +111,7 @@ $(document).ready(function () {
   // show the next month
   // ----------------------------------------------------------------
   function nextMonth() {
-    console.log('next month');
+    // console.log('next month');
     let text = currentMonth.text();
     let value = monthNames.indexOf(text);
     value++;
@@ -127,18 +127,18 @@ $(document).ready(function () {
       url: `/query/planner`,
     })
       .then((dataReturned) => {
-        console.log('data from calendar GET planner =', dataReturned);
-        console.log('datareturned.length =', dataReturned.length);
+        // console.log('data from calendar GET planner =', dataReturned);
+        // console.log('datareturned.length =', dataReturned.length);
         for (let i = 0; i < dataReturned.length; i++) {
-          console.log(
-            'i =',
-            i,
-            'dataReturned[i].outfitID =',
-            dataReturned[i].outfitID
-          );
+          // console.log(
+          //   'i =',
+          //   i,
+          //   'dataReturned[i].outfitID =',
+          //   dataReturned[i].outfitID
+          // );
           getOutfitName(dataReturned[i].outfitID, function (outfitData) {
-            console.log('outfitData get outfits in planner =', outfitData);
-            console.log('outfitData.name =', outfitData[0].name);
+            // console.log('outfitData get outfits in planner =', outfitData);
+            // console.log('outfitData.name =', outfitData[0].name);
             const name = `<h3>${outfitData[0].name}</h3>`;
             $(`td#${dataReturned[i].date}`).append(name);
           });
@@ -155,13 +155,13 @@ $(document).ready(function () {
   // gets the outfit name by specified id
   // -----------------------------------------------
   function getOutfitName(outfitID, callback) {
-    console.log('getOutfitName function called');
+    // console.log('getOutfitName function called');
     $.ajax({
       type: 'GET',
       url: '/query/plannedOutfit/' + outfitID,
     })
       .then((dataReturned) => {
-        console.log('data from GET outfitname =', dataReturned);
+        // console.log('data from GET outfitname =', dataReturned);
         // const count = dataReturned;
         // console.log('getOutfitCount function: count = ', count);
         callback(dataReturned);

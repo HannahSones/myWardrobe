@@ -22,9 +22,11 @@ const selectUsersOutfit = async (outfitID) => {
 
 const addToOutfit = async (itemID, outfitID) => {
   console.log('addToOutfit function called');
+  console.log('itemID =', itemID);
+  console.log('outfitID =', outfitID);
   const add = await OutfitItem.create({
-    itemID: itemID,
     outfitID: outfitID,
+    itemID: itemID,
   });
   return add;
 };
@@ -47,15 +49,17 @@ const selectOutfitItems = async (outfitID) => {
 
 const deleteOutfit = async (outfitID) => {
   console.log('deleteOutfit function called');
-  const outfitItems = await OutfitItem.destroy({
-    where: {
-      outfitID: outfitID,
-    },
-  });
+
   const outfit = await Outfit.destroy({
-    where: {
+    where:{
       id: outfitID,
-    },
+    }
+  });
+  const outfitItems = await OutfitItem.destroy({
+    where:{
+      outfitID: outfitID,
+    }
+
   });
 
   return { outfit, outfitItems };

@@ -26,8 +26,18 @@ const getExisitngDates = async () => {
   return select;
 };
 
+const deleteEntry = async (dateID) => {
+  const del = await Planner.destroy({
+    where:{
+      date : dateID,
+    },
+  });
+  return del;
+}
+
 db.getDate = getDate; 
 db.updatingOutfit = updatingOutfit;
 db.getExisitngDates = getExisitngDates;
+db.deleteEntry = deleteEntry;
 
 module.exports = db;
