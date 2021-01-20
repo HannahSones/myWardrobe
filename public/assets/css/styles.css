@@ -173,6 +173,31 @@ div#content-folder {
   transform: scale(1.1);
 }
 
+.slick-prev {
+  margin-left: 40px;
+  z-index: 3;
+}
+
+.slick-next {
+  margin-right: 40px;
+  z-index: 3;
+}
+
+[dir='rtl'] .slick-prev {
+  margin-left: 40px;
+  z-index: 3;
+  left: auto;
+  right: 0px;
+}
+
+[dir='rtl'] .slick-next {
+  margin-right: 40px;
+  z-index: 3;
+  right: auto;
+  left: 0px;
+}
+
+
 /* ----------------- form styling ---------------------- */
 
 form {
