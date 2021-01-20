@@ -1,8 +1,6 @@
 const db = require('../config/database.js');
 const { Item, User } = require('./define.js');
 
-// test
-
 // searches DB, users table for name, then returns user ID and searches items table for their items
 const selectItemsByID = async (userName) => {
   const name = await User.findOne({ where: { name: userName }, raw: true });
