@@ -22,9 +22,11 @@ const selectUsersOutfit = async (outfitID) => {
 
 const addToOutfit = async (itemID, outfitID) => {
   console.log('addToOutfit function called');
+  console.log('itemID =', itemID);
+  console.log('outfitID =', outfitID);
   const add = await OutfitItem.create({
-    itemID: itemID,
     outfitID: outfitID,
+    itemID: itemID,
   });
   return add;
 };
