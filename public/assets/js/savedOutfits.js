@@ -1,4 +1,3 @@
-console.log('hello');
 /* $(document).ready(function () {
   // set up elements from html
   const outfits = $('#outfits-container');
@@ -25,7 +24,7 @@ console.log('hello');
       });
   }
 
-  // ------ getOutfitItems -------------------------
+  // ------ fill outfits -------------------------
   // populates showSavedOutfits divs with items from getOutfit Items
   // called from showSavedOutfits function.
   // -------------------------------------------------

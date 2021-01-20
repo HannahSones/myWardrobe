@@ -10,11 +10,11 @@
     <div id="outfits-container">
         {{#each outfits}}
         <div class="outfit-box">
-            <p>{{dataValues.name}}</p>
+            <h3>{{dataValues.name}}</h3>
             {{#each dataValues.items}}
-            <div>
-                <p> {{dataValues.name}}</p>
-                <img height="100" width="100" src="{{dataValues.imageURL}}" />
+            <div class="item">
+                {{!-- <p> {{dataValues.name}}</p> --}} 
+                <img  src="{{dataValues.imageURL}}" />
             </div>
             {{/each}}
             <button class="select-outfit" name="{{dataValues.id}}"> Select Outfit </button>

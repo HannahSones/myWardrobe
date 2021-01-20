@@ -1,10 +1,7 @@
 $(document).ready(function () {
-  // import date elements from date.js
-  const { currentMonth, currentYear, monthNames } = getDateData();
-
+  
   // set up elements from html
   const calendarDay = $('#calendar-row');
-  const carousel = $('.carousel');
   const deleteOutfitBtn = $('#delete-outfit');
   const addToCalendar = $('#add-to-calendar');
   const removeFromCalendar = $('#remove-from-calendar');
@@ -50,15 +47,6 @@ $(document).ready(function () {
       $('#overallTypeSelected').css('display', 'block');
     }
   });
-
-  // ---- get ItemId --------------------------------
-  // on click of item image from carousel,
-  // return which item was chosen.
-  // ------------------------------------------------
-  function getItemId() {
-    console.log('item info =', $(this).attr('alt'));
-    console.log('item info =', $(this).attr('data-id'));
-  }
 
   // ------ deleteOutfit ---------------------------
   // an outfit must be selected first
@@ -221,7 +209,6 @@ $(document).ready(function () {
 
   // create event listners
   calendarDay.on('click', 'td', getDayId);
-  carousel.on('click', 'img', getItemId);
   deleteOutfitBtn.click(deleteOutfit);
   addToCalendar.click(addToPlannerTable);
   removeFromCalendar.click(removeFromPlannerTable);
