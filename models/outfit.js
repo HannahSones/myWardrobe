@@ -25,8 +25,8 @@ const addToOutfit = async (itemID, outfitID) => {
   console.log('itemID =', itemID);
   console.log('outfitID =', outfitID);
   const add = await OutfitItem.create({
-    outfitID: outfitID,
     itemID: itemID,
+    outfitID: outfitID,
   });
   return add;
 };
