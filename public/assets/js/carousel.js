@@ -3,6 +3,7 @@ $(function() {
 
   // Initiates carousel for tops, scrolling one at a time
   $('.topsCarousel').slick({
+    arrows: true,
     centerMode: true,
     centerPadding: '150px',
     slidesToShow: 5,
@@ -11,7 +12,7 @@ $(function() {
       {
         breakpoint: 768,
         settings: {
-          arrows: false,
+          arrows: true,
           centerMode: true,
           centerPadding: '40px',
           slidesToShow: 3
@@ -20,7 +21,7 @@ $(function() {
       {
         breakpoint: 480,
         settings: {
-          arrows: false,
+          arrows: true,
           centerMode: true,
           centerPadding: '40px',
           slidesToShow: 1
@@ -32,6 +33,7 @@ $(function() {
 
   // Initiates carousel for bottoms, scrolling one at a time
   $('.bottomsCarousel').slick({
+    arrows: true,
     centerMode: true,
     centerPadding: '150px',
     slidesToShow: 5,
@@ -41,7 +43,7 @@ $(function() {
       {
         breakpoint: 768,
         settings: {
-          arrows: false,
+          arrows: true,
           centerMode: true,
           centerPadding: '40px',
           slidesToShow: 3
@@ -62,6 +64,7 @@ $(function() {
 
   // Initiates carousel for overalls, scrolling one at a time
   $('.overallsCarousel').slick({
+    arrows: true,
     centerMode: true,
     centerPadding: '150px',
     slidesToShow: 5,
@@ -70,7 +73,7 @@ $(function() {
       {
         breakpoint: 768,
         settings: {
-          arrows: false,
+          arrows: true,
           centerMode: true,
           centerPadding: '40px',
           slidesToShow: 3

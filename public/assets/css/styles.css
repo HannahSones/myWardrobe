@@ -182,6 +182,39 @@ div#content-folder {
   transform: scale(1.1);
 }
 
+.slick-prev {
+  margin-left: 40px;
+  z-index: 3;
+}
+
+button.slick-prev.slick-arrow {
+  border: unset;
+}
+
+.slick-next {
+  margin-right: 40px;
+  z-index: 3;
+}
+
+button.slick-next.slick-arrow {
+  border: unset;
+}
+
+[dir='rtl'] .slick-prev {
+  margin-left: 40px;
+  z-index: 3;
+  left: auto;
+  right: 0px;
+}
+
+[dir='rtl'] .slick-next {
+  margin-right: 40px;
+  z-index: 3;
+  right: auto;
+  left: 0px;
+}
+
+
 /* ----------------- form styling ---------------------- */
 
 form {
