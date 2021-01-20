@@ -37,7 +37,7 @@ $(document).ready(function () {
         div.append(item);
       }
       const btn = `<button class="select-outfit" name="${callback[0].id}"> Select Outfit </button>`;
-      div.prepend(btn);
+      div.append(btn);
     });
   }
 

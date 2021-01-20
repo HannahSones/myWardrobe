@@ -61,10 +61,10 @@
       <div id="content-folder" class="tab-content">
 
         <div class="tab-pane fade show active" id="my-wardrobe-content" role="tabpanel"
-        aria-labelledby="my-wardrobe-tab">
-        <h2>My Wardrobe</h2>
-        <!-- start content here for My wardrobe -->
-        
+          aria-labelledby="my-wardrobe-tab">
+          <h2>My Wardrobe</h2>
+          <!-- start content here for My wardrobe -->
+
           <div id="outfit-view" class="outfit-box"></div>
           <h4>Tops</h4>
 
@@ -109,17 +109,19 @@
 
         <div class="tab-pane fade" id="saved-outfits-content" role="tabpanel" aria-labelledby="saved-outfits-tab">
           <h2>Saved Outfits</h2>
-          <button id="delete-outfit">Delete Outfit</button>
-          <button id="add-to-calendar">Add to calender </button>
-          <button id="remove-from-calendar">Remove from calender </button>
-          <!-- start content here for saved outfits -->
-
-          <div id="outfits-container">
-            <div class="outfit-box"></div>
-            <div class="outfit-box"></div>
-            <div class="outfit-box"></div>
+          <div class="overflow-hidden">
+            <button id="delete-outfit" class="overflow-hidden">Delete Outfit</button>
+            <button id="add-to-calendar" class="overflow-hidden">Add to calender </button>
+            <button id="remove-from-calendar" class="overflow-hidden">Remove from calender </button>
           </div>
+            <!-- start content here for saved outfits -->
 
+            <div id="outfits-container">
+              <div class="outfit-box"></div>
+              <div class="outfit-box"></div>
+              <div class="outfit-box"></div>
+            </div>
+          
           <!-- end content here for saved outfits -->
         </div>
 
