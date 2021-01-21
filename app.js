@@ -56,4 +56,4 @@ app.use('/', require('./routes/views'));
 const PORT = process.env.PORT || 5000;
 db.sequelize.sync().then(function() {
   app.listen(PORT, console.log(`Server started on port ${PORT}`));
-})
+});

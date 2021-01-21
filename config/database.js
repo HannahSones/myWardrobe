@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
 const ck = require('ckey');
-const { config } = require('dotenv/types');
+const env       = process.env.NODE_ENV || 'development';
+const { config } = require(__dirname + '/../config/config.js')[env];
 
 const password = ck.DB_PASSWORD;
 
@@ -15,29 +16,21 @@ const password = ck.DB_PASSWORD;
 //   },
 // });
 
-if (config.use_env_variable) {
-  const sequelize = new Sequelize (process.env[config.use_env_variable]);
-} else {
-  const sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
-
-
 // if (process.env.JAWSDB_URL) {
-//   module.exports = new Sequelize('sams-wardrobe', password, {
-//     dialect: 'mysql',
-//     pool: {
-//       max: 5,
-//       min: 0,
-//       acquire: 30000,
-//       idle: 10000,
-//     },
-//   });
+//   const sequelize = new Sequelize (process.env[config.use_env_variable], config);
 // } else {
-//   connection = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     password: password,
-//     dialect: 'mysql',
-//     database: 'sams-wardrobe'
-//   });
-// }; 
+//   const sequelize = new Sequelize(config.database, config.username, config.password, config);
+// }
+
+
+if (process.env.JAWSDB_URL) {
+  sequelize = new Sequelize(process.env.JAWSDB_URL, {});
+} else {
+  connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: password,
+    dialect: 'mysql',
+    database: 'sams-wardrobe'
+  });
+};
