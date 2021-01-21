@@ -35,6 +35,7 @@ const deleteEntry = async (dateID) => {
       date: dateID,
     },
   });
+  // console.log('deleteEntry =', del);
   return del;
 };
 

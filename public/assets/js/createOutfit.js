@@ -10,6 +10,10 @@ $(document).ready(function () {
 
   // FUNCTIONS ----------------------------------------------------
 
+  // ---- sendOutfitsToDatabase -------------------------------------
+  // called from the create new outfit function
+  // to add the outfit to the database before the items are added.
+  // ----------------------------------------------------------------
   function sendOutfitToDatabase(name, callback) {
     $.ajax({
       type: 'POST',
@@ -32,6 +36,10 @@ $(document).ready(function () {
       });
   }
 
+  // --- addToOutfit ------------------------------------------------------
+  // adds the items chosen to the named outfit
+  // called in the create new outfit function AFTER the outfit is created in the db
+  //  ---------------------------------------------------------------------
   function addToOutfit(itemID, outfitID) {
     $.ajax({
       type: 'POST',
@@ -43,6 +51,7 @@ $(document).ready(function () {
     })
       .then(() => {
         // console.log('dataReturned add to outfit POST =', dataReturned);
+        location.reload();
       })
       .catch((err) => {
         console.log(err);
@@ -52,6 +61,10 @@ $(document).ready(function () {
       });
   }
 
+  // --- create new outfit -------------------------------------------
+  // this is called from the cutton click cretae outfit
+  // checks if there are items in the outfit creator and a name in the form before continuing
+  // -----------------------------------------------------------------
   function createNewOutfit() {
     const name = outfitName.val();
     const numberOfChildren = outfitCreator.contents().length;
@@ -78,9 +91,8 @@ $(document).ready(function () {
     }
   }
 
-  // ---- get ItemId --------------------------------
-  // on click of item image from carousel,
-  // return which item was chosen.
+  // ---- add  item to creator --------------------------------
+  // choose an item from the carousel and it is added to the creator
   // ------------------------------------------------
   function addItemToCreator() {
     // console.log('item name =', $(this).attr('alt'));
@@ -93,10 +105,16 @@ $(document).ready(function () {
     outfitCreator.append(image);
   }
 
+  // ---- clear outfit ------------------
+  // empty the creator fully of items
+  // -------------------------------------
   function clearOutfit() {
     outfitCreator.empty();
   }
 
+  // --- remove from selection -----------------
+  // click of an item in the creator box removes it from selection
+  // --------------------------------------------
   function removeSelectedItem() {
     $(this).remove();
   }

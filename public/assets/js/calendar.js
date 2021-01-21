@@ -153,12 +153,9 @@ $(document).ready(function () {
         // console.log('data from calendar GET planner =', dataReturned);
         // console.log('datareturned.length =', dataReturned.length);
         for (let i = 0; i < dataReturned.length; i++) {
-          // console.log(
-          //   'i =',
-          //   i,
-          //   'dataReturned[i].outfitID =',
-          //   dataReturned[i].outfitID
-          // );
+          // console.log('i =',i);
+          // console.log('dataReturned[i].outfitID =',dataReturned[i].outfitID);
+
           getOutfitName(dataReturned[i].outfitID, function (outfitData) {
             // console.log('outfitData get outfits in planner =', outfitData);
             // console.log('outfitData.name =', outfitData[0].name);

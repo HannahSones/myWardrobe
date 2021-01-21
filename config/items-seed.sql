@@ -265,31 +265,6 @@ VALUES
         'Denim Dungaree',
         'Navy',
         'Plain',
-        'Light',
-        'https://res.cloudinary.com/dqqklkmfr/image/upload/v1611065636/myWardrobe/dress-jumper-wool_ur8kdh.png',
-        3,
-        1,
-        '2021-01-17 17:21:00',
-        '2021-01-17 17:21:00'
-    );
-
-INSERT INTO
-    items (
-        name,
-        colour,
-        pattern,
-        weight,
-        imageURL,
-        categoryID,
-        userID,
-        createdAt,
-        updatedAt
-    )
-VALUES
-    (
-        'Denim Dungaree',
-        'Navy',
-        'Plain',
         'Medium',
         'https://res.cloudinary.com/dqqklkmfr/image/upload/v1611065635/myWardrobe/overall-dungerees-denim_ftglzs.png',
         4,
