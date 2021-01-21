@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
   // set up elements from html
   const calendarDay = $('#calendar-row');
   const deleteOutfitBtn = $('#delete-outfit');
@@ -67,7 +66,8 @@ $(document).ready(function () {
         .then(() => {
           // console.log('data from DELETE outfit =', dataReturned);
           selectedOutfit = 0;
-          showSavedOutfits();
+          // showSavedOutfits(); -- function made redundent by handlebars
+          location.reload();
           // console.log('selectedOutfit =', selectedOutfit);
           // the data returned successful is {outfit:1, outfitItems: 2} where 1 and 2 are the number of items changed/deleted
           // the data returned unsuccessful is {outfit:0, outfitItems: 0}
@@ -102,7 +102,6 @@ $(document).ready(function () {
   function addToPlannerTable() {
     // console.log('addToPlannerTable function called');
     if (selectedOutfit === 0 || calendarDayString === 'noneSelected') {
-
       console.log('do nothing');
     } else {
       // console.log('adding to calander', selectedOutfit, calendarDayString);
@@ -127,12 +126,11 @@ $(document).ready(function () {
               },
             })
               .then(() => {
-
                 // console.log('data from calendar POST outfit =', dataReturned);
                 selectedOutfit = 0;
                 calendarDayString = 'noneSelected';
-                getOutfitsInPlanner();
-
+                // getOutfitsInPlanner();
+                location.reload();
               })
               .catch((err) => {
                 console.log(err);
@@ -150,11 +148,9 @@ $(document).ready(function () {
               },
             })
               .then(() => {
-
-
                 // console.log('data from calendar PUT outfit =', dataReturned);
-                getOutfitsInPlanner();
-
+                // getOutfitsInPlanner();
+                location.reload();
               })
               .catch((err) => {
                 if (err) {
@@ -170,7 +166,6 @@ $(document).ready(function () {
         });
     }
   }
-
 
   // ------ remove from planner table ---------------------------
   // remove an outfit from the planner
@@ -188,7 +183,6 @@ $(document).ready(function () {
 
       if (child === '') {
         console.log('no outfit here');
-
       } else {
         console.log('removing from planner', day);
         $.ajax({
@@ -198,9 +192,10 @@ $(document).ready(function () {
           .then((dataReturned) => {
             console.log('data from DELETE plannerEntry =', dataReturned);
             selectedOutfit = 0;
-            calendarDayString ='noneSelected';
-            getOutfitsInPlanner();
-            // console.log('selectedOutfit =', selectedOutfit);
+            calendarDayString = 'noneSelected';
+            // do not call getOutfits in planner as it is auto called on page load.
+            // getOutfitsInPlanner();
+            location.reload();
             // the data returned successful is {outfit:1, outfitItems: 2} where 1 and 2 are the number of items changed/deleted
             // the data returned unsuccessful is {outfit:0, outfitItems: 0}
           })

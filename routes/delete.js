@@ -14,7 +14,12 @@ router.delete('/outfit/:outfitID', async function (req, res) {
 router.delete('/plannerDate/:dayID', async function (req, res) {
   console.log('req.params =', req.params);
   const del = await plannerModel.deleteEntry(req.params.dayID);
-  res.send(del);
+  console.log('route planner delete =', del);
+  if (del === 1) {
+    res.send({ success: true });
+  } else {
+    res.send({ success: false });
+  }
 });
 
 module.exports = router;
