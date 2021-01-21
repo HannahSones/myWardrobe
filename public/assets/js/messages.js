@@ -1,5 +1,6 @@
 // set up elements from html ---------------
-const savedOutfits = $('#saved-outfits-message');
+const savedOutfitsMessage = $('#saved-outfits-message');
+const myWardrobeMessage = $('#my-wardrobe-message');
 
 // Export functions
 function messageData(){ /* eslint-disable-line no-unused-vars */
@@ -20,15 +21,39 @@ function messageData(){ /* eslint-disable-line no-unused-vars */
     noSave: 'There is no saved outfit for this day.',
     delete: 'Your outfit has been perminantly deleted.',
     removed: 'Your outfit has been removed from the calander.'
-  }
+  };
 
-  return {savedOutfitTips, savedOutfitAlerts};
+  const myWardrobeTips = [
+    'Tip: Click on a chosen item to remove it from the creator.',
+    'Tip: Click clear outfit to start creating again.',
+    'Tip: You can find your outfit in the Saved Outfits tab once you have created it.',
+    'Tip: Click on items from the carousels to create your outfit.',
+    'Tip: Five items will be visible in the creator, but it will hold more.',
+  ];
+
+  const myWardrobeAlerts = {
+    noItems: 'There are no items in the creator. Choose your outfit before creating.',
+    noName: 'You have not named your outfit. Please fill in the Outfit Name field and try agian.',
+  };
+
+  return {savedOutfitTips, savedOutfitAlerts, myWardrobeTips, myWardrobeAlerts};
+}
+
+function displayTips(){ /* eslint-disable-line no-unused-vars */
+  displaySavedOutfitTip();
+  displayMyWardrobeTip();
 }
 
 function savedOutfitsAlertCall(action){
-  savedOutfits.empty();
+  savedOutfitsMessage.empty();
   const message = `<p>${action}</p>`;
-  savedOutfits.append(message); 
+  savedOutfitsMessage.append(message); 
+}
+
+function myWardrobeAlertCall(action) {
+  myWardrobeMessage.empty();
+  const message = `<p>${action}</p>`;
+  myWardrobeMessage.append(message); 
 }
 
 
@@ -37,11 +62,40 @@ $(document).ready(function(){
 
   
 
-  //  global variables ----------------------
-  
+  //  document variables ----------------------
+  const {savedOutfitTips, myWardrobeTips} = messageData();
 
   // functions -------------------------------
-  
+  function displaySavedOutfitTip(){
+    savedOutfitsMessage.empty();
+    const max = savedOutfitTips.length;
+    console.log('SO max =', max); 
+    const min = 0
+    const getTipIndex = Math.floor(Math.random() * (max- min) + min);
+    console.log('SO getTipIndex =', getTipIndex); 
+    const action = savedOutfitTips[getTipIndex];
+    console.log('SO action =', action);
+    const message = `<p>${action}</p>`;
+    savedOutfitsMessage.append(message); 
+  }
+
+  function displayMyWardrobeTip(){
+    myWardrobeMessage.empty();
+    const max = myWardrobeTips.length;
+    console.log('MW max =', max); 
+    const min = 0
+    const getTipIndex = Math.floor(Math.random() * (max- min) + min);
+    console.log('WM getTipIndex =', getTipIndex); 
+    const action = myWardrobeTips[getTipIndex];
+    console.log('MW action =', action);
+    const message = `<p>${action}</p>`;
+    myWardrobeMessage.append(message); 
+  }
+
+  function init(){
+    setInterval(displaySavedOutfitTip, 30000);
+    setInterval(displayMyWardrobeTip, 30000);
+  }
 
 
   // event listeners -------------------------
@@ -49,6 +103,8 @@ $(document).ready(function(){
 
 
   // function calls ---------------------------
-
+  init();
+  displaySavedOutfitTip();
+  displayMyWardrobeTip();
 
 });
