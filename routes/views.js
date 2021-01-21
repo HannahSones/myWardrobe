@@ -2,7 +2,8 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const router = express.Router();
 const db = require('../config/database');
-const { Item } = require('../models/define');
+const { Item, User } = require('../models/define');
+const { selectUserByName } = require('../models/user');
 
 router.get('/myWardrobe', async function (req, res) {
   const tops = await db.selectTopsByID('corey');
@@ -33,7 +34,13 @@ router.get('/addNew', async function (req, res) {
   });
 });
 
-router.get('/myAccount', async function (req, res) {
+router.post('/', async function (req, res) {
+  const user = req.body.user;
+  const select = await selectUserByName(user);
+  res.send(select);
+});
+
+router.get('/', async function (req, res) {
   res.render('myAccount', {
     layouts: 'main',
   });

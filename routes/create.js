@@ -5,7 +5,7 @@ const addModel = require('../models/addNew');
 // add new user
 router.post('/user', async function (req, res) {
   try {
-    const insert = await addModel.addNewUser(req.body.name);
+    const insert = await addModel.addNewUser(req.body.user);
     res.send(insert);
   } catch {
     res.status(401);
@@ -25,16 +25,19 @@ router.post('/newOutfit', async function (req, res) {
   }
 });
 
-// add new date 
+// add new date
 router.post('/newDate', async function (req, res) {
   console.log('req.body=', req.body);
   try {
-    const add = await addModel.addNewCalanderEntry(req.body.dateString, req.body.outfitID);
+    const add = await addModel.addNewCalanderEntry(
+      req.body.dateString,
+      req.body.outfitID
+    );
     res.send(add);
   } catch {
     res.status(401);
     res.end();
   }
-})
+});
 
 module.exports = router;

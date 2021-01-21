@@ -7,20 +7,19 @@ const plannerModel = require('../models/planner');
 router.post('/addToOutfit', async function (req, res) {
   console.log('req.body =', req.body);
   const post = await outfitModel.addToOutfit(
-      req.body.itemID,
-      req.body.outfitID,
-    );  
+    req.body.itemID,
+    req.body.outfitID
+  );
   res.send(post);
 });
 
 router.put('/existingDate', async function (req, res) {
   console.log('req.body =', req.body);
   const update = await plannerModel.updatingOutfit(
-    req.body.dateString, 
+    req.body.dateString,
     req.body.outfitID
   );
   res.send(update);
-})
-
+});
 
 module.exports = router;

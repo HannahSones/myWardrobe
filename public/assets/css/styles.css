@@ -268,3 +268,6 @@ form {
 .emptyForm {
   border: red solid 2px;
 }
+.displayNone {
+  display: none;
+}
