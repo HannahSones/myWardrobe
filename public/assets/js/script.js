@@ -1,4 +1,8 @@
 $(document).ready(function () {
+
+  // Import function from another file
+  const {savedOutfitAlerts} = messageData();
+
   // set up elements from html
   const calendarDay = $('#calendar-row');
   const deleteOutfitBtn = $('#delete-outfit');
@@ -56,7 +60,8 @@ $(document).ready(function () {
   function deleteOutfit() {
     // console.log('delete outfit function called');
     if (selectedOutfit === 0) {
-      console.log('do nothing');
+      // console.log('do nothing');
+      savedOutfitsAlertCall(savedOutfitAlerts.noOutfit);
     } else {
       // console.log('deleting', selectedOutfit);
       $.ajax({
@@ -101,8 +106,13 @@ $(document).ready(function () {
   // ----------------------------------------------------
   function addToPlannerTable() {
     // console.log('addToPlannerTable function called');
-    if (selectedOutfit === 0 || calendarDayString === 'noneSelected') {
-      console.log('do nothing');
+    if (selectedOutfit === 0) {
+      // console.log('do nothing');
+      savedOutfitsAlertCall(savedOutfitAlerts.noOutfit);
+
+    } else if (calendarDayString === 'noneSelected'){
+      savedOutfitsAlertCall(savedOutfitAlerts.noDate);
+
     } else {
       // console.log('adding to calander', selectedOutfit, calendarDayString);
       const outfit = selectedOutfit;
@@ -171,9 +181,10 @@ $(document).ready(function () {
   // remove an outfit from the planner
   // ----------------------------------------------------
   function removeFromPlannerTable() {
-    console.log('removeFromPlannerTable clicked');
+    // console.log('removeFromPlannerTable clicked');
     if (calendarDayString === 'noneSelected') {
-      console.log('do nothing');
+      savedOutfitsAlertCall(savedOutfitAlerts.noDate);
+
     } else {
       const day = $(`#${calendarDayString}`).attr('id');
       console.log('day =', day);
@@ -182,9 +193,12 @@ $(document).ready(function () {
       console.log('child =', child, typeof child);
 
       if (child === '') {
-        console.log('no outfit here');
+        savedOutfitsAlertCall(savedOutfitAlerts.noSave);
+
       } else {
-        console.log('removing from planner', day);
+        // console.log('removing from planner', day);
+        savedOutfitsAlertCall(savedOutfitAlerts.removed);
+
         $.ajax({
           type: 'DELETE',
           url: '/delete/plannerDate/' + day,

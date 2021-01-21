@@ -4,9 +4,18 @@
   overflow:hidden;
 }
 
+.messages-to-user {
+  border-radius: 5px;
+  background-color: #d5e0d8;
+  border: 5px solid #8AB7A2; 
+  margin: 5px auto; 
+  height: 55px;
+  padding: 12px;
+}
+
 button {
   width: 150px; 
-  height: 54px;
+  height: 55px;
   margin: 5px auto; 
   border-radius: 5px;
   background-color: #8AB7A2;
