@@ -1,11 +1,8 @@
 <div class="" id=" saved-outfits-content" role="tabpanel" aria-labelledby="saved-outfits-tab">
     <h2>Saved Outfits</h2>
-    <div class="overflow-hidden">
-        <button id="delete-outfit" class="overflow-hidden">Delete Outfit</button>
-        <button id="add-to-calendar" class="overflow-hidden">Add to calender </button>
-        <button id="remove-from-calendar" class="overflow-hidden">Remove from calender </button>
+    <div id='saved-outfits-message' class="overflow-hidden messages-to-user">
+        <p>Message to the User</p>
     </div>
-    <!-- start content here for saved outfits -->
 
     <div id="outfits-container">
         {{#each outfits}}
@@ -20,4 +17,10 @@
             <button class="select-outfit" name="{{dataValues.id}}"> Select Outfit </button>
         </div>
         {{/each}}
+    </div>
+
+    <div class="overflow-hidden">
+        <button id="delete-outfit" class="overflow-hidden">Delete Outfit</button>
+        <button id="add-to-calendar" class="overflow-hidden">Add to Calender </button>
+        <button id="remove-from-calendar" class="overflow-hidden">Remove from Calender </button>
     </div>

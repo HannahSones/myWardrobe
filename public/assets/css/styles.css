@@ -12,7 +12,7 @@ body {
   box-sizing: border-box;
 }
 
-/* ------------------------ main styling ----------------------- */
+/* ------------------------ main / general styling ----------------------- */
 
 main {
   min-width: 90%;
@@ -36,9 +36,13 @@ div.row {
 .col-2 {
   /* margin: 0;
   padding: 0;  */
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   display: inline-block;
   vertical-align: top;
+}
+
+div.col-2{
+  width: 180px;
 }
 
 .hide {
@@ -52,13 +56,22 @@ td,
 h2,
 h3,
 h4,
+h5,
 button,
 form {
   font-family: Comfortaa;
 }
 
+h4 {
+  margin-top: 12px;
+}
+
 a {
   color: #41755d;
+}
+
+.overflow-hidden {
+  overflow:hidden;
 }
 
 /* ---------------------- nav bar ---------------------------------- */

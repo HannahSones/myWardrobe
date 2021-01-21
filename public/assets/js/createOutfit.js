@@ -1,4 +1,8 @@
 $(document).ready(function () {
+
+  // Import function from another file
+  const {myWardrobeAlerts} = messageData();
+
   // set up elements from html
   const outfitCreator = $('#outfit-creator');
   const createOutfit = $('#create-outfit');
@@ -72,8 +76,14 @@ $(document).ready(function () {
 
     if (name === '') {
       outfitName.attr('placeholder', 'NEED A NAME');
+      myWardrobeAlertCall(myWardrobeAlerts.noName);
+      // displayTips does call but cannot reach functions in document.ready
+      // setTimeout(displayTips(), 3000);
+
     } else if (numberOfChildren === 0) {
-      console.log('do nothing');
+      // console.log('do nothing');
+      myWardrobeAlertCall(myWardrobeAlerts.noItems);
+
     } else {
       let itemsInOutfit = [];
       children.each(function (index, element) {
