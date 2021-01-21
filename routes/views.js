@@ -1,8 +1,6 @@
 const express = require('express');
-const exphbs = require('express-handlebars');
 const router = express.Router();
 const db = require('../config/database');
-const { Item, User } = require('../models/define');
 const { selectUserByName } = require('../models/user');
 
 router.get('/myWardrobe', async function (req, res) {

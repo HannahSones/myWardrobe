@@ -118,13 +118,36 @@ $(document).ready(function () {
     showMonth(value);
   }
 
+  // ------ getOutfitName -------------------------
+  // gets the outfit name by specified id
+  // -----------------------------------------------
+  function getOutfitName(outfitID, callback) {
+    // console.log('getOutfitName function called');
+    $.ajax({
+      type: 'GET',
+      url: '/query/plannedOutfit/' + outfitID,
+    })
+      .then((dataReturned) => {
+        // console.log('data from GET outfitname =', dataReturned);
+        // const count = dataReturned;
+        // console.log('getOutfitCount function: count = ', count);
+        callback(dataReturned);
+      })
+      .catch((err) => {
+        if (err) {
+          throw err;
+        }
+      });
+  }
+
   // ---------------------- getOutfitsInPlanner ---------------------
-  //
+  // gets the outfits in the planner table and allocates
+  // them to the calendar assciated date.
   // ----------------------------------------------------------------
   function getOutfitsInPlanner() {
     $.ajax({
       type: 'GET',
-      url: `/query/planner`,
+      url: '/query/planner',
     })
       .then((dataReturned) => {
         // console.log('data from calendar GET planner =', dataReturned);
@@ -143,28 +166,6 @@ $(document).ready(function () {
             $(`td#${dataReturned[i].date}`).append(name);
           });
         }
-      })
-      .catch((err) => {
-        if (err) {
-          throw err;
-        }
-      });
-  }
-
-  // ------ getOutfitName -------------------------
-  // gets the outfit name by specified id
-  // -----------------------------------------------
-  function getOutfitName(outfitID, callback) {
-    // console.log('getOutfitName function called');
-    $.ajax({
-      type: 'GET',
-      url: '/query/plannedOutfit/' + outfitID,
-    })
-      .then((dataReturned) => {
-        // console.log('data from GET outfitname =', dataReturned);
-        // const count = dataReturned;
-        // console.log('getOutfitCount function: count = ', count);
-        callback(dataReturned);
       })
       .catch((err) => {
         if (err) {

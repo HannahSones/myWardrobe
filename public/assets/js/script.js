@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  
+
   // set up elements from html
   const calendarDay = $('#calendar-row');
   const deleteOutfitBtn = $('#delete-outfit');
@@ -64,7 +64,7 @@ $(document).ready(function () {
         type: 'DELETE',
         url: '/delete/outfit/' + selectedOutfit,
       })
-        .then((dataReturned) => {
+        .then(() => {
           // console.log('data from DELETE outfit =', dataReturned);
           selectedOutfit = 0;
           showSavedOutfits();
@@ -120,13 +120,13 @@ $(document).ready(function () {
           if (dataReturned.id === 0) {
             $.ajax({
               type: 'POST',
-              url: `/create/newDate`,
+              url: '/create/newDate',
               data: {
                 dateString: date,
                 outfitID: outfit,
               },
             })
-              .then((dataReturned) => {
+              .then(() => {
 
                 // console.log('data from calendar POST outfit =', dataReturned);
                 selectedOutfit = 0;
@@ -143,13 +143,13 @@ $(document).ready(function () {
           } else {
             $.ajax({
               type: 'PUT',
-              url: `/update/existingDate`,
+              url: '/update/existingDate',
               data: {
                 dateString: date,
                 outfitID: outfit,
               },
             })
-              .then((dataReturned) => {
+              .then(() => {
 
 
                 // console.log('data from calendar PUT outfit =', dataReturned);
