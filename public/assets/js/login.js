@@ -17,14 +17,14 @@ function welcomeFirstTime(name) {
    `;
 }
 
-function sameName(name) {
-  return `
-    <div class=''>
-    <h1>Uh Oh</h1>
-    <h3> </h3>
-    </div>
-    `;
-}
+// function sameName(name) {
+//   return `
+//     <div class=''>
+//     <h1>Uh Oh</h1>
+//     <h3> </h3>
+//     </div>
+//     `;
+// }
 
 (async function () {
   const storageObject = {};
@@ -43,7 +43,7 @@ function sameName(name) {
       localStorage.setItem('userID', userID);
       $('.welcomeDiv').addClass('displayNone');
       $('.welcomeContent').append(welcomeBack(res[0].name));
-    } else if (res.length == 0) {
+    } else if (res.length === 0) {
       console.log('noo');
     }
   });
@@ -54,7 +54,7 @@ $('.signIn').submit((e) => {
   e.preventDefault();
   const user = $('.userNameInput').val();
   console.log(user);
-  if (user == '') {
+  if (user === '') {
     return $('.userNameInput').addClass('emptyForm');
   }
   userData.user = user;

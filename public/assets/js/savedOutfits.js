@@ -20,7 +20,7 @@
         callback(dataReturned);
       })
       .catch((err) => {
-        if (err){throw err;} 
+        if (err){throw err;}
       });
   }
 
@@ -88,7 +88,7 @@
     // ignore commented code thats my testing
         const get = await localStorage.getItem('User');
     console.log(get);
-    if (get == 'corey') {} 
+    if (get == 'corey') {}
     const select = await $.get('query/Corey/items').then((res) => {
       res.forEach((item) => {
         $('.exampleDiv').append(

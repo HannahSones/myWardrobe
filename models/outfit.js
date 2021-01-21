@@ -1,7 +1,7 @@
 const db = require('../config/database.js');
 const { Item, Outfit, OutfitItem } = require('./define.js');
 
-const selectUsersOutfits = async (userID) => {
+const selectUsersOutfits = async () => {
   console.log('selectUsersOutfits function called');
   const select = await Outfit.findAll({
     raw: true,
@@ -31,7 +31,7 @@ const addToOutfit = async (itemID, outfitID) => {
   return add;
 };
 
-const selectOutfitItems = async (outfitID) => {
+const selectOutfitItems = async () => {
   console.log('selectOutfitItems function called');
   const select = await Outfit.findAll({
     attributes: ['id', 'name'],
