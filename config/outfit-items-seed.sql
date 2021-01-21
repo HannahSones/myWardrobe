@@ -1,5 +1,5 @@
 INSERT INTO 
-outfititems (
+outfitItems (
   outfitID,
   itemID,
   createdAt,
@@ -13,7 +13,7 @@ VALUES
   '2021-01-20 11:34:00'
 );
 INSERT INTO 
-outfititems (
+outfitItems (
   outfitID,
   itemID,
   createdAt,
@@ -28,7 +28,7 @@ VALUES
 );
 
 INSERT INTO 
-outfititems (
+outfitItems (
   outfitID,
   itemID,
   createdAt,
@@ -43,7 +43,7 @@ VALUES
 );
 
 INSERT INTO 
-outfititems (
+outfitItems (
   outfitID,
   itemID,
   createdAt,
@@ -58,7 +58,7 @@ VALUES
 );
 
 INSERT INTO 
-outfititems (
+outfitItems (
   outfitID,
   itemID,
   createdAt,
@@ -73,7 +73,7 @@ VALUES
 );
 
 INSERT INTO 
-outfititems (
+outfitItems (
   outfitID,
   itemID,
   createdAt,
@@ -88,7 +88,7 @@ VALUES
 );
 
 INSERT INTO 
-outfititems (
+outfitItems (
   outfitID,
   itemID,
   createdAt,
@@ -103,7 +103,7 @@ VALUES
 );
 
 INSERT INTO 
-outfititems (
+outfitItems (
   outfitID,
   itemID,
   createdAt,
@@ -118,7 +118,7 @@ VALUES
 );
 
 INSERT INTO 
-outfititems (
+outfitItems (
   outfitID,
   itemID,
   createdAt,
@@ -133,7 +133,7 @@ VALUES
 );
 
 INSERT INTO 
-outfititems (
+outfitItems (
   outfitID,
   itemID,
   createdAt,
@@ -148,7 +148,7 @@ VALUES
 );
 
 INSERT INTO 
-outfititems (
+outfitItems (
   outfitID,
   itemID,
   createdAt,
@@ -163,7 +163,7 @@ VALUES
 );
 
 INSERT INTO 
-outfititems (
+outfitItems (
   outfitID,
   itemID,
   createdAt,
@@ -178,7 +178,7 @@ VALUES
 );
 
 INSERT INTO 
-outfititems (
+outfitItems (
   outfitID,
   itemID,
   createdAt,
@@ -193,7 +193,7 @@ VALUES
 );
 
 INSERT INTO 
-outfititems (
+outfitItems (
   outfitID,
   itemID,
   createdAt,
@@ -208,7 +208,7 @@ VALUES
 );
 
 INSERT INTO 
-outfititems (
+outfitItems (
   outfitID,
   itemID,
   createdAt,
@@ -223,7 +223,7 @@ VALUES
 );
 
 INSERT INTO 
-outfititems (
+outfitItems (
   outfitID,
   itemID,
   createdAt,
@@ -238,7 +238,7 @@ VALUES
 );
 
 INSERT INTO 
-outfititems (
+outfitItems (
   outfitID,
   itemID,
   createdAt,
@@ -253,7 +253,7 @@ VALUES
 );
 
 INSERT INTO 
-outfititems (
+outfitItems (
   outfitID,
   itemID,
   createdAt,
@@ -268,7 +268,7 @@ VALUES
 );
 
 INSERT INTO 
-outfititems (
+outfitItems (
   outfitID,
   itemID,
   createdAt,
@@ -283,7 +283,7 @@ VALUES
 );
 
 INSERT INTO 
-outfititems (
+outfitItems (
   outfitID,
   itemID,
   createdAt,
@@ -298,7 +298,7 @@ VALUES
 );
 
 INSERT INTO 
-outfititems (
+outfitItems (
   outfitID,
   itemID,
   createdAt,
@@ -313,7 +313,7 @@ VALUES
 );
 
 INSERT INTO 
-outfititems (
+outfitItems (
   outfitID,
   itemID,
   createdAt,
