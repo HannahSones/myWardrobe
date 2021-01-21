@@ -3,7 +3,7 @@ const ck = require('ckey');
 
 
 if (process.env.JAWSDB_URL) {
-  module.exports = new Sequelize((process.env.JAWSDB_URL, {}), {
+  module.exports = new Sequelize(process.env.JAWSDB_URL, {
     dialect: 'mysql',
     pool: {
       max: 5,
