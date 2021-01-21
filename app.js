@@ -4,14 +4,8 @@ const exphbs = require('express-handlebars');
 const db = require('./config/database.js');
 const app = express();
 
-const config = require(__dirname + '/../config/config.js')[env];
-
 //test db
-db.authenticate()
-  .then(async () => {
-    db.sync();
-  })
-  .catch((err) => console.log('Error: ', err));
+
 
 // set up middleware
 app.use(express.static('public/'));
@@ -54,6 +48,11 @@ app.use('/delete', require('./routes/delete'));
 app.use('/', require('./routes/views'));
 
 const PORT = process.env.PORT || 5000;
-db.sequelize.sync().then(function() {
-  app.listen(PORT, console.log(`Server started on port ${PORT}`));
-});
+db.authenticate()
+  .then(async () => {
+    db.sync();
+  })
+  .then(() => {
+    app.listen(PORT, console.log(`Server started on port ${PORT}`));
+  })
+  .catch((err) => console.log('Error: ', err));
