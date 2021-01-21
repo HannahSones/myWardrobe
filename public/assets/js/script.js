@@ -68,6 +68,7 @@ $(document).ready(function () {
           // console.log('data from DELETE outfit =', dataReturned);
           selectedOutfit = 0;
           showSavedOutfits();
+          location.reload();
           // console.log('selectedOutfit =', selectedOutfit);
           // the data returned successful is {outfit:1, outfitItems: 2} where 1 and 2 are the number of items changed/deleted
           // the data returned unsuccessful is {outfit:0, outfitItems: 0}
@@ -132,6 +133,7 @@ $(document).ready(function () {
                 selectedOutfit = 0;
                 calendarDayString = 'noneSelected';
                 getOutfitsInPlanner();
+                location.reload();
 
               })
               .catch((err) => {
@@ -150,10 +152,9 @@ $(document).ready(function () {
               },
             })
               .then(() => {
-
-
                 // console.log('data from calendar PUT outfit =', dataReturned);
                 getOutfitsInPlanner();
+                location.reload();
 
               })
               .catch((err) => {
@@ -200,6 +201,7 @@ $(document).ready(function () {
             selectedOutfit = 0;
             calendarDayString ='noneSelected';
             getOutfitsInPlanner();
+            location.reload();
             // console.log('selectedOutfit =', selectedOutfit);
             // the data returned successful is {outfit:1, outfitItems: 2} where 1 and 2 are the number of items changed/deleted
             // the data returned unsuccessful is {outfit:0, outfitItems: 0}
