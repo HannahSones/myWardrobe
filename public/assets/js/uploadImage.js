@@ -25,7 +25,7 @@ button.click((e) => {
   });
 });
 
-$('select').change(function () {
+$('#typeSelection').change(function () {
   const selection = document.getElementById('typeSelection').value;
   if (selection === 'Top') {
     $('#topTypeSelected').css('display', 'block');

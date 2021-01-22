@@ -26,8 +26,8 @@ router.get('/itemByCat', async function (req, res) {
   res.send(select);
 });
 
-router.get('/catID', async function (req, res) {
-  const select = await categoryModel.getCategoryID(req.body.name);
+router.get('/catID/:name', async function (req, res) {
+  const select = await categoryModel.getCategoryID(req.params.name);
   res.send(select);
 });
 

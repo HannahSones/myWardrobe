@@ -4,8 +4,7 @@ const myWardrobeMessage = $('#my-wardrobe-message');
 const { savedOutfitAlerts, savedOutfitTips, myWardrobeAlerts, myWardrobeTips} = messageData();
 
 // Export functions
-function messageData() {
-  /* eslint-disable-line no-unused-vars */
+function messageData() { /* eslint-disable-line no-unused-vars */
   const savedOutfitTips = [
     'Tip: Message alerts apear here to guide you through mis-actions. ',
     'Tip: Selections Timeout after 5 seconds, you may need to reselect and try again.',
@@ -15,6 +14,7 @@ function messageData() {
     'Tip: You can delete outfits you do not want any more. ',
     'Tip: Scroll to see more outfits. ',
     'Tip: Outfits you create in My Wardrobe are saved here. ',
+    'Tip: You must remove outfits from the planner before deleting them.',
   ];
 
   const savedOutfitAlerts = {
@@ -32,6 +32,8 @@ function messageData() {
     'Tip: You can find your outfit in the Saved Outfits tab once you have created it.',
     'Tip: Click on items from the carousels to create your outfit.',
     'Tip: Five items will be visible in the creator, but it will hold more.',
+    'Tip: The filter menu will show you specific category items like skirts', 
+    'Tip: Filter view all to get the full wardrobe back again.',
   ];
 
   const myWardrobeAlerts = {
@@ -39,6 +41,7 @@ function messageData() {
       'There are no items in the creator. Choose your outfit before creating.',
     noName:
       'You have not named your outfit. Please fill in the Outfit Name field and try agian.',
+    filter: 'This is just placeholder text, please choose another option.'
   };
 
   return {
