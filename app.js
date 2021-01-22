@@ -5,11 +5,7 @@ const db = require('./config/database.js');
 const app = express();
 
 //test db
-db.authenticate()
-  .then(async () => {
-    db.sync();
-  })
-  .catch((err) => console.log('Error: ', err));
+
 
 // set up middleware
 app.use(express.static('public/'));
@@ -52,5 +48,11 @@ app.use('/delete', require('./routes/delete'));
 app.use('/', require('./routes/views'));
 
 const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, console.log(`Server started on port ${PORT}`));
+db.authenticate()
+  .then(async () => {
+    db.sync();
+  })
+  .then(() => {
+    app.listen(PORT, console.log(`Server started on port ${PORT}`));
+  })
+  .catch((err) => console.log('Error: ', err));
