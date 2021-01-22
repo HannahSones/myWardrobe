@@ -121,6 +121,7 @@ $(document).ready(function () {
 
   // ------ getOutfitName -------------------------
   // gets the outfit name by specified id
+  // called by getOutfitsIn Planner
   // -----------------------------------------------
   function getOutfitName(outfitID, callback) {
     // console.log('getOutfitName function called');

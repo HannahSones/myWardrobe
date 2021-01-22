@@ -78,15 +78,17 @@ $(document).ready(function () {
     if (name === '') {
       outfitName.attr('placeholder', 'NEED A NAME');
       myWardrobeAlertCall(myWardrobeAlerts.noName);
-      // displayTips does call but cannot reach functions in document.ready
-      // setTimeout(displayTips(), 3000);
+      setTimeout(displayTips(), 3000);
+
     } else if (numberOfChildren === 0) {
-      // console.log('do nothing');
       myWardrobeAlertCall(myWardrobeAlerts.noItems);
+      setTimeout(displayTips(), 3000);
+
     } else {
       let itemsInOutfit = [];
       children.each(function (index, element) {
         itemsInOutfit.push($(element).data('id'));
+        console.log(itemsInOutfit);
       });
 
       sendOutfitToDatabase(name, function (outfitID) {
