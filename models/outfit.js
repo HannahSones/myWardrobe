@@ -51,8 +51,7 @@ const selectOutfitItems = async (userID) => {
 };
 
 const deleteOutfit = async (outfitID) => {
-  console.log('deleteOutfit function called');
-
+  // console.log('deleteOutfit function called');
   const outfitItems = await OutfitItem.destroy({
     where: {
       outfitID: outfitID,
@@ -63,14 +62,24 @@ const deleteOutfit = async (outfitID) => {
       id: outfitID,
     },
   });
-
   return { outfit, outfitItems };
 };
+
+const getOutfitName = async (outfitID) => {
+  const outfitName = await Outfit.findAll({
+    attributes: ['name'],
+    where: {
+      id : outfitID
+    },
+  });
+  return outfitName;
+}
 
 db.selectUsersOutfits = selectUsersOutfits;
 db.selectUsersOutfit = selectUsersOutfit;
 db.addToOutfit = addToOutfit;
 db.selectOutfitItems = selectOutfitItems;
 db.deleteOutfit = deleteOutfit;
+db.getOutfitName = getOutfitName;
 
 module.exports = db;

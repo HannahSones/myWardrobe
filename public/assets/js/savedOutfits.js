@@ -1,7 +1,6 @@
 $(document).ready(function () {
-
   // Import function from another file
-  const {savedOutfitAlerts} = messageData();
+  const { savedOutfitAlerts } = messageData();
 
   // set up elements from html
   const calendarDay = $('#calendar-row');
@@ -37,27 +36,55 @@ $(document).ready(function () {
   // outfitID is save to selected outfit
   // function deletes the outfit if there is one selected.
   // -----------------------------------------------
-  function deleteOutfit() {
-    // console.log('delete outfit function called');
+  function deleteOutfit(outfitID) {
+    
+    console.log('deleting', selectedOutfit);
+    $.ajax({
+      type: 'DELETE',
+      url: '/delete/outfit/' + outfitID,
+    })
+      .then(() => {
+        // console.log('data from DELETE outfit =', dataReturned);
+        selectedOutfit = 0;
+        // showSavedOutfits(); -- function made redundent by handlebars
+        location.reload();
+        // console.log('selectedOutfit =', selectedOutfit);
+        // the data returned successful is {outfit:1, outfitItems: 2} where 1 and 2 are the number of items changed/deleted
+        // the data returned unsuccessful is {outfit:0, outfitItems: 0}
+      })
+      .catch((err) => {
+        if (err) {
+          throw err;
+        }
+      });
+  
+  }
+
+  // ------ checkIfInPlanner ---------------------------
+  // checks to see if an item is in the planner. 
+  // if no, calls delete Outfit above
+  // if yes, alerts user to remove from planner first. 
+  // -----------------------------------------------
+  function checkIfInPlanner() {
     if (selectedOutfit === 0) {
       // console.log('do nothing');
       savedOutfitsAlertCall(savedOutfitAlerts.noOutfit);
-      setTimeout(displayTips(), 10000);
+      // setTimeout(displayTips(), 10000);
 
     } else {
-      console.log('deleting', selectedOutfit);
+      const outfitID = selectedOutfit; 
       $.ajax({
-        type: 'DELETE',
-        url: '/delete/outfit/' + selectedOutfit,
+        type: 'GET',
+        url: '/query/isInPlanner/' + outfitID,
       })
-        .then(() => {
-          // console.log('data from DELETE outfit =', dataReturned);
-          selectedOutfit = 0;
-          // showSavedOutfits(); -- function made redundent by handlebars
-          location.reload();
-          // console.log('selectedOutfit =', selectedOutfit);
-          // the data returned successful is {outfit:1, outfitItems: 2} where 1 and 2 are the number of items changed/deleted
-          // the data returned unsuccessful is {outfit:0, outfitItems: 0}
+        .then((dataReturned) => {
+          console.log('datareturned is in planner =', dataReturned);
+          if (dataReturned.length === 0){
+            deleteOutfit(outfitID);
+
+          } else {
+            savedOutfitsAlertCall(savedOutfitAlerts.inPlanner);
+          }
         })
         .catch((err) => {
           if (err) {
@@ -67,6 +94,7 @@ $(document).ready(function () {
     }
   }
 
+
   // ------ selectOutfit ---------------------------
   // sets which outfit has been selected.
   // you have 5 seconds to choose next action or it reverts to 0.
@@ -74,7 +102,7 @@ $(document).ready(function () {
   // -----------------------------------------------
   function selectOutfit() {
     selectedOutfit = this.name;
-    // console.log('selectedOutfit = ', selectedOutfit);
+    console.log('selectedOutfit = ', selectedOutfit);
     setTimeout(function () {
       selectedOutfit = 0;
       // console.log('timeout on selected outfit =', selectedOutfit);
@@ -92,11 +120,9 @@ $(document).ready(function () {
       // console.log('do nothing');
       savedOutfitsAlertCall(savedOutfitAlerts.noOutfit);
       setTimeout(displayTips(), 10000);
-
-    } else if (calendarDayString === 'noneSelected'){
+    } else if (calendarDayString === 'noneSelected') {
       savedOutfitsAlertCall(savedOutfitAlerts.noDate);
       setTimeout(displayTips(), 10000);
-
     } else {
       // console.log('adding to calander', selectedOutfit, calendarDayString);
       const outfit = selectedOutfit;
@@ -169,7 +195,6 @@ $(document).ready(function () {
     if (calendarDayString === 'noneSelected') {
       savedOutfitsAlertCall(savedOutfitAlerts.noDate);
       setTimeout(displayTips(), 10000);
-
     } else {
       const day = $(`#${calendarDayString}`).attr('id');
       // console.log('day =', day);
@@ -180,7 +205,6 @@ $(document).ready(function () {
       if (child === '') {
         savedOutfitsAlertCall(savedOutfitAlerts.noSave);
         setTimeout(displayTips(), 10000);
-
       } else {
         // console.log('removing from planner', day);
         savedOutfitsAlertCall(savedOutfitAlerts.removed);
@@ -213,7 +237,7 @@ $(document).ready(function () {
 
   // create event listners
   calendarDay.on('click', 'td', getDayId);
-  deleteOutfitBtn.click(deleteOutfit);
+  deleteOutfitBtn.click(checkIfInPlanner);
   addToCalendar.click(addToPlannerTable);
   removeFromCalendar.click(removeFromPlannerTable);
   $(document).on('click', '.select-outfit', selectOutfit);
@@ -221,8 +245,7 @@ $(document).ready(function () {
   // function calls if needed.
 });
 
-
-// made redundent by handlebars 
+// made redundent by handlebars
 
 /* $(document).ready(function () {
   // set up elements from html

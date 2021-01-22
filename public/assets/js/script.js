@@ -35,13 +35,12 @@ $(document).ready(function(){
     })
     .then((dataReturned) => {
       console.log('script.js GET cat Id datareturned =', dataReturned); 
-      const categoryData = 
-      {
+      const categoryData = {
         id: dataReturned[0].id,
         type: dataReturned[0].type,
       };
 
-      console.log('1',categoryData); 
+      // console.log('1',categoryData); 
       callback(categoryData);
     })
     .catch((err) => {
@@ -52,12 +51,12 @@ $(document).ready(function(){
   }
   
   function filterCarousel(){
-    console.log('itemFilter.val() =', itemFilter.val(), typeof(itemFilter.val()));
+    // console.log('itemFilter.val() =', itemFilter.val(), typeof(itemFilter.val()));
     const category = itemFilter.val();
 
     if(category === 'View All'){
       myWardrobeAlertCall(myWardrobeAlerts.filter);
-      setTimeout(displayTips(), 10000);
+      // setTimeout(displayTips(), 10000);
 
     } else if(category === 'View All'){
       const userID = localStorage.getItem('userID');
@@ -65,7 +64,7 @@ $(document).ready(function(){
 
     } else {
       getCatId(category , function(categoryData){
-        console.log('2', categoryData);
+        // console.log('2', categoryData);
         const userID = localStorage.getItem('userID');
         const type = categoryData.type;
         const catID = categoryData.id;
@@ -76,14 +75,8 @@ $(document).ready(function(){
     };
   }
 
-
-
-
-
   // event listeners 
 
   itemFilter.change(filterCarousel);
-
-
 
 });
