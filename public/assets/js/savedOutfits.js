@@ -211,6 +211,7 @@ $(document).ready(function () {
           url: '/delete/plannerDate/' + day,
         })
           .then((dataReturned) => {
+            /* eslint-disable-line no-unused-vars */
             // console.log('data from DELETE plannerEntry =', dataReturned);
             selectedOutfit = 0;
             calendarDayString = 'noneSelected';
