@@ -12,7 +12,7 @@ body {
   box-sizing: border-box;
 }
 
-/* ------------------------ main styling ----------------------- */
+/* ------------------------ main / general styling ----------------------- */
 
 main {
   min-width: 90%;
@@ -36,9 +36,13 @@ div.row {
 .col-2 {
   /* margin: 0;
   padding: 0;  */
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   display: inline-block;
   vertical-align: top;
+}
+
+div.col-2{
+  width: 180px;
 }
 
 .hide {
@@ -52,13 +56,22 @@ td,
 h2,
 h3,
 h4,
+h5,
 button,
 form {
   font-family: Comfortaa;
 }
 
+h4 {
+  margin-top: 12px;
+}
+
 a {
   color: #41755d;
+}
+
+.overflow-hidden {
+  overflow:hidden;
 }
 
 /* ---------------------- nav bar ---------------------------------- */
@@ -182,6 +195,39 @@ div#content-folder {
   transform: scale(1.1);
 }
 
+.slick-prev {
+  margin-left: 40px;
+  z-index: 3;
+}
+
+button.slick-prev.slick-arrow {
+  border: unset;
+}
+
+.slick-next {
+  margin-right: 40px;
+  z-index: 3;
+}
+
+button.slick-next.slick-arrow {
+  border: unset;
+}
+
+[dir='rtl'] .slick-prev {
+  margin-left: 40px;
+  z-index: 3;
+  left: auto;
+  right: 0px;
+}
+
+[dir='rtl'] .slick-next {
+  margin-right: 40px;
+  z-index: 3;
+  right: auto;
+  left: 0px;
+}
+
+
 /* ----------------- form styling ---------------------- */
 
 form {
@@ -234,4 +280,7 @@ form {
 /* If form is empty on submit */
 .emptyForm {
   border: red solid 2px;
+}
+.displayNone {
+  display: none;
 }

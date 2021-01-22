@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  // Import function from another file to find the date. 
   const {
     currentMonth,
     currentYear,
@@ -118,39 +119,6 @@ $(document).ready(function () {
     showMonth(value);
   }
 
-  // ---------------------- getOutfitsInPlanner ---------------------
-  //
-  // ----------------------------------------------------------------
-  function getOutfitsInPlanner() {
-    $.ajax({
-      type: 'GET',
-      url: `/query/planner`,
-    })
-      .then((dataReturned) => {
-        // console.log('data from calendar GET planner =', dataReturned);
-        // console.log('datareturned.length =', dataReturned.length);
-        for (let i = 0; i < dataReturned.length; i++) {
-          // console.log(
-          //   'i =',
-          //   i,
-          //   'dataReturned[i].outfitID =',
-          //   dataReturned[i].outfitID
-          // );
-          getOutfitName(dataReturned[i].outfitID, function (outfitData) {
-            // console.log('outfitData get outfits in planner =', outfitData);
-            // console.log('outfitData.name =', outfitData[0].name);
-            const name = `<h3>${outfitData[0].name}</h3>`;
-            $(`td#${dataReturned[i].date}`).append(name);
-          });
-        }
-      })
-      .catch((err) => {
-        if (err) {
-          throw err;
-        }
-      });
-  }
-
   // ------ getOutfitName -------------------------
   // gets the outfit name by specified id
   // -----------------------------------------------
@@ -165,6 +133,37 @@ $(document).ready(function () {
         // const count = dataReturned;
         // console.log('getOutfitCount function: count = ', count);
         callback(dataReturned);
+      })
+      .catch((err) => {
+        if (err) {
+          throw err;
+        }
+      });
+  }
+
+  // ---------------------- getOutfitsInPlanner ---------------------
+  // gets the outfits in the planner table and allocates
+  // them to the calendar assciated date.
+  // ----------------------------------------------------------------
+  function getOutfitsInPlanner() {
+    $.ajax({
+      type: 'GET',
+      url: '/query/planner',
+    })
+      .then((dataReturned) => {
+        // console.log('data from calendar GET planner =', dataReturned);
+        // console.log('datareturned.length =', dataReturned.length);
+        for (let i = 0; i < dataReturned.length; i++) {
+          // console.log('i =',i);
+          // console.log('dataReturned[i].outfitID =',dataReturned[i].outfitID);
+
+          getOutfitName(dataReturned[i].outfitID, function (outfitData) {
+            // console.log('outfitData get outfits in planner =', outfitData);
+            // console.log('outfitData.name =', outfitData[0].name);
+            const name = `<h3>${outfitData[0].name}</h3>`;
+            $(`td#${dataReturned[i].date}`).append(name);
+          });
+        }
       })
       .catch((err) => {
         if (err) {

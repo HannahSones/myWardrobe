@@ -1,12 +1,12 @@
 // Initial code for saving outfits, needs work
 const button = $('.myForm');
-const fileInput = $('#myFile');
-const uploadArray = [];
+// const fileInput = $('#myFile');
+// const uploadArray = [];
 button.click((e) => {
   localStorage.setItem('url', '');
   e.preventDefault();
   const theFile = $('#myFile')[0].files;
-  if (theFile.length > 1 || theFile.length == 0) {
+  if (theFile.length > 1 || theFile.length === 0) {
     return console.log('nooo');
   }
   console.log(theFile);
@@ -56,7 +56,7 @@ $('select').change(function () {
 function itemType() {
   const inputs = $('.form-check-input');
   for (let i = 0; i < inputs.length; i++) {
-    if (inputs[i].checked == true) {
+    if (inputs[i].checked === true) {
       return parseInt(inputs[i].dataset.id);
     }
   }
@@ -65,7 +65,7 @@ function itemType() {
 // Name form submission
 function nameSubmit() {
   const name = $('.nameSubmission').val();
-  if (name == '') {
+  if (name === '') {
     $('.nameSubmission').addClass('emptyForm');
     return console.log('Empty Name Submission');
   }
@@ -75,7 +75,7 @@ function nameSubmit() {
 // Colour form submission
 function colourSubmit() {
   const colour = $('.colourSubmission').val();
-  if (colour == '') {
+  if (colour === '') {
     $('.colourSubmission').addClass('emptyForm');
     return console.log('Empty Colour Submission');
   }
@@ -85,7 +85,7 @@ function colourSubmit() {
 // Pattern form submission
 function patternSubmit() {
   const pattern = $('.patternSubmission').val();
-  if (pattern == '') {
+  if (pattern === '') {
     $('.patternSubmission').addClass('emptyForm');
     return console.log('Empty Pattern Submission');
   }
@@ -95,7 +95,7 @@ function patternSubmit() {
 // Weight form submission
 function weightSubmit() {
   const weight = $('.weightSubmission').val();
-  if (weight == '') {
+  if (weight === '') {
     $('.weightSubmission').addClass('emptyForm');
     return console.log('Empty Weight Submission');
   }
@@ -107,7 +107,7 @@ function imageSubmit() {
   const dataArray = [];
   const dataObject = {};
   const theFile = $('#myFile')[0].files;
-  if (theFile.length > 1 || theFile.length == 0) {
+  if (theFile.length > 1 || theFile.length === 0) {
     return console.log('nooo');
   }
   console.log(theFile);
@@ -129,7 +129,9 @@ function imageSubmit() {
     dataArray.push(patternSubmit());
     dataArray.push(weightSubmit());
     console.log(dataArray);
-    if (dataArray.length !== 6) return console.log('no');
+    if (dataArray.length !== 6) {
+      return console.log('no');
+    }
     dataObject.imageURL = dataArray[0];
     dataObject.categoryID = dataArray[2];
     dataObject.name = dataArray[1];
@@ -140,7 +142,7 @@ function imageSubmit() {
       type: 'POST',
       url: 'upload/item',
       data: dataObject,
-    }).then((res) => {
+    }).then(() => {
       $('.nameSubmission').val('');
       $('.colourSubmission').val('');
       $('.patternSubmission').val('');
