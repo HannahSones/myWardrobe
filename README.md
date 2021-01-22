@@ -16,13 +16,15 @@ The simple way to stay organised, build you wardrobe by snapping pictures of you
 - [Functionality](#functionality)
 - [Further Development](#further-development)
 - [Learning](#learning)
-- [License](License)
+- [License](#license)
 
 ---
 
 ## About
 
-- Add key features of the application here
+From personal experience, we know that organising what to wear is never a fun task. You forget about clothes that have been shoved in the back of your wardrobe for months, you decide you want to wear something that's in the wash, or you don't want to wear the same thing twice in one week.
+
+This app aims to solve these issues.
 
 #### User story
 
@@ -45,7 +47,7 @@ The simple way to stay organised, build you wardrobe by snapping pictures of you
 
 ## Link to deployed application
 
-Add heroku link
+View the live application on [Heroku](https://mywardrobeproject.herokuapp.com/).
 
 ---
 
@@ -78,7 +80,7 @@ Add heroku link
 
     Click on the items displayed in the carousels to add them to the creator view at the top of the page. If you select the wrong item or an item twice you can click on the incorrect item in the creator and it will immediatly be removed from selection. 
 
-    If (like me) you have too many clothes you can filter the carousells by category using the drop down filter menu. You will have to filter `View All` to resume the full selection. 
+    If (like me) you have too many clothes you can filter the carousels by category using the drop down filter menu. You will have to filter `View All` to resume the full selection. 
 
     If you want to start again with your creation, you can hit the clear outfit button. 
 
@@ -138,8 +140,8 @@ Moving forward with this application, these are the key areas we'd like to devel
 - **Delete a planned outfit**
   You must manually remove the outfits from the planner to delete an item. A feature needs to be added where the system purges Outfits before a set date before the current day. 
 
-- **Save When items are selected**
-  There is a column to save the day an item is worn. Future development could see statistics added to the application for number of times an item is worn or when it was last worn; how many times this monnth; or even when the item will become available for selection again (ie. has been processed through the laundry). 
+- **Save when items are selected**
+  There is a column to save the day an item is worn. Future development could see statistics added to the application for number of times an item is worn or when it was last worn; how many times this month; or even when the item will become available for selection again (ie. has been processed through the laundry). 
 
 - **Calander rotation**
   You can currently flick through the months of the full year, however you cannot go beyond the current year you are in. The next year will be available on Jan 1st.  
@@ -158,6 +160,8 @@ We each developed a different functionality of the web page through from front e
 
 ## License
 
-Licensed under the [MIT License](https://choosealicense.com/licenses/mit/).  
+Licensed under the [MIT License](https://choosealicense.com/licenses/mit/). 
+
 A short and simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code.  
+
 ![MIT license](https://img.shields.io/badge/license-MIT-brightgreen)
