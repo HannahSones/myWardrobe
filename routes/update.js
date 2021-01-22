@@ -8,8 +8,7 @@ router.post('/addToOutfit', async function (req, res) {
   console.log('req.body =', req.body);
   const post = await outfitModel.addToOutfit(
     req.body.itemID,
-    req.body.outfitID,
-    req.body.userID
+    req.body.outfitID
   );
   res.send(post);
 });

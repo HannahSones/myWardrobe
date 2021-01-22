@@ -2,5 +2,3 @@ node_modules/
 lib/
 routes/upload.js
 notes/
-public/assets/js/messages.js
-public/assets/js/userStorage.js

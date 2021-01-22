@@ -3,12 +3,10 @@ const router = express.Router();
 const db = require('../config/database');
 const { selectUserByName } = require('../models/user');
 
-router.get('/myWardrobe/:id', async function (req, res) {
-  const userID = req.params.id;
-  console.log('USER ID ====', userID);
-  const tops = await db.selectTopsByID(userID);
-  const bottoms = await db.selectBottomsByID(userID);
-  const overalls = await db.selectOverallsByID(userID);
+router.get('/myWardrobe', async function (req, res) {
+  const tops = await db.selectTopsByID('corey');
+  const bottoms = await db.selectBottomsByID('corey');
+  const overalls = await db.selectOverallsByID('corey');
   res.render('myWardrobe', {
     layouts: 'main',
     tops: tops,
@@ -17,10 +15,11 @@ router.get('/myWardrobe/:id', async function (req, res) {
   });
 });
 
-router.get('/myOutfits/:id', async function (req, res) {
+router.get('/myOutfits', async function (req, res) {
   // selecting all outfit items with user id
-  const outfits = await db.selectOutfitItems(req.params.id);
+  const outfits = await db.selectOutfitItems(1);
   /* console.log(outfits[0].dataValues.items); */
+  outfits.for;
   res.render('myOutfits', {
     layouts: 'main',
     outfits: outfits,

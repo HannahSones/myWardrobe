@@ -47,9 +47,8 @@ router.post('/', upload.array('image', 5), async (req, res) => {
 });
 
 //  add new item of clothing to wardrobe.
-router.post('/item/:id', async function (req, res) {
+router.post('/item', async function (req, res) {
   const item = req.body;
-  const userID = req.params.id;
   db.addNewItem(
     item.name,
     item.colour,
@@ -57,7 +56,7 @@ router.post('/item/:id', async function (req, res) {
     item.weight,
     item.imageURL,
     item.categoryID,
-    userID
+    1
   );
   res.send({ success: true });
 });

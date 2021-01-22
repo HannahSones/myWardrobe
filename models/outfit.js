@@ -31,12 +31,9 @@ const addToOutfit = async (itemID, outfitID) => {
   return add;
 };
 
-const selectOutfitItems = async (userID) => {
+const selectOutfitItems = async () => {
   console.log('selectOutfitItems function called');
   const select = await Outfit.findAll({
-    where: {
-      userID: userID,
-    },
     attributes: ['id', 'name'],
     include: [
       {

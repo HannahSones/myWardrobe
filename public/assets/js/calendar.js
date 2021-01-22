@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  // Import function from another file to find the date.
+  // Import function from another file to find the date. 
   const {
     currentMonth,
     currentYear,

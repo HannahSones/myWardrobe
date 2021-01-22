@@ -1,6 +1,7 @@
 $(document).ready(function () {
+
   // Import function from another file
-  const { myWardrobeAlerts } = messageData();
+  const {myWardrobeAlerts} = messageData();
 
   // set up elements from html
   const outfitCreator = $('#outfit-creator');
@@ -18,13 +19,11 @@ $(document).ready(function () {
   // to add the outfit to the database before the items are added.
   // ----------------------------------------------------------------
   function sendOutfitToDatabase(name, callback) {
-    const userID = localStorage.getItem('user');
     $.ajax({
       type: 'POST',
       url: '/create/newOutfit',
       data: {
         name: name,
-        userID: userID,
       },
     })
       .then((dataReturned) => {
@@ -80,9 +79,11 @@ $(document).ready(function () {
       myWardrobeAlertCall(myWardrobeAlerts.noName);
       // displayTips does call but cannot reach functions in document.ready
       // setTimeout(displayTips(), 3000);
+
     } else if (numberOfChildren === 0) {
       // console.log('do nothing');
       myWardrobeAlertCall(myWardrobeAlerts.noItems);
+
     } else {
       let itemsInOutfit = [];
       children.each(function (index, element) {
