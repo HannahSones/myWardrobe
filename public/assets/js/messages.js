@@ -24,6 +24,7 @@ function messageData() { /* eslint-disable-line no-unused-vars */
     noSave: 'There is no saved outfit for this day.',
     delete: 'Your outfit has been perminantly deleted.',
     removed: 'Your outfit has been removed from the calander.',
+    inPlanner: 'You need to remove this outfit from the planner first.'
   };
 
   const myWardrobeTips = [

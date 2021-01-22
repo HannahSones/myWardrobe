@@ -39,9 +39,19 @@ const deleteEntry = async (dateID) => {
   return del;
 };
 
+const isInPlanner = async (outfitID) => {
+  const select = await Planner.findAll({
+    where: {
+      outfitID: outfitID,
+    },
+  });
+  return select;
+}
+
 db.getDate = getDate;
 db.updatingOutfit = updatingOutfit;
 db.getExisitngDates = getExisitngDates;
 db.deleteEntry = deleteEntry;
+db.isInPlanner = isInPlanner;
 
 module.exports = db;

@@ -78,11 +78,11 @@ $(document).ready(function () {
     if (name === '') {
       outfitName.attr('placeholder', 'NEED A NAME');
       myWardrobeAlertCall(myWardrobeAlerts.noName);
-      setTimeout(displayTips(), 10000);
+      // setTimeout(displayTips(), 10000);
 
     } else if (numberOfChildren === 0) {
       myWardrobeAlertCall(myWardrobeAlerts.noItems);
-      setTimeout(displayTips(), 10000);
+      // setTimeout(displayTips(), 10000);
 
     } else {
       let itemsInOutfit = [];

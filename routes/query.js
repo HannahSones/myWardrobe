@@ -38,6 +38,13 @@ router.get('/outfit/:outfitID', async function (req, res) {
   res.send(select);
 });
 
+// checks if an outfit is saved in the palnner.
+router.get('/isInPlanner/:outfitID', async function (req, res) {
+  // console.log('outfit/:outfitID req.params =', req.params);
+  const select = await plannerModel.isInPlanner(req.params.outfitID);
+  res.send(select);
+});
+
 //  just gets one outfit by specified id
 router.get('/plannedOutfit/:outfitID', async function (req, res) {
   console.log('req.body.outfitID =', req.params.outfitID);
