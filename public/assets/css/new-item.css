@@ -1,0 +1,20 @@
+.column {
+  position: relative;
+}
+
+.wardrobeSubmit {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+}
+
+.form-check-input {
+  height: 20px;
+  width: 20px;
+  padding: 2px;
+}
+
+.form-check-label {
+  height: 20px;
+  padding: 2px 10px; 
+}

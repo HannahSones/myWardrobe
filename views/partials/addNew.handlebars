@@ -1,145 +1,169 @@
 <div id="add-new-content" role="tabpanel" aria-labelledby="add-new-tab">
-    <h2>Add New Item</h2>
+  <h2>Add New Item</h2>
 
-    <form>
+  <form>
+    <div class="row">
+
+      <div class="col-6 column">
         <p>Upload a photo</p>
         <div class="input-group col-md-6">
-            <form>
-                <input type="file" id="myFile" name="myFile" multiple enctype="multipart/form-data">
-            </form>
+          <form>
+            <input type="file" id="myFile" name="myFile" multiple enctype="multipart/form-data">
+          </form>
         </div>
         </br>
         <div>
-            <form class="nameForm">
-                <input type="text" class="nameSubmission"> Name </input>
-            </form>
-            <form class="colourForm">
-                <input type="text" class="colourSubmission"> Colour </input>
-            </form>
-            <form class="patternForm">
-                <input type="text" class="patternSubmission"> Pattern </input>
-            </form>
-            <form class="weight">
-                <input type="text" class="weightSubmission"> Weight </input>
-            </form>
+          <form class="nameForm">
+            <input type="text" class="nameSubmission"> Name </input>
+          </form>
+          <form class="colourForm">
+            <input type="text" class="colourSubmission"> Colour </input>
+          </form>
+          <form class="patternForm">
+            <input type="text" class="patternSubmission"> Pattern </input>
+          </form>
+          <form class="weight">
+            <input type="text" class="weightSubmission"> Weight </input>
+          </form>
         </div>
         <br>
         <div class="mb-3">
-            <label for="typeSelection" class="form-label">Type</label>
-            <select id="typeSelection" class="form-select" aria-label="Default select example">
-                <option selected>Select item type from the menu</option>
-                <option value="Top">Top</option>
-                <option value="Bottom">Bottom</option>
-                <option value="Overall">Overall</option>
-            </select>
+          <label for="typeSelection" class="form-label">Type</label>
+          <select id="typeSelection" class="form-select" aria-label="Default select example">
+            <option selected>Select item type from the menu</option>
+            <option value="Top">Top</option>
+            <option value="Bottom">Bottom</option>
+            <option value="Overall">Overall</option>
+          </select>
         </div>
+      </div>
 
-
+      <div class="col-6 column">
         <form class="mb-3 userSelection">
-            <label for="category" class="form-label">Category</label>
 
-            <div id="topTypeSelected">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="T-shirt" data-id="14">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        T-shirt
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Shirt" data-id="9">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Shirt
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Blouse" data-id="1">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Blouse
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Polo" data-id="7">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Polo
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Poloneck" data-id="8">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Poloneck
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Tunictop" data-id="15">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Tunictop
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Vest" data-id="16">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Vest
-                    </label>
-                </div>
+          <label for="category" class="form-label display-none">Category</label>
+
+          <div id="topTypeSelected">
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Blouse" data-id="1">
+              <label class="form-check-label" for="flexCheckChecked">
+                Blouse
+              </label>
             </div>
-
-            <div id="bottomTypeSelected">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Trousers" data-id="13">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Trousers
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Jeans" data-id="5">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Jeans
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Skirts" data-id="11">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Skirts
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Tights" data-id="12">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Tights
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Shorts" data-id="10">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Shorts
-                    </label>
-                </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Croptop" data-id="2">
+              <label class="form-check-label" for="flexCheckChecked">
+                Croptop
+              </label>
             </div>
-
-
-            <div id="overallTypeSelected">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Trousers" data-id="13">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Jumper
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Jeans" data-id="5">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Dress
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Skirts" data-id="11">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Dungarees
-                    </label>
-                </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Jumper" data-id="6">
+              <label class="form-check-label" for="flexCheckDefault">
+                Jumper
+              </label>
             </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Polo" data-id="7">
+              <label class="form-check-label" for="flexCheckChecked">
+                Polo
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Poloneck" data-id="8">
+              <label class="form-check-label" for="flexCheckChecked">
+                Poloneck
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Shirt" data-id="9">
+              <label class="form-check-label" for="flexCheckChecked">
+                Shirt
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="T-shirt" data-id="14">
+              <label class="form-check-label" for="flexCheckDefault">
+                T-shirt
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Tunictop" data-id="15">
+              <label class="form-check-label" for="flexCheckChecked">
+                Tunictop
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Vest" data-id="16">
+              <label class="form-check-label" for="flexCheckChecked">
+                Vest
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Wooltop" data-id="17">
+              <label class="form-check-label" for="flexCheckChecked">
+                Wooltop
+              </label>
+            </div>
+          </div>
 
-            <button class='wardrobeSubmit' type="submit">Add to wardrobe</button>
+          <div id="bottomTypeSelected">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Jeans" data-id="5">
+              <label class="form-check-label" for="flexCheckChecked">
+                Jeans
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Shorts" data-id="10">
+              <label class="form-check-label" for="flexCheckChecked">
+                Shorts
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Skirts" data-id="11">
+              <label class="form-check-label" for="flexCheckChecked">
+                Skirts
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Tights" data-id="12">
+              <label class="form-check-label" for="flexCheckChecked">
+                Tights
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Trousers" data-id="13">
+              <label class="form-check-label" for="flexCheckDefault">
+                Trousers
+              </label>
+            </div>
+          </div>
+
+
+          <div id="overallTypeSelected">
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Dress" data-id="3">
+              <label class="form-check-label" for="flexCheckChecked">
+                Dress
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Dungeree" data-id="4">
+              <label class="form-check-label" for="flexCheckChecked">
+                Dungarees
+              </label>
+            </div>
+          </div>
+
+          <button class='wardrobeSubmit' type="submit">Add to wardrobe</button>
         </form>
-    </form>
+      </div>
+    </div>
+
+
+
+
+  </form>
 
 </div>
