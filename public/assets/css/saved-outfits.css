@@ -43,3 +43,6 @@ button.select-outfit {
   display: block;
 }
 
+.middle-align {
+  vertical-align: middle;
+}
