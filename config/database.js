@@ -1,7 +1,6 @@
 const Sequelize = require('sequelize');
 const ck = require('ckey');
 
-
 if (process.env.JAWSDB_URL) {
   module.exports = new Sequelize(process.env.JAWSDB_URL, {
     dialect: 'mysql',
@@ -23,5 +22,4 @@ if (process.env.JAWSDB_URL) {
       idle: 10000,
     },
   });
-};
-
+}
