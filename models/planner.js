@@ -1,9 +1,12 @@
 const db = require('../config/database.js');
 const { Planner } = require('./define.js');
 
-const getDate = async (date) => {
+const getDate = async (date, userID) => {
   console.log('date =', date, typeof date);
-  const name = await Planner.findOne({ where: { date: date }, raw: true });
+  const name = await Planner.findOne({
+    where: { date: date, userID: userID },
+    raw: true,
+  });
   if (name === null) {
     return { id: 0 };
   } else {
@@ -24,8 +27,11 @@ const updatingOutfit = async (dateString, outfitID) => {
   return update;
 };
 
-const getExisitngDates = async () => {
-  const select = await Planner.findAll({ raw: true });
+const getExisitngDates = async (userID) => {
+  const select = await Planner.findAll({
+    where: { userID: userID },
+    raw: true,
+  });
   return select;
 };
 
@@ -46,7 +52,7 @@ const isInPlanner = async (outfitID) => {
     },
   });
   return select;
-}
+};
 
 db.getDate = getDate;
 db.updatingOutfit = updatingOutfit;

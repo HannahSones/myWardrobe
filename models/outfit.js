@@ -8,6 +8,16 @@ const selectUsersOutfits = async () => {
   });
   return select;
 };
+const selectUsersOutfitsByID = async (userID) => {
+  console.log('selectUsersOutfits function called');
+  const select = await Outfit.findAll({
+    where: {
+      userID: userID,
+    },
+    raw: true,
+  });
+  return select;
+};
 
 const selectUsersOutfit = async (outfitID) => {
   console.log('selectUsersOutfit function called');
@@ -69,11 +79,11 @@ const getOutfitName = async (outfitID) => {
   const outfitName = await Outfit.findAll({
     attributes: ['name'],
     where: {
-      id : outfitID
+      id: outfitID,
     },
   });
   return outfitName;
-}
+};
 
 db.selectUsersOutfits = selectUsersOutfits;
 db.selectUsersOutfit = selectUsersOutfit;
@@ -81,5 +91,6 @@ db.addToOutfit = addToOutfit;
 db.selectOutfitItems = selectOutfitItems;
 db.deleteOutfit = deleteOutfit;
 db.getOutfitName = getOutfitName;
+db.selectUsersOutfitsByID = selectUsersOutfitsByID;
 
 module.exports = db;

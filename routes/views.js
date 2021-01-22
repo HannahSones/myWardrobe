@@ -4,7 +4,6 @@ const { selectUserByName } = require('../models/user');
 const itemsModel = require('../models/items');
 const outfitModel = require('../models/outfit');
 
-
 router.get('/myWardrobe/:id', async function (req, res) {
   const userID = req.params.id;
   console.log('USER ID ====', userID);
@@ -22,31 +21,28 @@ router.get('/myWardrobe/:id', async function (req, res) {
 router.get('/myWardrobe/:userID/:type/:catID', async function (req, res) {
   const userID = req.params.userID;
   const type = req.params.type;
-  const catID = req.params.catID
+  const catID = req.params.catID;
   // console.log('USER ID =', userID);
   let tops;
   let bottoms;
   let overalls;
 
-  if( type === 'top') {
+  if (type === 'top') {
     console.log('filtering tops');
     tops = await itemsModel.selectTopsByCatID(userID, catID);
     bottoms = await itemsModel.selectBottomsByID(userID);
     overalls = await itemsModel.selectOverallsByID(userID);
-
-  } else if( type === 'bottom') {
+  } else if (type === 'bottom') {
     console.log('filtering bottoms');
     tops = await itemsModel.selectTopsByID(userID);
     bottoms = await itemsModel.selectBottomsByCatID(userID, catID);
     overalls = await itemsModel.selectOverallsByID(userID);
-    
-  } else if( type === 'overall') {
+  } else if (type === 'overall') {
     console.log('filtering overalls');
     tops = await itemsModel.selectTopsByID(userID);
     bottoms = await itemsModel.selectBottomsByID(userID);
     overalls = await itemsModel.selectOverallsByCatID(userID, catID);
-    
-  };
+  }
 
   res.render('myWardrobe', {
     layouts: 'main',

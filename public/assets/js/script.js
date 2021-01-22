@@ -1,7 +1,6 @@
-$(document).ready(function(){
-
-  // inport variables  
-  const {myWardrobeAlerts} = messageData;
+$(document).ready(function () {
+  // inport variables
+  const { myWardrobeAlerts } = messageData;
 
   //set up html elements
 
@@ -27,43 +26,40 @@ $(document).ready(function(){
     }
   });
 
-
-  function getCatId(catName, callback){
+  function getCatId(catName, callback) {
     $.ajax({
       type: 'GET',
       url: '/query/catID/' + catName,
     })
-    .then((dataReturned) => {
-      console.log('script.js GET cat Id datareturned =', dataReturned); 
-      const categoryData = {
-        id: dataReturned[0].id,
-        type: dataReturned[0].type,
-      };
+      .then((dataReturned) => {
+        console.log('script.js GET cat Id datareturned =', dataReturned);
+        const categoryData = {
+          id: dataReturned[0].id,
+          type: dataReturned[0].type,
+        };
 
-      // console.log('1',categoryData); 
-      callback(categoryData);
-    })
-    .catch((err) => {
-      if (err) {
-        throw err; 
-      }
-    });
+        // console.log('1',categoryData);
+        callback(categoryData);
+      })
+      .catch((err) => {
+        if (err) {
+          throw err;
+        }
+      });
   }
-  
-  function filterCarousel(){
+
+  function filterCarousel() {
     // console.log('itemFilter.val() =', itemFilter.val(), typeof(itemFilter.val()));
     const category = itemFilter.val();
 
-    if(category === 'View All'){
+    if (category === 'View All') {
       myWardrobeAlertCall(myWardrobeAlerts.filter);
       // setTimeout(displayTips(), 10000);
-
-    } else if(category === 'View All'){
+    } else if (category === 'View All') {
       const userID = localStorage.getItem('userID');
       window.location.href = `/myWardrobe/${userID}`;
-
     } else {
-      getCatId(category , function(categoryData){
+      getCatId(category, function (categoryData) {
         // console.log('2', categoryData);
         const userID = localStorage.getItem('userID');
         const type = categoryData.type;
@@ -71,12 +67,10 @@ $(document).ready(function(){
         window.location.href = `/myWardrobe/${userID}/${type}/${catID}`;
         itemFilter.val(category);
       });
-
-    };
+    }
   }
 
-  // event listeners 
+  // event listeners
 
   itemFilter.change(filterCarousel);
-
 });

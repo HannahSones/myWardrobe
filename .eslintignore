@@ -4,3 +4,4 @@ routes/upload.js
 notes/
 public/assets/js/messages.js
 public/assets/js/userStorage.js
+routes/query.js

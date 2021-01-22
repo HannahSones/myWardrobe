@@ -33,7 +33,8 @@ router.post('/newDate', async function (req, res) {
   try {
     const add = await addModel.addNewCalanderEntry(
       req.body.dateString,
-      req.body.outfitID
+      req.body.outfitID,
+      req.body.userID
     );
     res.send(add);
   } catch {

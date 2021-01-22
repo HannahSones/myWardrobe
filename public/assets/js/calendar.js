@@ -147,9 +147,10 @@ $(document).ready(function () {
   // them to the calendar assciated date.
   // ----------------------------------------------------------------
   function getOutfitsInPlanner() {
+    const userID = localStorage.getItem('userID');
     $.ajax({
       type: 'GET',
-      url: '/query/planner',
+      url: `/query/planner/id/${userID}`,
     })
       .then((dataReturned) => {
         // console.log('data from calendar GET planner =', dataReturned);
@@ -168,7 +169,7 @@ $(document).ready(function () {
       })
       .catch((err) => {
         if (err) {
-          throw err;
+          console.log('no User ID');
         }
       });
   }
