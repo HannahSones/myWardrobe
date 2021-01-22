@@ -3,18 +3,22 @@
     <div id='my-wardrobe-message' class="overflow-hidden messages-to-user">
         <p>Message to the User</p>
     </div>
-    <div id="outfit-view" class="outfit-box row">
-        <div class="col-2">
+    <div id="outfit-view" class="outfit-box">
+        <div class="row">
+            <div class="col-3 column">
             <button id="create-outfit">Create Outfit</button>
             <button id="clear-outfit">Clear Outfit</button>
             <lable for="outfit-name" class="display-none">Outfit Name</lable>
             <input type="text" id="outfit-name" name="outfit-name" placeholder="Outfit Name" />
 
         </div>
-        <div class="col-9">
+        <div class="col-9 column">
             <div id="outfit-creator"></div>
         </div>
     </div>
+
+        </div>
+        
     <h4>Tops</h4>
     <div class="topsCarousel carousel">
         {{#each tops}}

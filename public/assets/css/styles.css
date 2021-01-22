@@ -67,6 +67,11 @@ a {
   display: none;
 }
 
+.column {
+  padding: 0;
+  /* border: 1px solid red; */
+  position: relative;
+}
 .messages-to-user {
   border-radius: 5px;
   background-color: #d5e0d8;
