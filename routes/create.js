@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const addModel = require('../models/addNew');
+const userModel = require('../models/user');
 
 // add new user
 router.post('/user', async function (req, res) {
@@ -16,8 +17,9 @@ router.post('/user', async function (req, res) {
 // add new outfit
 router.post('/newOutfit', async function (req, res) {
   console.log('req.body coreyyyyy=', req.body);
+  const user = await userModel.selectUserByName(req.body.userID);
   try {
-    const add = await addModel.addNewOutfit(req.body.name, req.body.userID);
+    const add = await addModel.addNewOutfit(req.body.name, user[0].id);
     res.send(add);
   } catch {
     res.status(401);
