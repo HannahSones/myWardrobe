@@ -1,39 +1,3 @@
-.messages-to-user {
-  border-radius: 5px;
-  background-color: #d5e0d8;
-  border: 5px solid #8AB7A2; 
-  margin: 5px auto; 
-  height: 55px;
-  padding: 12px;
-}
-
-.messages-to-user>p {
-  font-size: 1.2rem;
-}
-
-button {
-  width: 150px; 
-  height: 55px;
-  margin: 5px auto; 
-  border-radius: 5px;
-  background-color: #8AB7A2;
-  color: white;
-  border: 2px solid #BDD2C3; 
-}
-
-button:focus, button:active {
-  width: 150px; 
-  margin: 5px auto; 
-  border-radius: 5px;
-  background-color: #BDD2C3 ;
-  color: white;
-  border: 2px solid #8AB7A2; 
-}
-
-.display-none{
-  display: none;
-}
-
 /* -------------------- saved outfits styling ---------------------- */
 
 #outfits-container {
@@ -79,37 +43,3 @@ button.select-outfit {
   display: block;
 }
 
-/* -------------------- Create new outfit ---------------------- */
-
-#outfit-view {
-  width: 100%;
-  height: 375px;
-  overflow: unset;
-}
-
-#outfit-creator {
-  height: 330px;
-  padding: 15px;
-  overflow: hidden;
-}
-
-#outfit-creator>img {
-  height: auto;
-  max-height: 300px;
-  max-width:20%;
-}
-
-#outfit-name {
-  width: 150px;
-  height: 54px;
-  padding: 1px 6px; 
-  margin: 5px auto;
-  font-family: Comfortaa;
-  border-radius: 5px;
-  border: 2px solid #BDD2C3
-}
-
-#my-wardrobe-message {
-  /* width: 182px;
-  height:150px; */
-}

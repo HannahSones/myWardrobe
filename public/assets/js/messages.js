@@ -1,6 +1,7 @@
 // set up elements from html ---------------
 const savedOutfitsMessage = $('#saved-outfits-message');
 const myWardrobeMessage = $('#my-wardrobe-message');
+const { savedOutfitAlerts, savedOutfitTips, myWardrobeAlerts, myWardrobeTips} = messageData();
 
 // Export functions
 function messageData() {
@@ -66,33 +67,34 @@ function myWardrobeAlertCall(action) {
   myWardrobeMessage.append(message);
 }
 
+function displaySavedOutfitTip() {
+  savedOutfitsMessage.empty();
+  const max = savedOutfitTips.length;
+  // console.log('SO max =', max);
+  const min = 0;
+  const getTipIndex = Math.floor(Math.random() * (max - min) + min);
+  // console.log('SO getTipIndex =', getTipIndex);
+  const action = savedOutfitTips[getTipIndex];
+  // console.log('SO action =', action);
+  const message = `<p>${action}</p>`;
+  savedOutfitsMessage.append(message);
+}
+
+function displayMyWardrobeTip() {
+  myWardrobeMessage.empty();
+  const max = myWardrobeTips.length;
+  const min = 0;
+  const getTipIndex = Math.floor(Math.random() * (max - min) + min);
+  const action = myWardrobeTips[getTipIndex];
+  const message = `<p>${action}</p>`;
+  myWardrobeMessage.append(message);
+}
+
 $(document).ready(function () {
-  //  document variables ----------------------
-  const { savedOutfitTips, myWardrobeTips } = messageData();
+
+  // document variables 
 
   // functions -------------------------------
-  function displaySavedOutfitTip() {
-    savedOutfitsMessage.empty();
-    const max = savedOutfitTips.length;
-    console.log('SO max =', max);
-    const min = 0;
-    const getTipIndex = Math.floor(Math.random() * (max - min) + min);
-    console.log('SO getTipIndex =', getTipIndex);
-    const action = savedOutfitTips[getTipIndex];
-    console.log('SO action =', action);
-    const message = `<p>${action}</p>`;
-    savedOutfitsMessage.append(message);
-  }
-
-  function displayMyWardrobeTip() {
-    myWardrobeMessage.empty();
-    const max = myWardrobeTips.length;
-    const min = 0;
-    const getTipIndex = Math.floor(Math.random() * (max - min) + min);
-    const action = myWardrobeTips[getTipIndex];
-    const message = `<p>${action}</p>`;
-  }
-
   function init() {
     setInterval(displaySavedOutfitTip, 30000);
     setInterval(displayMyWardrobeTip, 30000);
@@ -104,4 +106,5 @@ $(document).ready(function () {
   init();
   displaySavedOutfitTip();
   displayMyWardrobeTip();
+
 });

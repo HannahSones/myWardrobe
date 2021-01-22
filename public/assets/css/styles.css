@@ -30,17 +30,6 @@ div.row {
   position: relative;
 }
 
-.col-9,
-.col-11,
-.col-10,
-.col-2 {
-  /* margin: 0;
-  padding: 0;  */
-  /* border: 1px solid blue; */
-  display: inline-block;
-  vertical-align: top;
-}
-
 div.col-2{
   width: 180px;
 }
@@ -72,6 +61,23 @@ a {
 
 .overflow-hidden {
   overflow:hidden;
+}
+
+.display-none{
+  display: none;
+}
+
+.messages-to-user {
+  border-radius: 5px;
+  background-color: #d5e0d8;
+  border: 5px solid #8AB7A2; 
+  margin: 5px auto; 
+  height: 55px;
+  padding: 12px;
+}
+
+.messages-to-user>p {
+  font-size: 1.2rem;
 }
 
 /* ---------------------- nav bar ---------------------------------- */
@@ -177,61 +183,39 @@ div#content-folder {
   transform: translateY(-3px);
 }
 
-/* -------------------- Wardrobe carousel styling ---------------------- */
-
-.topsCarousel {
-  overflow: hidden;
-}
-
-.bottomsCarousel {
-  overflow: hidden;
-}
-
-.overallsCarousel {
-  overflow: hidden;
-}
-
-.carousel > div > div > img:hover {
-  transform: scale(1.1);
-}
-
-.slick-prev {
-  margin-left: 40px;
-  z-index: 3;
-}
-
-button.slick-prev.slick-arrow {
-  border: unset;
-}
-
-.slick-next {
-  margin-right: 40px;
-  z-index: 3;
-}
-
-button.slick-next.slick-arrow {
-  border: unset;
-}
-
-[dir='rtl'] .slick-prev {
-  margin-left: 40px;
-  z-index: 3;
-  left: auto;
-  right: 0px;
-}
-
-[dir='rtl'] .slick-next {
-  margin-right: 40px;
-  z-index: 3;
-  right: auto;
-  left: 0px;
-}
-
-
 /* ----------------- form styling ---------------------- */
 
 form {
   padding-top: 15px;
+}
+
+input {
+  width: 150px;
+  height: 54px;
+  padding: 1px 6px; 
+  margin: 5px auto;
+  font-family: Comfortaa;
+  border-radius: 5px;
+  border: 2px solid #BDD2C3;
+}
+
+button {
+  width: 150px; 
+  height: 55px;
+  margin: 5px auto; 
+  border-radius: 5px;
+  background-color: #8AB7A2;
+  color: white;
+  border: 2px solid #BDD2C3; 
+}
+
+button:focus, button:active {
+  width: 150px; 
+  margin: 5px auto; 
+  border-radius: 5px;
+  background-color: #BDD2C3 ;
+  color: white;
+  border: 2px solid #8AB7A2; 
 }
 
 #typeSelection {
@@ -281,6 +265,7 @@ form {
 .emptyForm {
   border: red solid 2px;
 }
+
 .displayNone {
   display: none;
 }
