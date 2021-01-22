@@ -45,7 +45,7 @@ $(document).ready(function () {
       setTimeout(displayTips(), 10000);
 
     } else {
-      // console.log('deleting', selectedOutfit);
+      console.log('deleting', selectedOutfit);
       $.ajax({
         type: 'DELETE',
         url: '/delete/outfit/' + selectedOutfit,
@@ -74,10 +74,10 @@ $(document).ready(function () {
   // -----------------------------------------------
   function selectOutfit() {
     selectedOutfit = this.name;
-    console.log('selectedOutfit = ', selectedOutfit);
+    // console.log('selectedOutfit = ', selectedOutfit);
     setTimeout(function () {
       selectedOutfit = 0;
-      console.log('timeout on selected outfit =', selectedOutfit);
+      // console.log('timeout on selected outfit =', selectedOutfit);
     }, 5000);
   }
 
@@ -172,10 +172,10 @@ $(document).ready(function () {
 
     } else {
       const day = $(`#${calendarDayString}`).attr('id');
-      console.log('day =', day);
+      // console.log('day =', day);
 
       const child = $(`#${calendarDayString}`).children('h3').text();
-      console.log('child =', child, typeof child);
+      // console.log('child =', child, typeof child);
 
       if (child === '') {
         savedOutfitsAlertCall(savedOutfitAlerts.noSave);
@@ -191,7 +191,7 @@ $(document).ready(function () {
           url: '/delete/plannerDate/' + day,
         })
           .then((dataReturned) => {
-            console.log('data from DELETE plannerEntry =', dataReturned);
+            // console.log('data from DELETE plannerEntry =', dataReturned);
             selectedOutfit = 0;
             calendarDayString = 'noneSelected';
             // do not call getOutfits in planner as it is auto called on page load.
