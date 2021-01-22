@@ -11,6 +11,7 @@ const selectItemsByID = async (userName) => {
   });
   return sel;
 };
+
 const selectTopsByID = async (userID) => {
   const sel = await Item.findAll({
     where: { userID: userID, categoryID: [1, 2, 6, 7, 8, 9, 14, 15, 16, 17] },
@@ -18,6 +19,7 @@ const selectTopsByID = async (userID) => {
   });
   return sel;
 };
+
 const selectBottomsByID = async (userID) => {
   const sel = await Item.findAll({
     where: { userID: userID, categoryID: [5, 10, 11, 12, 13] },
@@ -25,9 +27,34 @@ const selectBottomsByID = async (userID) => {
   });
   return sel;
 };
+
 const selectOverallsByID = async (userID) => {
   const sel = await Item.findAll({
     where: { userID: userID, categoryID: [3, 4] },
+    raw: true,
+  });
+  return sel;
+};
+
+const selectTopsByCatID = async (userID, catID) => {
+  const sel = await Item.findAll({
+    where: { userID: userID, categoryID: catID },
+    raw: true,
+  });
+  return sel;
+};
+
+const selectBottomsByCatID = async (userID, catID) => {
+  const sel = await Item.findAll({
+    where: { userID: userID, categoryID: catID },
+    raw: true,
+  });
+  return sel;
+};
+
+const selectOverallsByCatID = async (userID, catID) => {
+  const sel = await Item.findAll({
+    where: { userID: userID, categoryID: catID },
     raw: true,
   });
   return sel;
@@ -37,4 +64,8 @@ db.selectItemsByID = selectItemsByID;
 db.selectTopsByID = selectTopsByID;
 db.selectBottomsByID = selectBottomsByID;
 db.selectOverallsByID = selectOverallsByID;
+db.selectTopsByCatID = selectTopsByCatID;
+db.selectBottomsByCatID = selectBottomsByCatID;
+db.selectOverallsByCatID = selectOverallsByCatID;
+
 module.exports = db;
