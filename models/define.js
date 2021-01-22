@@ -105,6 +105,10 @@ const Planner = db.define('planner', {
     // ref outfit ID
     type: Sequelize.INTEGER,
   },
+  userID: {
+    //ref userID
+    type: Sequelize.INTEGER,
+  },
 });
 
 Item.belongsTo(Category, { foreignKey: 'categoryID' });
@@ -112,6 +116,7 @@ Outfit.belongsTo(User, { foreignKey: 'userID' });
 Selected.belongsTo(Item, { foreignKey: 'itemID' });
 Item.belongsTo(User, { foreignKey: 'userID' });
 Planner.belongsTo(Outfit, { foreignKey: 'outfitID' });
+Planner.belongsTo(User, { foreignKey: 'userID' });
 
 // Outfit.belongsToMany(Item, {
 //   // foreignKey: 'itemID',

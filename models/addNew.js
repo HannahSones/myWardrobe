@@ -47,11 +47,12 @@ const addNewOutfit = async (name, userID) => {
   return add;
 };
 
-const addNewCalanderEntry = async (date, outfit) => {
+const addNewCalanderEntry = async (date, outfit, userID) => {
   console.log('addNewCalanderEntry function called');
   const add = await Planner.create({
     date: date,
     outfitID: outfit,
+    userID: userID,
   });
   return add;
 };

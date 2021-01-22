@@ -37,7 +37,6 @@ $(document).ready(function () {
   // function deletes the outfit if there is one selected.
   // -----------------------------------------------
   function deleteOutfit(outfitID) {
-    
     console.log('deleting', selectedOutfit);
     $.ajax({
       type: 'DELETE',
@@ -57,31 +56,28 @@ $(document).ready(function () {
           throw err;
         }
       });
-  
   }
 
   // ------ checkIfInPlanner ---------------------------
-  // checks to see if an item is in the planner. 
+  // checks to see if an item is in the planner.
   // if no, calls delete Outfit above
-  // if yes, alerts user to remove from planner first. 
+  // if yes, alerts user to remove from planner first.
   // -----------------------------------------------
   function checkIfInPlanner() {
     if (selectedOutfit === 0) {
       // console.log('do nothing');
       savedOutfitsAlertCall(savedOutfitAlerts.noOutfit);
       // setTimeout(displayTips(), 10000);
-
     } else {
-      const outfitID = selectedOutfit; 
+      const outfitID = selectedOutfit;
       $.ajax({
         type: 'GET',
         url: '/query/isInPlanner/' + outfitID,
       })
         .then((dataReturned) => {
           console.log('datareturned is in planner =', dataReturned);
-          if (dataReturned.length === 0){
+          if (dataReturned.length === 0) {
             deleteOutfit(outfitID);
-
           } else {
             savedOutfitsAlertCall(savedOutfitAlerts.inPlanner);
           }
@@ -93,7 +89,6 @@ $(document).ready(function () {
         });
     }
   }
-
 
   // ------ selectOutfit ---------------------------
   // sets which outfit has been selected.
@@ -127,10 +122,10 @@ $(document).ready(function () {
       // console.log('adding to calander', selectedOutfit, calendarDayString);
       const outfit = selectedOutfit;
       const date = calendarDayString;
-
+      const userID = localStorage.getItem('userID');
       $.ajax({
         type: 'GET',
-        url: '/query/planner/' + date,
+        url: `/query/planner/${date}&${userID}`,
       })
         .then((dataReturned) => {
           // console.log('data from calendar GET outfit =', dataReturned);
@@ -143,6 +138,7 @@ $(document).ready(function () {
               data: {
                 dateString: date,
                 outfitID: outfit,
+                userID: userID,
               },
             })
               .then(() => {

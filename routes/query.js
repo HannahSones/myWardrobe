@@ -6,6 +6,7 @@ const itemsModel = require('../models/items');
 const categoryModel = require('../models/category');
 const outfitModel = require('../models/outfit');
 const plannerModel = require('../models/planner');
+const { db } = require('../models/user');
 
 router.get('/:userName/items', async function (req, res) {
   // console.log(req.params);
@@ -59,15 +60,20 @@ router.get('/outfits', async function (req, res) {
   res.send(select);
 });
 
-router.get('/planner/:dateString', async function (req, res) {
+router.get('/planner/:dateString&:userId', async function (req, res) {
   // console.log('/planner/:dateString req.params =', req.params);
-  const select = await plannerModel.getDate(req.params.dateString);
+  const select = await plannerModel.getDate(
+    req.params.dateString,
+    req.params.userId
+  );
   console.log('planner/:dateString: select =', select);
   res.send(select);
 });
 
-router.get('/planner', async function (req, res) {
-  const select = await plannerModel.getExisitngDates();
+router.get('/planner/id/:userID', async function (req, res) {
+  const userID = req.params.userID;
+  if (!userID) return res.send('no user ID');
+  const select = await plannerModel.getExisitngDates(userID);
   res.send(select);
 });
 
