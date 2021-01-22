@@ -42,17 +42,6 @@ $('select').change(function () {
   }
 });
 
-/* $('.wardrobeSubmit').click(async (e) => {
-  e.preventDefault();
-  console.log('hello');
-  const url = await localStorage.getItem('url');
-  console.log(url);
-  console.log($('.userSelection'));
-  const found = $('input').find((el) => el.checked === true);
-  console.log(found);
-});
- */
-
 function itemType() {
   const inputs = $('.form-check-input');
   for (let i = 0; i < inputs.length; i++) {
@@ -104,6 +93,7 @@ function weightSubmit() {
 }
 
 function imageSubmit() {
+  const userID = localStorage.getItem('userID');
   const dataArray = [];
   const dataObject = {};
   const theFile = $('#myFile')[0].files;
@@ -140,7 +130,7 @@ function imageSubmit() {
     dataObject.weight = dataArray[5];
     $.ajax({
       type: 'POST',
-      url: 'upload/item',
+      url: `upload/item/${userID}`,
       data: dataObject,
     }).then(() => {
       $('.nameSubmission').val('');

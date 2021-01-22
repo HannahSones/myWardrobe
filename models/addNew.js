@@ -38,10 +38,11 @@ const addNewCategory = async (name) => {
   return create;
 };
 
-const addNewOutfit = async (name) => {
+const addNewOutfit = async (name, userID) => {
   console.log('addNewOutfit function called');
   const add = await Outfit.create({
     name: name,
+    userID: userID,
   });
   return add;
 };

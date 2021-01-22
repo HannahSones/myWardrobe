@@ -63,10 +63,12 @@ $('.signIn').submit((e) => {
     data: userData,
   }).then((res) => {
     if (res.length > 0) {
+      console.log(res);
       localStorage.setItem('user', user);
       localStorage.setItem('userID', res.id);
       $('.welcomeDiv').addClass('displayNone');
       $('.welcomeContent').append(welcomeBack(user));
+      window.location = window.location;
     } else {
       $.post({
         url: '/create/user',

@@ -1,5 +1,6 @@
 <div class="" id=" saved-outfits-content" role="tabpanel" aria-labelledby="saved-outfits-tab">
     <h2>Saved Outfits</h2>
+    {{#if outfits}}
     <div id='saved-outfits-message' class="overflow-hidden messages-to-user">
         <p>Message to the User</p>
     </div>
@@ -10,8 +11,8 @@
             <h3>{{dataValues.name}}</h3>
             {{#each dataValues.items}}
             <div class="item">
-                {{!-- <p> {{dataValues.name}}</p> --}} 
-                <img  src="{{dataValues.imageURL}}" />
+                {{!-- <p> {{dataValues.name}}</p> --}}
+                <img src="{{dataValues.imageURL}}" />
             </div>
             {{/each}}
             <button class="select-outfit" name="{{dataValues.id}}"> Select Outfit </button>
@@ -24,3 +25,7 @@
         <button id="add-to-calendar" class="overflow-hidden">Add to Calender </button>
         <button id="remove-from-calendar" class="overflow-hidden">Remove from Calender </button>
     </div>
+    {{else}}
+    <br><br>
+    <h2>Sorry You have no outfits!</h2>
+    {{/if}}
