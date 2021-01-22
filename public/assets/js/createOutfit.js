@@ -88,7 +88,7 @@ $(document).ready(function () {
       let itemsInOutfit = [];
       children.each(function (index, element) {
         itemsInOutfit.push($(element).data('id'));
-        console.log(itemsInOutfit); 
+        console.log(itemsInOutfit);
       });
 
       sendOutfitToDatabase(name, function (outfitID) {
