@@ -15,9 +15,9 @@ router.post('/user', async function (req, res) {
 
 // add new outfit
 router.post('/newOutfit', async function (req, res) {
-  console.log('req.body=', req.body);
+  console.log('req.body coreyyyyy=', req.body);
   try {
-    const add = await addModel.addNewOutfit(req.body.name);
+    const add = await addModel.addNewOutfit(req.body.name, req.body.userID);
     res.send(add);
   } catch {
     res.status(401);
