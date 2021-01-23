@@ -155,6 +155,11 @@ Moving forward with this application, these are the key areas we'd like to devel
 
   A further feature could be to restrict planning to 3 months ahead and see Outfits from a single month behind. 
 
+- **Upload image background remover**
+    In Our screenshots We have uploaded graphics of the clothes in our wardrobe. The user can choose what images they upload. 
+
+    Future defvelopement would see the use of a background remover api so the user can have a cleaner display of their own clothes. 
+
 ---
 
 ## Learning
