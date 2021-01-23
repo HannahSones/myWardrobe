@@ -20,3 +20,17 @@
 .uploadAlert {
   float: inline-end;
 }
+
+.input-group {
+  padding: 0;
+  margin: 0;
+}
+
+#file-upload-button {
+  background: red;
+}
+
+#myFile {
+  margin: 0;
+  border: unset;
+}

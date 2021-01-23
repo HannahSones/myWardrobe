@@ -241,6 +241,12 @@ button:focus, button:active {
   display: none;
 }
 
+#user-name-input, #user-name-button {
+  width: 200px;
+}
+
+
+
 /* -------------------  SCROLL BAR  ------------------------- */
 /* height */
 ::-webkit-scrollbar {
