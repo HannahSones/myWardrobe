@@ -76,6 +76,8 @@ View the live application on [Heroku](https://mywardrobeproject.herokuapp.com/).
 
 1. My Wardrobe page:  
 
+![My Wardrobe Page](./public/assets/img/extras/Screen-shot-my-wardrobe.png)
+
     From this page you create the outfit you want to wear.    
 
     Click on the items displayed in the carousels to add them to the creator view at the top of the page. If you select the wrong item or an item twice you can click on the incorrect item in the creator and it will immediatly be removed from selection. 
@@ -92,7 +94,8 @@ View the live application on [Heroku](https://mywardrobeproject.herokuapp.com/).
 
     When you have created an outfit the creator will clear, indicating the action has been registered and you can create again.
 
-2. Saved Outfits
+2. Saved Outfits.
+![SavedOutfits Page](./public/assets/img/extras/Screen-shotsaved-outfits.png)
 
     When you have created an outfit they are displayed in this tab. Scroll left and right to view all of your creations. 
 
@@ -110,6 +113,8 @@ View the live application on [Heroku](https://mywardrobeproject.herokuapp.com/).
 
 3. Add New Item. 
 
+![Add New Item](./public/assets/img/extras/Screen-sho-new-item.png)
+
     This page allows you to add to your wardrobe. 
 
     You must fill in the boxes, name of the item, colour, pattern, weight. You must also upload an image to go with your selection or the create feature will not work. 
@@ -121,6 +126,8 @@ View the live application on [Heroku](https://mywardrobeproject.herokuapp.com/).
     These 3 options will sort the item in the carousel and further display a category list for the type of garment. Please pick only one, though there is no restriction.
 
 4. My Account. 
+
+![SavedOutfits Page](./public/assets/img/extras/Screen-shot-my-account.png)
    
    This is the first thing you must do to create your wardrobe. Each item you add will subsequently be added alongside your user name and called forward in the carousels. Your outfits similarly. 
    
