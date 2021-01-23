@@ -34,7 +34,7 @@ function welcomeFirstTime(name) {
       $('.welcomeDiv').addClass('displayNone');
       $('.welcomeContent').append(welcomeBack(res[0].name));
     } else if (res.length === 0) {
-      console.log('noo');
+      // console.log('noo');
     }
   });
 })();
