@@ -28,7 +28,7 @@ function welcomeFirstTime(name) {
 
 (async function () {
   const storageObject = {};
-  console.log('hello');
+  // console.log('hello');
   const user = localStorage.getItem('user');
   storageObject.user = user;
   $.post({
@@ -37,14 +37,14 @@ function welcomeFirstTime(name) {
   }).then((res) => {
     console.log(res.length);
     if (res.length > 0) {
-      console.log(res);
+      // console.log(res);
       const userID = res[0].id;
       console.log(userID);
       localStorage.setItem('userID', userID);
       $('.welcomeDiv').addClass('displayNone');
       $('.welcomeContent').append(welcomeBack(res[0].name));
     } else if (res.length === 0) {
-      console.log('noo');
+      // console.log('noo');
     }
   });
 })();
@@ -53,7 +53,7 @@ $('.signIn').submit((e) => {
   const userData = {};
   e.preventDefault();
   const user = $('.userNameInput').val();
-  console.log(user);
+  // console.log(user);
   if (user === '') {
     return $('.userNameInput').addClass('emptyForm');
   }
@@ -63,7 +63,7 @@ $('.signIn').submit((e) => {
     data: userData,
   }).then((res) => {
     if (res.length > 0) {
-      console.log(res);
+      // console.log(res);
       localStorage.setItem('user', user);
       localStorage.setItem('userID', res.id);
       $('.welcomeDiv').addClass('displayNone');
@@ -74,9 +74,9 @@ $('.signIn').submit((e) => {
         url: '/create/user',
         data: userData,
       }).then((res) => {
-        console.log(res);
-        console.log(user);
-        console.log(res.id);
+        // console.log(res);
+        // console.log(user);
+        // console.log(res.id);
         localStorage.setItem('user', user);
         localStorage.setItem('userID', res.id);
         $('.welcomeDiv').addClass('displayNone');

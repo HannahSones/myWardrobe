@@ -92,6 +92,7 @@ function weightSubmit() {
   return weight;
 }
 
+// submits the image to db 
 function imageSubmit() {
   const userID = localStorage.getItem('userID');
   const dataArray = [];

@@ -26,6 +26,9 @@ $(document).ready(function () {
     }
   });
 
+   // ------- getCatId  -----------------------------------
+  // Gets the category Id from the database referenced by the outfit name
+  // ------------------------------------------------------------
   function getCatId(catName, callback) {
     $.ajax({
       type: 'GET',
@@ -48,6 +51,9 @@ $(document).ready(function () {
       });
   }
 
+   // ------- filter carousel  -----------------------------------
+  // shows a choses category to display in the carousel
+  // ------------------------------------------------------------
   function filterCarousel() {
     // console.log('itemFilter.val() =', itemFilter.val(), typeof(itemFilter.val()));
     const category = itemFilter.val();
