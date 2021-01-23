@@ -120,6 +120,7 @@ function imageSubmit() {
     dataObject.pattern = dataArray[4];
     dataObject.weight = dataArray[5];
     $.ajax({
+      /* Posts Entry to our Database */
       type: 'POST',
       url: `upload/item/${userID}`,
       data: dataObject,
