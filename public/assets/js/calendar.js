@@ -148,6 +148,9 @@ $(document).ready(function () {
   // ----------------------------------------------------------------
   function getOutfitsInPlanner() {
     const userID = localStorage.getItem('userID');
+    if (!userID) {
+      return console.log('No User ID');
+    }
     $.ajax({
       type: 'GET',
       url: `/query/planner/id/${userID}`,

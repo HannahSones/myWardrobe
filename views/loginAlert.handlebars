@@ -1,0 +1,49 @@
+<main>
+    <nav class="row">
+        <ul class="nav nav-tabs" role="tablist">
+            <li id="my-wardrobe-tab" class="nav-item wardrobeButton" role="presentation">
+                <a class="nav-link" href=""><span>My Wardrobe</span></a>
+            </li>
+            <li id="saved-outfits-tab" class="nav-item savedOutfitsButton" role="presentation">
+                <a class="nav-link" href=""><span>Saved Outfits</span></a>
+            </li>
+            <li id="add-new-tab" class="nav-item addNewButton" role="presentation">
+                <a class="nav-link" href="addNew"><span>Add New Item</span></a>
+            </li>
+            <li id="wardrobe-stats-tab" class="nav-item" role="presentation">
+                <a class="nav-link" href="/"><span>My Account</span></a>
+            </li>
+        </ul>
+        <div id="second-folder" class="folder"> </div>
+        <div id="first-folder" class="folder"> </div>
+    </nav>
+    <section id="content-view" class="row">
+        <div id="content-folder" class="tab-content welcomeContent">
+            <h1>You Must Login before Using the App!</h1>
+            <h3>Click the my Account tab to Log in or create a new account</h3>
+        </div>
+    </section>
+
+
+    <div id="calendar-container" class="row">
+        <div id="calendar-nav">
+            <ul class="nav nav-pills">
+                <li id="current-year" class="nav-title calendar-style">Year</li>
+                <li class="nav-item">
+                    <a id="btn-prev" class="nav-link nav-title calendar-style" href="#">Prev</a>
+                </li>
+                <li id="current-month" class="nav-title calendar-style">month</li>
+                <li class="nav-item">
+                    <a id="btn-next" class="nav-link nav-title calendar-style" href="#">Next</a>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <table id="calendar-table">
+                <tr id="calendar-row">
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</main>

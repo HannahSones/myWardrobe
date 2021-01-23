@@ -16,7 +16,6 @@ router.post('/user', async function (req, res) {
 
 // add new outfit
 router.post('/newOutfit', async function (req, res) {
-  console.log('req.body coreyyyyy=', req.body);
   const user = await userModel.selectUserByName(req.body.userID);
   try {
     const add = await addModel.addNewOutfit(req.body.name, user[0].id);
@@ -29,7 +28,6 @@ router.post('/newOutfit', async function (req, res) {
 
 // add new date
 router.post('/newDate', async function (req, res) {
-  console.log('req.body=', req.body);
   try {
     const add = await addModel.addNewCalanderEntry(
       req.body.dateString,
