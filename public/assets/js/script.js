@@ -56,8 +56,8 @@ $(document).ready(function () {
   function filterCarousel() {
     // console.log('itemFilter.val() =', itemFilter.val(), typeof(itemFilter.val()));
     const category = itemFilter.val();
-
-    if (category === 'View All') {
+    
+    if (category === 'Filter') {
       myWardrobeAlertCall(myWardrobeAlerts.filter);
       // setTimeout(displayTips(), 10000);
     } else if (category === 'View All') {

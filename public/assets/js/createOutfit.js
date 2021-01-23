@@ -114,6 +114,7 @@ $(document).ready(function () {
     const itemID = $(this).attr('data-id');
     const image = `<img src="${itemURL}" alt="${itemName}" data-id="${itemID}" />`;
     outfitCreator.append(image);
+    sessionStorage.setItem (itemID , [itemName, itemID, itemURL]);
   }
 
   // ---- clear outfit ------------------
@@ -121,6 +122,8 @@ $(document).ready(function () {
   // -------------------------------------
   function clearOutfit() {
     outfitCreator.empty();
+    sessionStorage.clear();
+
   }
 
   // --- remove from selection -----------------
@@ -128,6 +131,30 @@ $(document).ready(function () {
   // --------------------------------------------
   function removeSelectedItem() {
     $(this).remove();
+    const key = $(this).attr('data-id');
+    sessionStorage.removeItem(key)
+    
+  }
+
+  // --- getFromStorage -------------------------------------------
+  function getFromStorage(){
+    const items = Object.keys(sessionStorage);
+    items.forEach((item) => {
+      // console.log('item =', item);
+      const savedItem = sessionStorage.getItem(item);
+      const arr = savedItem.split(',');
+      // console.log('arr =', arr); 
+      // console.log('savedItem =', savedItem);
+      const itemName = arr[0];
+      const itemID = arr[1]; 
+      const itemURL = arr[2];
+      // console.log('itemID =', itemID);
+      // console.log('itemName =', itemName);
+      // console.log('itemURL =', itemURL);
+      const image = `<img src="${itemURL}" alt="${itemName}" data-id="${itemID}" />`;
+      outfitCreator.append(image);
+    })
+    // console.log('item', item);
   }
 
   // End functions -------------------------------------------------
@@ -140,4 +167,5 @@ $(document).ready(function () {
   outfitCreator.on('click', 'img', removeSelectedItem);
 
   // function calls
+  getFromStorage();
 });
