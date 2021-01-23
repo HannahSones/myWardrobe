@@ -51,7 +51,6 @@ router.get('/isInPlanner/:outfitID', async function (req, res) {
 router.get('/plannedOutfit/:outfitID', async function (req, res) {
   console.log('req.body.outfitID =', req.params.outfitID);
   const select = await outfitModel.selectUsersOutfit(req.params.outfitID);
-  console.log('select =', select);
   res.send(select);
 });
 

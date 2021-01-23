@@ -2,7 +2,6 @@ const db = require('../config/database.js');
 const { Planner } = require('./define.js');
 
 const getDate = async (date, userID) => {
-  console.log('date =', date, typeof date);
   const name = await Planner.findOne({
     where: { date: date, userID: userID },
     raw: true,
@@ -10,7 +9,6 @@ const getDate = async (date, userID) => {
   if (name === null) {
     return { id: 0 };
   } else {
-    console.log(name);
     return name;
   }
 };

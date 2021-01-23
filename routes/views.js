@@ -4,6 +4,7 @@ const { selectUserByName } = require('../models/user');
 const itemsModel = require('../models/items');
 const outfitModel = require('../models/outfit');
 
+/* gets all items that the user has inputted */
 router.get('/myWardrobe/:id', async function (req, res) {
   const userID = req.params.id;
   console.log('USER ID ====', userID);
@@ -51,6 +52,7 @@ router.get('/myWardrobe/:userID/:type/:catID', async function (req, res) {
     overalls: overalls,
   });
 });
+/* Gets all outfits that the user owns */
 
 router.get('/myOutfits/:id', async function (req, res) {
   // selecting all outfit items with user id
@@ -61,6 +63,8 @@ router.get('/myOutfits/:id', async function (req, res) {
     outfits: outfits,
   });
 });
+
+/* Serves handlebars for pages */
 
 router.get('/addNew', async function (req, res) {
   res.render('newItem', {
@@ -73,6 +77,20 @@ router.post('/', async function (req, res) {
   const select = await selectUserByName(user);
   res.send(select);
 });
+
+/* if this route is hit it means the user has not logged in and will be told to */
+router.get('/myWardrobe', async function (req, res) {
+  res.render('loginAlert', {
+    layouts: 'main',
+  });
+});
+router.get('/myOutfits', async function (req, res) {
+  res.render('loginAlert', {
+    layouts: 'main',
+  });
+});
+
+/* Root route gives the account page */
 
 router.get('/', async function (req, res) {
   res.render('myAccount', {

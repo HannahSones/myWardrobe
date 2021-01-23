@@ -6,7 +6,6 @@ const app = express();
 
 //test db
 
-
 // set up middleware
 app.use(express.static('public/'));
 

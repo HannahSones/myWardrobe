@@ -12,6 +12,9 @@ const selectItemsByID = async (userName) => {
   return sel;
 };
 
+/* Selects all items with corresponding category ID's , giving only a select
+range of items */
+
 const selectTopsByID = async (userID) => {
   const sel = await Item.findAll({
     where: { userID: userID, categoryID: [1, 2, 6, 7, 8, 9, 14, 15, 16, 17] },

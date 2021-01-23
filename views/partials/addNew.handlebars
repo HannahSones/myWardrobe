@@ -8,7 +8,7 @@
         <p>Upload a photo</p>
         <div class="input-group col-md-6">
           <form>
-            <input type="file" id="myFile" name="myFile" multiple enctype="multipart/form-data">
+            <input type="file" id="myFile" name="myFile" accept='image/*' enctype="multipart/form-data">
           </form>
         </div>
         </br>
@@ -38,7 +38,13 @@
         </div>
       </div>
 
-      <div class="col-6 column">
+      <div class="col-6 column ">
+        <div class="alertDiv">
+          <h2 class='uploadAlert displayNone'>Item Saved!</h2>
+        </div>
+        <div class="badUpload displayNone">
+          <h2>Bad Upload! Please make sure every part of the form is filled out correctly</h2>
+        </div>
         <form class="mb-3 userSelection">
 
           <label for="category" class="form-label display-none">Category</label>
@@ -155,7 +161,6 @@
               </label>
             </div>
           </div>
-
           <button class='wardrobeSubmit' type="submit">Add to wardrobe</button>
         </form>
       </div>

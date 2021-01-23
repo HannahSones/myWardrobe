@@ -1,5 +1,6 @@
-$(document).ready(function(){
-
+$(document).ready(function () {
+  /* Function that gets UserID when tab is clicked and serves the specific url with 
+that user ID in */
   $('.wardrobeButton').click(async (e) => {
     e.preventDefault();
     // console.log('hello');
@@ -21,8 +22,4 @@ $(document).ready(function(){
     // console.log(userID);
     window.location.href = `/addNew`;
   });
-
-
 });
-
-

@@ -32,8 +32,6 @@ const selectUsersOutfit = async (outfitID) => {
 
 const addToOutfit = async (itemID, outfitID) => {
   console.log('addToOutfit function called');
-  console.log('itemID =', itemID);
-  console.log('outfitID =', outfitID);
   const add = await OutfitItem.create({
     itemID: itemID,
     outfitID: outfitID,
@@ -61,7 +59,6 @@ const selectOutfitItems = async (userID) => {
 };
 
 const deleteOutfit = async (outfitID) => {
-  // console.log('deleteOutfit function called');
   const outfitItems = await OutfitItem.destroy({
     where: {
       outfitID: outfitID,
