@@ -31,6 +31,8 @@ $(document).ready(function () {
     }, 5000);
   }
 
+  
+
   // ------ deleteOutfit ---------------------------
   // an outfit must be selected first
   // outfitID is save to selected outfit
@@ -234,6 +236,7 @@ $(document).ready(function () {
 
   // create event listners
   calendarDay.on('click', 'td', getDayId);
+  calendarDay.on('click', 'td', addSelectionClass);
   deleteOutfitBtn.click(checkIfInPlanner);
   addToCalendar.click(addToPlannerTable);
   removeFromCalendar.click(removeFromPlannerTable);

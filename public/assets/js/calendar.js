@@ -106,6 +106,8 @@ $(document).ready(function () {
     let value = monthNames.indexOf(text);
     value--;
     showMonth(value);
+    getOutfitsInPlanner();
+
   }
 
   // ---------------------- next month ------------------------------
@@ -117,6 +119,7 @@ $(document).ready(function () {
     let value = monthNames.indexOf(text);
     value++;
     showMonth(value);
+    getOutfitsInPlanner();
   }
 
   // ------ getOutfitName -------------------------
