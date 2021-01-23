@@ -1,30 +1,3 @@
-// Initial code for saving outfits, needs work
-const button = $('.myForm');
-// const fileInput = $('#myFile');
-// const uploadArray = [];
-button.click((e) => {
-  localStorage.setItem('url', '');
-  e.preventDefault();
-  const theFile = $('#myFile')[0].files;
-  if (theFile.length > 1 || theFile.length === 0) {
-    return console.log('nooo');
-  }
-  console.log(theFile);
-  const formData = new FormData();
-  Object.keys(theFile).forEach((key) => {
-    formData.append('image', theFile[key]);
-  });
-  $.post({
-    url: '/upload',
-    data: formData,
-    processData: false,
-    contentType: false,
-  }).then((res) => {
-    console.log(res);
-    localStorage.setItem('url', res[0].url);
-  });
-});
-
 $('#typeSelection').change(function () {
   const selection = document.getElementById('typeSelection').value;
   if (selection === 'Top') {
@@ -51,7 +24,7 @@ function itemType() {
   }
 }
 
-// Name form submission
+// Name form submission check to see if valid input
 function nameSubmit() {
   const name = $('.nameSubmission').val();
   if (name === '') {
@@ -61,7 +34,7 @@ function nameSubmit() {
   $('.nameSubmission').removeClass('emptyForm');
   return name;
 }
-// Colour form submission
+// Colour form submission check to see if valid input
 function colourSubmit() {
   const colour = $('.colourSubmission').val();
   if (colour === '') {
@@ -71,7 +44,7 @@ function colourSubmit() {
   $('.colourSubmission').removeClass('emptyForm');
   return colour;
 }
-// Pattern form submission
+// Pattern form submission check to see if valid input
 function patternSubmit() {
   const pattern = $('.patternSubmission').val();
   if (pattern === '') {
@@ -81,7 +54,7 @@ function patternSubmit() {
   $('.patternSubmission').removeClass('emptyForm');
   return pattern;
 }
-// Weight form submission
+// Weight form submission check to see if valid input
 function weightSubmit() {
   const weight = $('.weightSubmission').val();
   if (weight === '') {
@@ -92,15 +65,33 @@ function weightSubmit() {
   return weight;
 }
 
+/* Lets the User know if the item saved successfully */
+function itemSaved() {
+  setTimeout(function () {
+    $('.uploadAlert').addClass('displayNone');
+  }, 5000);
+  $('.uploadAlert').removeClass('displayNone');
+}
+function badUpload() {
+  setTimeout(function () {
+    $('.badUpload').addClass('displayNone');
+  }, 5000);
+  $('.badUpload').removeClass('displayNone');
+}
+/*On submitting the Form the checks are made to see if form is correct then posts
+to Cloudinary followed by the Database*/
 function imageSubmit() {
   const userID = localStorage.getItem('userID');
+  if (!userID) {
+    return (window.location.href = '/myWardrobe');
+  }
   const dataArray = [];
   const dataObject = {};
   const theFile = $('#myFile')[0].files;
   if (theFile.length > 1 || theFile.length === 0) {
-    return console.log('nooo');
+    return badUpload();
   }
-  console.log(theFile);
+  /* Form to send the file in to Cloudinary */
   const formData = new FormData();
   Object.keys(theFile).forEach((key) => {
     formData.append('image', theFile[key]);
@@ -119,8 +110,8 @@ function imageSubmit() {
     dataArray.push(patternSubmit());
     dataArray.push(weightSubmit());
     console.log(dataArray);
-    if (dataArray.length !== 6) {
-      return console.log('no');
+    if (dataArray.length !== 6 || dataArray.includes(undefined)) {
+      return badUpload();
     }
     dataObject.imageURL = dataArray[0];
     dataObject.categoryID = dataArray[2];
@@ -133,10 +124,13 @@ function imageSubmit() {
       url: `upload/item/${userID}`,
       data: dataObject,
     }).then(() => {
+      $('#myFile').val('');
       $('.nameSubmission').val('');
       $('.colourSubmission').val('');
       $('.patternSubmission').val('');
       $('.weightSubmission').val('');
+      itemSaved();
+      $('.userSelection').load(location.href + ' .userSelection');
     });
   });
 }

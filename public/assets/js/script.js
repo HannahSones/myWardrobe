@@ -32,7 +32,6 @@ $(document).ready(function () {
       url: '/query/catID/' + catName,
     })
       .then((dataReturned) => {
-        console.log('script.js GET cat Id datareturned =', dataReturned);
         const categoryData = {
           id: dataReturned[0].id,
           type: dataReturned[0].type,

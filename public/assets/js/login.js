@@ -1,3 +1,5 @@
+/* Functions that return Welcome messages depending on if the user is new or existing */
+
 function welcomeBack(name) {
   return `
     <div class='welcomeBack'>
@@ -17,29 +19,17 @@ function welcomeFirstTime(name) {
    `;
 }
 
-// function sameName(name) {
-//   return `
-//     <div class=''>
-//     <h1>Uh Oh</h1>
-//     <h3> </h3>
-//     </div>
-//     `;
-// }
-
+/*  IIFE that checks for a user in local storage and decides what to return to the UI */
 (async function () {
   const storageObject = {};
-  console.log('hello');
   const user = localStorage.getItem('user');
   storageObject.user = user;
   $.post({
     url: '/',
     data: storageObject,
   }).then((res) => {
-    console.log(res.length);
     if (res.length > 0) {
-      console.log(res);
       const userID = res[0].id;
-      console.log(userID);
       localStorage.setItem('userID', userID);
       $('.welcomeDiv').addClass('displayNone');
       $('.welcomeContent').append(welcomeBack(res[0].name));
@@ -49,12 +39,15 @@ function welcomeFirstTime(name) {
   });
 })();
 
+/* This function runs when the user presses the sign in button, sets the local storage
+ and makes a call to the DB to check for the users name  */
+
 $('.signIn').submit((e) => {
   const userData = {};
   e.preventDefault();
   const user = $('.userNameInput').val();
-  console.log(user);
   if (user === '') {
+    /* If the user does not input a name */
     return $('.userNameInput').addClass('emptyForm');
   }
   userData.user = user;
@@ -63,7 +56,6 @@ $('.signIn').submit((e) => {
     data: userData,
   }).then((res) => {
     if (res.length > 0) {
-      console.log(res);
       localStorage.setItem('user', user);
       localStorage.setItem('userID', res.id);
       $('.welcomeDiv').addClass('displayNone');
@@ -74,9 +66,6 @@ $('.signIn').submit((e) => {
         url: '/create/user',
         data: userData,
       }).then((res) => {
-        console.log(res);
-        console.log(user);
-        console.log(res.id);
         localStorage.setItem('user', user);
         localStorage.setItem('userID', res.id);
         $('.welcomeDiv').addClass('displayNone');
@@ -86,9 +75,9 @@ $('.signIn').submit((e) => {
   });
 });
 
+/* Function to sign the user out if the button is pressed, removing local storage */
 $(document).on('click', '.signOut', (e) => {
   e.preventDefault();
-  console.log('clicked');
   localStorage.setItem('user', '');
   localStorage.setItem('userID', '');
   window.location = window.location;
