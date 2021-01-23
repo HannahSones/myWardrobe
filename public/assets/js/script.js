@@ -26,7 +26,7 @@ $(document).ready(function () {
     }
   });
 
-   // ------- getCatId  -----------------------------------
+  // ------- getCatId  -----------------------------------
   // Gets the category Id from the database referenced by the outfit name
   // ------------------------------------------------------------
   function getCatId(catName, callback) {
@@ -50,13 +50,13 @@ $(document).ready(function () {
       });
   }
 
-   // ------- filter carousel  -----------------------------------
+  // ------- filter carousel  -----------------------------------
   // shows a choses category to display in the carousel
   // ------------------------------------------------------------
   function filterCarousel() {
     // console.log('itemFilter.val() =', itemFilter.val(), typeof(itemFilter.val()));
     const category = itemFilter.val();
-    
+
     if (category === 'Filter') {
       myWardrobeAlertCall(myWardrobeAlerts.filter);
       // setTimeout(displayTips(), 10000);
