@@ -184,3 +184,14 @@ VALUES
         '2021-01-17 17:21:00',
         '2021-01-17 17:21:00'
     );
+
+INSERT INTO
+    categories (id, name, TYPE, createdAt, updatedAt)
+VALUES
+    (
+        18,
+        'jumpsuit',
+        'overall',
+        '2021-01-17 17:21:00',
+        '2021-01-17 17:21:00'
+    );

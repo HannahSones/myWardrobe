@@ -2,7 +2,7 @@ INSERT INTO
     users (name, createdAt, updatedAt)
 VALUES
     (
-        'Corey',
+        'Sam',
         '2021-01-17 17:21:00',
         '2021-01-17 17:21:00'
     );
@@ -20,7 +20,7 @@ INSERT INTO
     users (name, createdAt, updatedAt)
 VALUES
     (
-        'Sam',
+        'Corey',
         '2021-01-17 17:21:00',
         '2021-01-17 17:21:00'
     );
