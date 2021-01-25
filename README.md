@@ -47,7 +47,7 @@ This app aims to solve these issues.
 
 ## Link to deployed application
 
-View the live application on [Heroku](https://mywardrobeproject.herokuapp.com/).
+View the live application on [Heroku](https://my-wardrobe-slw.herokuapp.com/).
 
 ---
 
