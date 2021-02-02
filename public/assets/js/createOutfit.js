@@ -96,6 +96,7 @@ $(document).ready(function () {
           // console.log('itemID =', itemID);
           addToOutfit(itemID, outfitID);
         }
+        sessionStorage.clear();
       });
     }
   }

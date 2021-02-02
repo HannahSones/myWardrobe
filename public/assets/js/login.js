@@ -60,7 +60,7 @@ $('.signIn').submit((e) => {
       localStorage.setItem('userID', res.id);
       $('.welcomeDiv').addClass('displayNone');
       $('.welcomeContent').append(welcomeBack(user));
-      window.location = window.location;
+      window.location.reload(true);
     } else {
       $.post({
         url: '/create/user',
@@ -80,5 +80,5 @@ $(document).on('click', '.signOut', (e) => {
   e.preventDefault();
   localStorage.setItem('user', '');
   localStorage.setItem('userID', '');
-  window.location = window.location;
+  window.location.reload(true);
 });
