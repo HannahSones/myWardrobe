@@ -1,7 +1,7 @@
 {
     "theme_color": "#eddcd2",
     "background_color": "#f0efeb",
-    "display": "browser",
+    "display": "standalone",
     "scope": "/",
     "start_url": "/",
     "app_name": "My Wardrobe App",
@@ -9,22 +9,22 @@
     "description": "Get your style sorted with My Wardrobe - an application that lets you plan, save and create your outfits at the touch of a button.",
     "icons": [
         {
-            "src": "public/assets/img/extras/icon-192x192.png",
+            "src": "/img/extras/icon-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "public/assets/img/extras/icon-256x256.png",
+            "src": "/img/extras/icon-256x256.png",
             "sizes": "256x256",
             "type": "image/png"
         },
         {
-            "src": "public/assets/img/extras/icon-384x384.png",
+            "src": "/img/extras/icon-384x384.png",
             "sizes": "384x384",
             "type": "image/png"
         },
         {
-            "src": "public/assets/img/extras/icon-512x512.png",
+            "src": "/img/extras/icon-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
