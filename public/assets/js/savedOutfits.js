@@ -236,7 +236,6 @@ $(document).ready(function () {
 
   // create event listners
   calendarDay.on('click', 'td', getDayId);
-  calendarDay.on('click', 'td', addSelectionClass);
   deleteOutfitBtn.click(checkIfInPlanner);
   addToCalendar.click(addToPlannerTable);
   removeFromCalendar.click(removeFromPlannerTable);
