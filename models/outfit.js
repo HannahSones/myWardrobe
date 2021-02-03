@@ -30,6 +30,15 @@ const selectUsersOutfit = async (outfitID) => {
   return select;
 };
 
+const addNewOutfit = async (name, userID) => {
+  console.log('addNewOutfit function called');
+  const add = await Outfit.create({
+    name: name,
+    userID: userID,
+  });
+  return add;
+};
+
 const addToOutfit = async (itemID, outfitID) => {
   console.log('addToOutfit function called');
   const add = await OutfitItem.create({
@@ -82,12 +91,15 @@ const getOutfitName = async (outfitID) => {
   return outfitName;
 };
 
+
 db.selectUsersOutfits = selectUsersOutfits;
 db.selectUsersOutfit = selectUsersOutfit;
+db.selectUsersOutfitsByID = selectUsersOutfitsByID;
+
+db.addNewOutfit = addNewOutfit;
 db.addToOutfit = addToOutfit;
 db.selectOutfitItems = selectOutfitItems;
 db.deleteOutfit = deleteOutfit;
 db.getOutfitName = getOutfitName;
-db.selectUsersOutfitsByID = selectUsersOutfitsByID;
 
 module.exports = db;

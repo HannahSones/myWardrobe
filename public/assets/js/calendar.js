@@ -105,7 +105,7 @@ $(document).ready(function () {
     // console.log('getOutfitName function called');
     $.ajax({
       type: 'GET',
-      url: '/query/plannedOutfit/' + outfitID,
+      url: '/outfit/getName/' + outfitID,
     })
       .then((dataReturned) => {
         // console.log('data from GET outfitname =', dataReturned);
@@ -131,7 +131,7 @@ $(document).ready(function () {
     }
     $.ajax({
       type: 'GET',
-      url: `/query/planner/id/${userID}`,
+      url: `/outfit/inPlanner/${userID}`,
     })
       .then((dataReturned) => {
         // console.log('data from calendar GET planner =', dataReturned);

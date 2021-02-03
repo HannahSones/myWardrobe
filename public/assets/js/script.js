@@ -32,7 +32,7 @@ $(document).ready(function () {
   function getCatId(catName, callback) {
     $.ajax({
       type: 'GET',
-      url: '/query/catID/' + catName,
+      url: '/category/id/' + catName,
     })
       .then((dataReturned) => {
         const categoryData = {

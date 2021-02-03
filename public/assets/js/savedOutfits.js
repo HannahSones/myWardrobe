@@ -31,7 +31,6 @@ $(document).ready(function () {
     }, 5000);
   }
 
-  
 
   // ------ deleteOutfit ---------------------------
   // an outfit must be selected first
@@ -42,7 +41,7 @@ $(document).ready(function () {
     console.log('deleting', selectedOutfit);
     $.ajax({
       type: 'DELETE',
-      url: '/delete/outfit/' + outfitID,
+      url: '/outfit/delete/' + outfitID,
     })
       .then(() => {
         // console.log('data from DELETE outfit =', dataReturned);
@@ -74,7 +73,7 @@ $(document).ready(function () {
       const outfitID = selectedOutfit;
       $.ajax({
         type: 'GET',
-        url: '/query/isInPlanner/' + outfitID,
+        url: '/planner/isInPlanner/' + outfitID,
       })
         .then((dataReturned) => {
           console.log('datareturned is in planner =', dataReturned);
@@ -127,7 +126,7 @@ $(document).ready(function () {
       const userID = localStorage.getItem('userID');
       $.ajax({
         type: 'GET',
-        url: `/query/planner/${date}&${userID}`,
+        url: `/planner/getDate/${date}&${userID}`,
       })
         .then((dataReturned) => {
           // console.log('data from calendar GET outfit =', dataReturned);
@@ -136,7 +135,7 @@ $(document).ready(function () {
           if (dataReturned.id === 0) {
             $.ajax({
               type: 'POST',
-              url: '/create/newDate',
+              url: '/planner/newDate',
               data: {
                 dateString: date,
                 outfitID: outfit,
@@ -159,7 +158,7 @@ $(document).ready(function () {
           } else {
             $.ajax({
               type: 'PUT',
-              url: '/update/existingDate',
+              url: '/planner/updateDate',
               data: {
                 dateString: date,
                 outfitID: outfit,
@@ -210,7 +209,7 @@ $(document).ready(function () {
 
         $.ajax({
           type: 'DELETE',
-          url: '/delete/plannerDate/' + day,
+          url: '/planner/deleteDate/' + day,
         })
           .then((dataReturned) => {
             /* eslint-disable-line no-unused-vars */
