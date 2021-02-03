@@ -9,6 +9,18 @@
   "description": "Get your style sorted with My Wardrobe - an application that lets you plan, save and create your outfits at the touch of a button.",
   "icons": [
       {
+        "src": "img/icon-144x144.png",
+        "sizes": "144x144",
+        "type": "image/png",
+        "purpose": "maskable"
+      },
+      {
+        "src": "img/icon-152x152.png",
+        "sizes": "152x152",
+        "type": "image/png",
+        "purpose": "maskable"
+      },
+      {
           "src": "img/icon-192x192.png",
           "sizes": "192x192",
           "type": "image/png",
