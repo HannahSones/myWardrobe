@@ -13,6 +13,16 @@ const getDate = async (date, userID) => {
   }
 };
 
+const addNewCalanderEntry = async (date, outfit, userID) => {
+  console.log('addNewCalanderEntry function called');
+  const add = await Planner.create({
+    date: date,
+    outfitID: outfit,
+    userID: userID,
+  });
+  return add;
+};
+
 const updatingOutfit = async (dateString, outfitID) => {
   const update = await Planner.update(
     { outfitID: outfitID },
@@ -53,6 +63,7 @@ const isInPlanner = async (outfitID) => {
 };
 
 db.getDate = getDate;
+db.addNewCalanderEntry = addNewCalanderEntry;
 db.updatingOutfit = updatingOutfit;
 db.getExisitngDates = getExisitngDates;
 db.deleteEntry = deleteEntry;

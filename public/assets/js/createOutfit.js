@@ -21,7 +21,7 @@ $(document).ready(function () {
     const userID = localStorage.getItem('user');
     $.ajax({
       type: 'POST',
-      url: '/create/newOutfit',
+      url: '/outfit/newOutfit',
       data: {
         name: name,
         userID: userID,
@@ -48,7 +48,7 @@ $(document).ready(function () {
   function addToOutfit(itemID, outfitID) {
     $.ajax({
       type: 'POST',
-      url: '/update/addToOutfit',
+      url: '/outfit/addItems',
       data: {
         itemID: itemID,
         outfitID: outfitID,
@@ -67,7 +67,7 @@ $(document).ready(function () {
   }
 
   // --- create new outfit -------------------------------------------
-  // this is called from the cutton click cretae outfit
+  // this is called from the button click create outfit
   // checks if there are items in the outfit creator and a name in the form before continuing
   // -----------------------------------------------------------------
   function createNewOutfit() {

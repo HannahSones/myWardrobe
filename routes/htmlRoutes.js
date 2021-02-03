@@ -91,7 +91,6 @@ router.get('/myOutfits', async function (req, res) {
 });
 
 /* Root route gives the account page */
-
 router.get('/', async function (req, res) {
   res.render('myAccount', {
     layouts: 'main',
