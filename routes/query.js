@@ -15,11 +15,6 @@ router.get('/:userName/items', async function (req, res) {
   res.send(query);
 });
 
-/* router.get("/:userID/outfits", async function (req, res) {
-  const query = await selectUsersOutfits(req.params.userID);
-  res.send(query);
-}); */
-
 router.get('/itemByCat', async function (req, res) {
   const select = await categoryModel.selectByCategory(
     req.body.id,
