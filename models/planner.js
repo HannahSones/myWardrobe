@@ -14,7 +14,6 @@ const getDate = async (date, userID) => {
 };
 
 const addNewCalanderEntry = async (date, outfit, userID) => {
-  console.log('addNewCalanderEntry function called');
   const add = await Planner.create({
     date: date,
     outfitID: outfit,
