@@ -1,5 +1,4 @@
-
-function getDateData(){ /* eslint-disable-line no-unused-vars */
+function getDateData() {/* eslint-disable-line no-unused-vars */
 
   // set up elements from html
   const currentYear = $('#current-year');
@@ -11,8 +10,21 @@ function getDateData(){ /* eslint-disable-line no-unused-vars */
   const month = date.getMonth();
 
   // const monthDays = daysInMonth(year, month);
-  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const monthNames = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
   const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-  return {currentMonth, currentYear, date, year, month, monthNames, weekDays};
+  return { currentMonth, currentYear, date, year, month, monthNames, weekDays };
 }

@@ -9,7 +9,7 @@ const plannerModel = require('../models/planner');
 router.get('/isInPlanner/:outfitID', async function (req, res, next) {
   // console.log('outfit/:outfitID req.params =', req.params);
   const select = await plannerModel.isInPlanner(req.params.outfitID);
-  console.log({'GET planner/isInPlanner/:outfitID': next });
+  console.log({ 'GET planner/isInPlanner/:outfitID': next });
   res.send(select);
 });
 
@@ -20,7 +20,7 @@ router.get('/getDate/:dateString&:userId', async function (req, res, next) {
     req.params.dateString,
     req.params.userId
   );
-  console.log({'GET planner/getDate/:dateString&:userId': next });
+  console.log({ 'GET planner/getDate/:dateString&:userId': next });
   res.send(select);
 });
 
@@ -32,7 +32,7 @@ router.post('/newDate', async function (req, res, next) {
       req.body.outfitID,
       req.body.userID
     );
-    console.log({'POST planner/newDate': next });
+    console.log({ 'POST planner/newDate': next });
     res.send(add);
   } catch {
     res.status(401);
@@ -47,7 +47,7 @@ router.put('/updateDate', async function (req, res, next) {
     req.body.dateString,
     req.body.outfitID
   );
-  console.log({'PUT planner/updateDate': next });
+  console.log({ 'PUT planner/updateDate': next });
   res.send(update);
 });
 
@@ -56,13 +56,12 @@ router.delete('/deleteDate/:dayID', async function (req, res, next) {
   // console.log('req.params =', req.params);
   const del = await plannerModel.deleteEntry(req.params.dayID);
   // console.log('route planner delete =', del);
-  console.log({'DELETE planner/deleteDate/:dayID': next });
+  console.log({ 'DELETE planner/deleteDate/:dayID': next });
   if (del === 1) {
     res.send({ success: true });
   } else {
     res.send({ success: false });
   }
 });
-
 
 module.exports = router;

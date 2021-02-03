@@ -1,6 +1,6 @@
-/* 
-Functions that return Welcome messages 
-depending on if the user is new or existing 
+/*
+Functions that return Welcome messages
+depending on if the user is new or existing
 */
 function welcomeBack(name) {
   return `
@@ -21,9 +21,9 @@ function welcomeFirstTime(name) {
    `;
 }
 
-/*  
-IIFE that checks for a user in local storage 
-and decides what to return to the UI 
+/*
+IIFE that checks for a user in local storage
+and decides what to return to the UI
 */
 (async function () {
   const storageObject = {};
@@ -44,10 +44,10 @@ and decides what to return to the UI
   });
 })();
 
-/* 
-This function runs when the user presses the sign in button, 
+/*
+This function runs when the user presses the sign in button,
 sets the local storage
-and makes a call to the DB to check for the users name  
+and makes a call to the DB to check for the users name
 */
 $('.signIn').submit((e) => {
   const userData = {};

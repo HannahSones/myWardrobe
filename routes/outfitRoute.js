@@ -10,7 +10,7 @@ const plannerModel = require('../models/planner');
 router.get('/getName/:outfitID', async function (req, res, next) {
   // console.log('req.body.outfitID =', req.params.outfitID);
   const select = await outfitModel.selectUsersOutfit(req.params.outfitID);
-  console.log({'GET outfit/getName/:outfitID' : next });
+  console.log({ 'GET outfit/getName/:outfitID': next });
   res.send(select);
 });
 
@@ -21,7 +21,7 @@ router.get('/inPlanner/:userID', async function (req, res, next) {
     return res.send('no user ID');
   }
   const select = await plannerModel.getExisitngDates(userID);
-  console.log({'GET outfit/inPlanner/:userID' : next });
+  console.log({ 'GET outfit/inPlanner/:userID': next });
   res.send(select);
 });
 
@@ -30,7 +30,7 @@ router.post('/newOutfit', async function (req, res, next) {
   const user = await userModel.selectUserByName(req.body.userID);
   try {
     const add = await outfitModel.addNewOutfit(req.body.name, user[0].id);
-    console.log({'POST outfit/newOutfit': next });
+    console.log({ 'POST outfit/newOutfit': next });
     res.send(add);
   } catch {
     res.status(401);
@@ -46,18 +46,16 @@ router.post('/addItems', async function (req, res, next) {
     req.body.outfitID,
     req.body.userID
   );
-  console.log({'POST outfit/addItems': next });
+  console.log({ 'POST outfit/addItems': next });
   res.send(post);
 });
 
 // delete outfit
 router.delete('/delete/:outfitID', async function (req, res, next) {
-  console.log('req.params =', req.params);
+  // console.log('req.params =', req.params);
   const del = await outfitModel.deleteOutfit(req.params.outfitID);
-  console.log({'DELETE outfit/delete/:outfitID': next });
+  console.log({ 'DELETE outfit/delete/:outfitID': next });
   res.send(del);
 });
-
-
 
 module.exports = router;

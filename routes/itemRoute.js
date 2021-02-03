@@ -21,7 +21,7 @@ router.post('/addNew/:id', async function (req, res, next) {
     item.categoryID,
     userID
   );
-  console.log({'POST item/addNew/:id' : next });
+  console.log({ 'POST item/addNew/:id': next });
   res.send({ success: true });
 });
 
@@ -33,9 +33,8 @@ router.post('/addImage', upload.array('image', 5), async (req, res, next) => {
     const upload = await uploadModel.uploadFile(file);
     resArray.push(upload);
   }
-  console.log({'POST item/addImage' : next });
+  console.log({ 'POST item/addImage': next });
   res.send(resArray);
 });
-
 
 module.exports = router;

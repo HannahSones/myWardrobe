@@ -3,28 +3,43 @@ const { Category, Item } = require('./define.js');
 
 // Our side not neccessary for user
 const insertCategory = async (name) => {
-  const create = await Category.create({
+  return await Category.create({
     name: name,
     type: type,
-  });
-  return create;
+  })
+    .then((create) => {
+      return create;
+    })
+    .catch((err) => {
+      console.log({ 'categoryModel, insertCategory': err });
+    });
 };
 
 const selectByCategory = async (id) => {
-  const select = await Item.findAll({
+  return await Item.findAll({
     where: { categoryID: id },
     raw: true,
-  });
-  return select;
+  })
+    .then((select) => {
+      return select;
+    })
+    .catch((err) => {
+      console.log({ 'categoryModel, selectByCategory': err });
+    });
 };
 
 const getCategoryID = async (name) => {
-  const select = await Category.findAll({
+  return await Category.findAll({
     attributes: ['id', 'type'],
     where: { name: name },
     raw: true,
-  });
-  return select;
+  })
+    .then((select) => {
+      return select;
+    })
+    .catch((err) => {
+      console.log({ 'categoryModel, getCategoryID': err });
+    });
 };
 
 db.insertCategory = insertCategory;

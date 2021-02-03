@@ -34,6 +34,7 @@ function nameSubmit() {
   $('.nameSubmission').removeClass('emptyForm');
   return name;
 }
+
 // Colour form submission check to see if valid input
 function colourSubmit() {
   const colour = $('.colourSubmission').val();
@@ -80,9 +81,9 @@ function badUpload() {
 }
 
 /*
-On submitting the Form 
-the checks are made to see if form is correct 
-then posts to Cloudinary 
+On submitting the Form
+the checks are made to see if form is correct
+then posts to Cloudinary
 then posts to the Database
 */
 function imageSubmit() {
