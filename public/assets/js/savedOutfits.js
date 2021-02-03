@@ -31,7 +31,6 @@ $(document).ready(function () {
     }, 5000);
   }
 
-
   // ------ deleteOutfit ---------------------------
   // an outfit must be selected first
   // outfitID is save to selected outfit
@@ -243,4 +242,3 @@ $(document).ready(function () {
 
   // function calls if needed.
 });
-

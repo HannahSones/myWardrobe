@@ -7,13 +7,12 @@ const userModel = require('../models/user');
 router.post('/addNew', async function (req, res, next) {
   try {
     const insert = await userModel.addNewUser(req.body.user);
-    console.log({'POST user/addNew': next });
+    console.log({ 'POST user/addNew': next });
     res.send(insert);
   } catch {
     res.status(401);
     res.end();
   }
 });
-
 
 module.exports = router;

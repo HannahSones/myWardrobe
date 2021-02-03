@@ -165,7 +165,6 @@ $(document).ready(function () {
     value--;
     showMonth(value);
     getOutfitsInPlanner();
-
   }
 
   // ---------------------- next month ------------------------------

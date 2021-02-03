@@ -2,55 +2,75 @@ const db = require('../config/database.js');
 const { Item, Outfit, OutfitItem } = require('./define.js');
 
 const selectUsersOutfits = async () => {
-  console.log('selectUsersOutfits function called');
-  const select = await Outfit.findAll({
+  return await Outfit.findAll({
     raw: true,
-  });
-  return select;
+  })
+    .then((select) => {
+      return select;
+    })
+    .catch((err) => {
+      console.log({ 'outfitModel, selectUsersOutfits ': err });
+    });
 };
+
 const selectUsersOutfitsByID = async (userID) => {
-  console.log('selectUsersOutfits function called');
-  const select = await Outfit.findAll({
+  return await Outfit.findAll({
     where: {
       userID: userID,
     },
     raw: true,
-  });
-  return select;
+  })
+    .then((select) => {
+      return select;
+    })
+    .catch((err) => {
+      console.log({ 'outfitModel, selectUsersOutfitsByID ': err });
+    });
 };
 
 const selectUsersOutfit = async (outfitID) => {
-  console.log('selectUsersOutfit function called');
-  const select = await Outfit.findAll({
+  return await Outfit.findAll({
     where: {
       id: outfitID,
     },
     raw: true,
-  });
-  return select;
+  })
+    .then((select) => {
+      return select;
+    })
+    .catch((err) => {
+      console.log({ 'outfitModel, selectUsersOutfit ': err });
+    });
 };
 
 const addNewOutfit = async (name, userID) => {
-  console.log('addNewOutfit function called');
-  const add = await Outfit.create({
+  return await Outfit.create({
     name: name,
     userID: userID,
-  });
-  return add;
+  })
+    .then((select) => {
+      return select;
+    })
+    .catch((err) => {
+      console.log({ 'outfitModel, addNewOutfit': err });
+    });
 };
 
 const addToOutfit = async (itemID, outfitID) => {
-  console.log('addToOutfit function called');
-  const add = await OutfitItem.create({
+  return await OutfitItem.create({
     itemID: itemID,
     outfitID: outfitID,
-  });
-  return add;
+  })
+    .then((select) => {
+      return select;
+    })
+    .catch((err) => {
+      console.log({ 'outfitModel, addToOutfit': err });
+    });
 };
 
 const selectOutfitItems = async (userID) => {
-  console.log('selectOutfitItems function called');
-  const select = await Outfit.findAll({
+  return await Outfit.findAll({
     where: {
       userID: userID,
     },
@@ -63,34 +83,53 @@ const selectOutfitItems = async (userID) => {
         required: true,
       },
     ],
-  });
-  return select;
+  })
+    .then((select) => {
+      return select;
+    })
+    .catch((err) => {
+      console.log({ 'outfitModel, selectOutfitItems': err });
+    });
 };
 
 const deleteOutfit = async (outfitID) => {
-  const outfitItems = await OutfitItem.destroy({
+  return await OutfitItem.destroy({
     where: {
       outfitID: outfitID,
     },
-  });
-  const outfit = await Outfit.destroy({
-    where: {
-      id: outfitID,
-    },
-  });
-  return { outfit, outfitItems };
+  })
+    .then(async (itemsDeleted) => {
+      return await Outfit.destroy({
+        where: {
+          id: outfitID,
+        },
+      })
+        .then((outfitDeleted) => {
+          return { outfitItem: itemsDeleted, outfit: outfitDeleted };
+        })
+        .catch((err) => {
+          console.log({ 'outfitModel, deleteOutfit, nested query': err });
+        });
+    })
+    .catch((err) => {
+      console.log({ 'outfitModel, deleteOutfit': err });
+    });
 };
 
 const getOutfitName = async (outfitID) => {
-  const outfitName = await Outfit.findAll({
+  return await Outfit.findAll({
     attributes: ['name'],
     where: {
       id: outfitID,
     },
-  });
-  return outfitName;
+  })
+    .then((select) => {
+      return select;
+    })
+    .catch((err) => {
+      console.log({ 'outfitModel, getOutfitName': err });
+    });
 };
-
 
 db.selectUsersOutfits = selectUsersOutfits;
 db.selectUsersOutfit = selectUsersOutfit;
