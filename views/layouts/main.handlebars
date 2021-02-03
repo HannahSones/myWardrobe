@@ -46,8 +46,7 @@
 <body>
   {{{ body }}}
 
-  <!-- service worker -->
-  <script src="/assets/js/sw.js"></script>
+
 
   <!-- jQuery CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -76,6 +75,17 @@
   <script type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
+  <!-- service worker -->
+  <script>
+    // service worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js').then((reg) => {
+          console.log('Our service worker file is installed', reg);
+        });
+      });
+    }
+  </script>
 </body>
 
 </html>
