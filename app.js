@@ -4,8 +4,6 @@ const exphbs = require('express-handlebars');
 const db = require('./config/database.js');
 const app = express();
 
-//test db
-
 // set up middleware
 app.use(express.static('public/'));
 
