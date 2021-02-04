@@ -9,7 +9,7 @@
   <title>My Wardrobe</title>
 
   <!-- add icon link -->
-  <link rel="icon" href="assets/images/icon.png" type="image/x-icon" />
+  <link rel="icon" href="assets/img/icon.png" type="image/x-icon" />
 
   <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -38,7 +38,9 @@
     rel="stylesheet" />
 
   <!-- manifest file -->
-  <link rel="manifest" href="/assets/manifest.json">
+
+  <link rel="manifest" href="manifest.json">
+
 
 </head>
 
@@ -46,6 +48,17 @@
   {{{ body }}}
 
 
+  <!-- service worker -->
+  <script>
+    // service worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js').then((reg) => {
+          console.log('Our service worker file is installed', reg);
+        });
+      });
+    }
+  </script>
 
   <!-- jQuery CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

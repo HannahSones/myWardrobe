@@ -204,7 +204,7 @@ input, select {
   border: 2px solid #BDD2C3;
 }
 
-button {
+button, lable.file-upload {
   width: 150px; 
   height: 55px;
   margin: 5px auto; 
@@ -212,6 +212,19 @@ button {
   background-color: #8AB7A2;
   color: white;
   border: 2px solid #BDD2C3; 
+}
+
+lable.file-upload {
+  cursor: pointer;
+  text-align: center;
+  padding: 15px 0;
+  margin: 0;
+}
+
+span#file-chosen {
+  height: 55px;
+  padding: 15px 0;
+  margin-left: 15px;
 }
 
 button:focus, button:active {

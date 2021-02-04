@@ -15,6 +15,7 @@ The simple way to stay organised, build you wardrobe by snapping pictures of you
 - [Installation](#installation)
 - [Functionality](#functionality)
 - [Further Development](#further-development)
+- [Updates](#updates)
 - [Learning](#learning)
 - [License](#license)
 
@@ -47,7 +48,7 @@ This app aims to solve these issues.
 
 ## Link to deployed application
 
-View the live application on [Heroku](https://mywardrobeproject.herokuapp.com/).
+View the live application on [Heroku](https://my-wardrobe-slw.herokuapp.com/).
 
 ---
 
@@ -161,6 +162,12 @@ Moving forward with this application, these are the key areas we'd like to devel
     Future defvelopement would see the use of a background remover api so the user can have a cleaner display of their own clothes. 
 
 ---
+
+## Updates 
+
+(03.02.2021) 
+- I have restructured the file system and routing to better match the MVC design pattern.
+- I have added Error hadeling on the Express Router functions.  
 
 ## Learning
 

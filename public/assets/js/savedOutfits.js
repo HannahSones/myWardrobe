@@ -31,8 +31,6 @@ $(document).ready(function () {
     }, 5000);
   }
 
-  
-
   // ------ deleteOutfit ---------------------------
   // an outfit must be selected first
   // outfitID is save to selected outfit
@@ -42,7 +40,7 @@ $(document).ready(function () {
     console.log('deleting', selectedOutfit);
     $.ajax({
       type: 'DELETE',
-      url: '/delete/outfit/' + outfitID,
+      url: '/outfit/delete/' + outfitID,
     })
       .then(() => {
         // console.log('data from DELETE outfit =', dataReturned);
@@ -74,7 +72,7 @@ $(document).ready(function () {
       const outfitID = selectedOutfit;
       $.ajax({
         type: 'GET',
-        url: '/query/isInPlanner/' + outfitID,
+        url: '/planner/isInPlanner/' + outfitID,
       })
         .then((dataReturned) => {
           console.log('datareturned is in planner =', dataReturned);
@@ -127,7 +125,7 @@ $(document).ready(function () {
       const userID = localStorage.getItem('userID');
       $.ajax({
         type: 'GET',
-        url: `/query/planner/${date}&${userID}`,
+        url: `/planner/getDate/${date}&${userID}`,
       })
         .then((dataReturned) => {
           // console.log('data from calendar GET outfit =', dataReturned);
@@ -136,7 +134,7 @@ $(document).ready(function () {
           if (dataReturned.id === 0) {
             $.ajax({
               type: 'POST',
-              url: '/create/newDate',
+              url: '/planner/newDate',
               data: {
                 dateString: date,
                 outfitID: outfit,
@@ -159,7 +157,7 @@ $(document).ready(function () {
           } else {
             $.ajax({
               type: 'PUT',
-              url: '/update/existingDate',
+              url: '/planner/updateDate',
               data: {
                 dateString: date,
                 outfitID: outfit,
@@ -210,7 +208,7 @@ $(document).ready(function () {
 
         $.ajax({
           type: 'DELETE',
-          url: '/delete/plannerDate/' + day,
+          url: '/planner/deleteDate/' + day,
         })
           .then((dataReturned) => {
             /* eslint-disable-line no-unused-vars */
@@ -236,6 +234,9 @@ $(document).ready(function () {
 
   // create event listners
   calendarDay.on('click', 'td', getDayId);
+
+  // calendarDay.on('click', 'td', addSelectionClass);
+
   deleteOutfitBtn.click(checkIfInPlanner);
   addToCalendar.click(addToPlannerTable);
   removeFromCalendar.click(removeFromPlannerTable);
@@ -243,101 +244,3 @@ $(document).ready(function () {
 
   // function calls if needed.
 });
-
-// made redundent by handlebars
-
-/* $(document).ready(function () {
-  // set up elements from html
-  const outfits = $('#outfits-container');
-
-  // FUNCTIONS ----------------------------------------------------
-
-  // ------ getOutfitInfo -------------------------
-  // how many outfits are there in the outfits table.
-  // What is the Outfit id and name.
-  // -----------------------------------------------
-  function getOutfitInfo(callback) {
-    $.ajax({
-      type: 'GET',
-      url: '/query/outfits',
-    })
-      .then((dataReturned) => {
-        // console.log('data from GET outfits =', dataReturned);
-        // const count = dataReturned;
-        // console.log('getOutfitCount function: count = ', count);
-        callback(dataReturned);
-      })
-      .catch((err) => {
-        if (err){throw err;}
-      });
-  }
-
-  // ------ fill outfits -------------------------
-  // populates showSavedOutfits divs with items from getOutfit Items
-  // called from showSavedOutfits function.
-  // -------------------------------------------------
-  function fillOutfits(outfitID) {
-    getOutfitItems(outfitID, function (callback) {
-      // console.log('callback', callback);
-      const div = $(`#outfit-${callback[0].id}`);
-      for (let i = 0; i < callback[0].items.length; i++) {
-        let item = `<p>${callback[0].items[i].name}</p>`;
-        div.append(item);
-      }
-      const btn = `<button class="select-outfit" name="${callback[0].id}"> Select Outfit </button>`;
-      div.append(btn);
-    });
-  }
-
-  // ------ showSavedOutfits -------------------------
-  // Shows the outfits saved in the outfits table.
-  // uses a callback function to get the outfits from the getOutfitInfo function
-  // ---- need to fill ----
-  // -------------------------------------------------
-  function showSavedOutfits() {
-    getOutfitInfo(function (outfitData) {
-      // console.log('outfitData =', outfitData, typeof outfitData);
-      const count = outfitData.length;
-      // console.log('showSavedOutfits function: count = ', count);
-      outfits.empty();
-      // creating the box for each outfit
-      for (let i = 0; i < count; i++) {
-        let div = `<div id="outfit-${outfitData[i].id}" class="outfit-box"> <h3>${outfitData[i].name}</h3> </div>`;
-        outfits.append(div);
-      }
-      for (let j = 0; j < count; j++) {
-        fillOutfits(outfitData[j].id);
-      }
-    });
-  }
-
-  // ------ getOutfitItems -------------------------
-  // gets the itemss that make up a chosen outfit specified by id
-  // -------------------------------------------------
-
-  function getOutfitItems(outfitID, callback) {
-    $.ajax({
-      type: 'GET',
-      url: '/query/outfit/' + outfitID,
-    })
-      .then((dataReturned) => {
-        // console.log('data from GET items =', dataReturned);
-        // const count = dataReturned;
-        // console.log('getOutfitCount function: count = ', count);
-        callback(dataReturned);
-      })
-      .catch((err) => {
-        if (err) throw err;
-      });
-  }
-
-  })();*/
-
-// end of FUNCTIONS ----------------------------------------------------
-
-// create event listners
-
-// function calls
-//showSavedOutfits();
-
-//});

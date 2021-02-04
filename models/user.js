@@ -1,23 +1,55 @@
 const db = require('../config/database.js');
 const { User } = require('./define.js');
 
+const addNewUser = async (name) => {
+  return await User.create({
+    name: name,
+  })
+    .then((create) => {
+      return create;
+    })
+    .catch((err) => {
+      console.log({ 'userModel, selectUserByName': err });
+    });
+};
+
 const selectAllUsers = async () => {
-  const all = await User.findAll({});
-  return all;
+  return await User.findAll({})
+    .then((all) => {
+      return all;
+    })
+    .catch((err) => {
+      console.log({ 'userModel, selectAllUsers': err });
+    });
 };
 
 const selectUserByName = async (userName) => {
-  const selection = await User.findAll({
+  return await User.findAll({
     where: { name: userName },
     raw: true,
-  });
-  return selection;
+  })
+    .then((select) => {
+      return select;
+    })
+    .catch((err) => {
+      console.log({ 'userModel, selectUserByName': err });
+    });
 };
 
 const selectUserByID = async (userID) => {
-  const selection = await User.findAll({ where: { id: userID }, raw: true });
-  return selection;
+  return await User.findAll({
+    where: { id: userID },
+    raw: true,
+  })
+    .then((select) => {
+      return select;
+    })
+    .catch((err) => {
+      console.log({ 'userModel, selectUserByID': err });
+    });
 };
+
+db.addNewUser = addNewUser;
 
 db.selectAllUsers = selectAllUsers;
 db.selectUserByName = selectUserByName;

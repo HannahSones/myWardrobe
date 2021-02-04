@@ -4,8 +4,6 @@ const exphbs = require('express-handlebars');
 const db = require('./config/database.js');
 const app = express();
 
-//test db
-
 // set up middleware
 app.use(express.static('public/'));
 
@@ -24,27 +22,24 @@ app.engine(
 
 app.set('view engine', 'handlebars');
 
-//item routes
+// user actions ...
+app.use('/user', require('./routes/userRoute'));
 
-// query the database ...
-app.use('/query', require('./routes/query'));
+// outfit actions ...
+app.use('/outfit', require('./routes/outfitRoute'));
 
-// update existing...
-app.use('/update', require('./routes/update'));
+// planner actions ...
+app.use('/planner', require('./routes/plannerRoute'));
 
-// upload new item
-app.use('/upload', require('./routes/upload'));
+// category actions ...
+app.use('/category', require('./routes/categoryRoute'));
 
-// create new x in database ...
-app.use('/create', require('./routes/create'));
-
-// drop items from the database ...
-app.use('/delete', require('./routes/delete'));
+// item actions ...
+app.use('/item', require('./routes/itemRoute'));
 
 // we set the handlebars main.handlebars in the server file as the body of the html.
 // use res.render for handlebars
-
-app.use('/', require('./routes/views'));
+app.use('/', require('./routes/htmlRoutes'));
 
 const PORT = process.env.PORT || 5000;
 db.authenticate()

@@ -3,7 +3,7 @@ $(document).ready(function () {
   const { myWardrobeAlerts } = messageData;
 
   //set up html elements
-
+  const fileChosen = $('#file-chosen');
   const itemFilter = $('#item-filter');
 
   // ------- unnamed function -----------------------------------
@@ -32,7 +32,7 @@ $(document).ready(function () {
   function getCatId(catName, callback) {
     $.ajax({
       type: 'GET',
-      url: '/query/catID/' + catName,
+      url: '/category/id/' + catName,
     })
       .then((dataReturned) => {
         const categoryData = {
@@ -76,6 +76,10 @@ $(document).ready(function () {
   }
 
   // event listeners
-
   itemFilter.change(filterCarousel);
+  $(document).on('change', '#myFile',function(){
+    const text = this.files[0].name;
+    fileChosen.text(text)
+  });
+
 });

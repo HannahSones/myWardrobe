@@ -34,6 +34,7 @@ function nameSubmit() {
   $('.nameSubmission').removeClass('emptyForm');
   return name;
 }
+
 // Colour form submission check to see if valid input
 function colourSubmit() {
   const colour = $('.colourSubmission').val();
@@ -78,8 +79,13 @@ function badUpload() {
   }, 5000);
   $('.badUpload').removeClass('displayNone');
 }
-/*On submitting the Form the checks are made to see if form is correct then posts
-to Cloudinary followed by the Database*/
+
+/*
+On submitting the Form
+the checks are made to see if form is correct
+then posts to Cloudinary
+then posts to the Database
+*/
 function imageSubmit() {
   const userID = localStorage.getItem('userID');
   if (!userID) {
@@ -97,7 +103,7 @@ function imageSubmit() {
     formData.append('image', theFile[key]);
   });
   $.post({
-    url: '/upload',
+    url: '/item/addImage',
     data: formData,
     processData: false,
     contentType: false,
@@ -122,7 +128,7 @@ function imageSubmit() {
     $.ajax({
       /* Posts Entry to our Database */
       type: 'POST',
-      url: `upload/item/${userID}`,
+      url: `item/addNew/${userID}`,
       data: dataObject,
     }).then(() => {
       $('#myFile').val('');

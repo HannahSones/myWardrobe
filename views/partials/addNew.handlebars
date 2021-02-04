@@ -8,7 +8,9 @@
         <p>Upload a photo</p>
         <div class="input-group col-md-6">
           <form>
-            <input type="file" id="myFile" name="myFile" accept='image/*' enctype="multipart/form-data">
+            {{!-- <lable class="file-upload middle-align" for='myFile'>Choose File</lable> --}}
+            <input type="file" id="myFile" name="myFile" accept='image/*' enctype="multipart/form-data" />
+            {{!-- <span id="file-chosen">No file chosen</span> --}}
           </form>
         </div>
         </br>

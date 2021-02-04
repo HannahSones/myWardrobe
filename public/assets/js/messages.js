@@ -1,10 +1,16 @@
 // set up elements from html ---------------
 const savedOutfitsMessage = $('#saved-outfits-message');
 const myWardrobeMessage = $('#my-wardrobe-message');
-const { savedOutfitAlerts, savedOutfitTips, myWardrobeAlerts, myWardrobeTips} = messageData();
+const {
+  savedOutfitAlerts,
+  savedOutfitTips,
+  myWardrobeAlerts,
+  myWardrobeTips,
+} = messageData();
 
 // Export functions
-function messageData() { /* eslint-disable-line no-unused-vars */
+function messageData() {
+  /* eslint-disable-line no-unused-vars */
   const savedOutfitTips = [
     'Tip: Message alerts apear here to guide you through mis-actions. ',
     'Tip: Selections Timeout after 5 seconds, you may need to reselect and try again.',
@@ -24,7 +30,7 @@ function messageData() { /* eslint-disable-line no-unused-vars */
     noSave: 'There is no saved outfit for this day.',
     delete: 'Your outfit has been perminantly deleted.',
     removed: 'Your outfit has been removed from the calander.',
-    inPlanner: 'You need to remove this outfit from the planner first.'
+    inPlanner: 'You need to remove this outfit from the planner first.',
   };
 
   const myWardrobeTips = [
@@ -33,7 +39,7 @@ function messageData() { /* eslint-disable-line no-unused-vars */
     'Tip: You can find your outfit in the Saved Outfits tab once you have created it.',
     'Tip: Click on items from the carousels to create your outfit.',
     'Tip: Five items will be visible in the creator, but it will hold more.',
-    'Tip: The filter menu will show you specific category items like skirts', 
+    'Tip: The filter menu will show you specific category items like skirts',
     'Tip: Filter view all to get the full wardrobe back again.',
   ];
 
@@ -42,7 +48,7 @@ function messageData() { /* eslint-disable-line no-unused-vars */
       'There are no items in the creator. Choose your outfit before creating.',
     noName:
       'You have not named your outfit. Please fill in the Outfit Name field and try agian.',
-    filter: 'This is just placeholder text, please choose another option.'
+    filter: 'This is just placeholder text, please choose another option.',
   };
 
   return {
@@ -95,8 +101,7 @@ function displayMyWardrobeTip() {
 }
 
 $(document).ready(function () {
-
-  // document variables 
+  // document variables
 
   // functions -------------------------------
   function init() {
@@ -110,5 +115,4 @@ $(document).ready(function () {
   init();
   displaySavedOutfitTip();
   displayMyWardrobeTip();
-
 });

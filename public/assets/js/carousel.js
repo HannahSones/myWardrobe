@@ -1,6 +1,5 @@
 // shorthand for document.ready function
-$(function() {
-
+$(function () {
   // Initiates carousel for tops, scrolling one at a time
   $('.topsCarousel').slick({
     arrows: true,
@@ -15,8 +14,8 @@ $(function() {
           arrows: true,
           centerMode: true,
           centerPadding: '40px',
-          slidesToShow: 3
-        }
+          slidesToShow: 3,
+        },
       },
       {
         breakpoint: 480,
@@ -24,12 +23,11 @@ $(function() {
           arrows: true,
           centerMode: true,
           centerPadding: '40px',
-          slidesToShow: 1
-        }
-      }
-    ]
+          slidesToShow: 1,
+        },
+      },
+    ],
   });
-
 
   // Initiates carousel for bottoms, scrolling one at a time
   $('.bottomsCarousel').slick({
@@ -46,8 +44,8 @@ $(function() {
           arrows: true,
           centerMode: true,
           centerPadding: '40px',
-          slidesToShow: 3
-        }
+          slidesToShow: 3,
+        },
       },
       {
         breakpoint: 480,
@@ -55,12 +53,11 @@ $(function() {
           arrows: false,
           centerMode: true,
           centerPadding: '40px',
-          slidesToShow: 1
-        }
-      }
-    ]
+          slidesToShow: 1,
+        },
+      },
+    ],
   });
-
 
   // Initiates carousel for overalls, scrolling one at a time
   $('.overallsCarousel').slick({
@@ -76,8 +73,8 @@ $(function() {
           arrows: true,
           centerMode: true,
           centerPadding: '40px',
-          slidesToShow: 3
-        }
+          slidesToShow: 3,
+        },
       },
       {
         breakpoint: 480,
@@ -85,10 +82,9 @@ $(function() {
           arrows: false,
           centerMode: true,
           centerPadding: '40px',
-          slidesToShow: 1
-        }
-      }
-    ]
+          slidesToShow: 1,
+        },
+      },
+    ],
   });
-
 });

@@ -97,31 +97,6 @@ $(document).ready(function () {
     showCalendar(year, month, days);
   }
 
-  // ---------------------- previous Month ---------------------------
-  // Show the previous month
-  // -----------------------------------------------------------------
-  function previousMonth() {
-    // console.log('prev month');
-    let text = currentMonth.text();
-    let value = monthNames.indexOf(text);
-    value--;
-    showMonth(value);
-    getOutfitsInPlanner();
-
-  }
-
-  // ---------------------- next month ------------------------------
-  // show the next month
-  // ----------------------------------------------------------------
-  function nextMonth() {
-    // console.log('next month');
-    let text = currentMonth.text();
-    let value = monthNames.indexOf(text);
-    value++;
-    showMonth(value);
-    getOutfitsInPlanner();
-  }
-
   // ------ getOutfitName -------------------------
   // gets the outfit name by specified id
   // called by getOutfitsIn Planner
@@ -130,7 +105,7 @@ $(document).ready(function () {
     // console.log('getOutfitName function called');
     $.ajax({
       type: 'GET',
-      url: '/query/plannedOutfit/' + outfitID,
+      url: '/outfit/getName/' + outfitID,
     })
       .then((dataReturned) => {
         // console.log('data from GET outfitname =', dataReturned);
@@ -156,7 +131,7 @@ $(document).ready(function () {
     }
     $.ajax({
       type: 'GET',
-      url: `/query/planner/id/${userID}`,
+      url: `/outfit/inPlanner/${userID}`,
     })
       .then((dataReturned) => {
         // console.log('data from calendar GET planner =', dataReturned);
@@ -178,6 +153,30 @@ $(document).ready(function () {
           console.log('no User ID');
         }
       });
+  }
+
+  // ---------------------- previous Month ---------------------------
+  // Show the previous month
+  // -----------------------------------------------------------------
+  function previousMonth() {
+    // console.log('prev month');
+    let text = currentMonth.text();
+    let value = monthNames.indexOf(text);
+    value--;
+    showMonth(value);
+    getOutfitsInPlanner();
+  }
+
+  // ---------------------- next month ------------------------------
+  // show the next month
+  // ----------------------------------------------------------------
+  function nextMonth() {
+    // console.log('next month');
+    let text = currentMonth.text();
+    let value = monthNames.indexOf(text);
+    value++;
+    showMonth(value);
+    getOutfitsInPlanner();
   }
 
   // FUNCTION CALLS
