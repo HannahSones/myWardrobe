@@ -1,45 +1,51 @@
 const CACHE_NAME = 'static-cache-v2';
 const DATA_CACHE_NAME = 'data-cache-v1';
 const FILES_TO_CACHE = [
-  '/',
-  'public/assets/manifest.json',
+  'manifest.json',
 
-  'public/assets/css/calander.css',
-  'public/assets/css/create-outfit.css',
-  'public/assets/css/media-query.css',
-  'public/assets/css/new-item.css',
-  'public/assets/css/saved-outfits.css',
-  'public/assets/css/style.css',
+  '/assets/css/calander.css',
+  '/assets/css/create-outfit.css',
+  '/assets/css/media-query.css',
+  '/assets/css/new-item.css',
+  '/assets/css/saved-outfits.css',
+  '/assets/css/styles.css',
 
-  'public/assets/js/calendar.js',
-  'public/assets/js/carousel.js',
-  'public/assets/js/createOutfit.js',
-  'public/assets/js/date.js',
-  'public/assets/js/login.js',
-  'public/assets/js/messages.js',
-  'public/assets/js/savedOutfits.js',
-  'public/assets/js/script.js',
-  'public/assets/js/uploadImage.js',
-  'public/assets/js/userStorage.js',
+  '/assets/js/calendar.js',
+  '/assets/js/carousel.js',
+  '/assets/js/createOutfit.js',
+  '/assets/js/date.js',
+  '/assets/js/login.js',
+  '/assets/js/messages.js',
+  '/assets/js/savedOutfits.js',
+  '/assets/js/script.js',
+  '/assets/js/uploadImage.js',
+  '/assets/js/userStorage.js',
 
-  'public/assets/img/icon.png',
-  'public/assets/img/icon-192x192.png',
-  'public/assets/img/icon-256x256.png',
-  'public/assets/img/icon-384x384.png',
-  'public/assets/img/icon-512x512.png',
-  'public/assets/img/extras/coat-hanger-hover.png',
-  'public/assets/img/extras/coat-hanger.png',
+  '/assets/img/icon.png',
+  '/assets/img/icon-192x192.png',
+  '/assets/img/icon-256x256.png',
+  '/assets/img/icon-384x384.png',
+  '/assets/img/icon-512x512.png',
+  '/assets/img/extras/coat-hanger-hover.png',
+  '/assets/img/extras/coat-hanger.png',
 
 ];
 // install
 self.addEventListener('install', function (evt) {
   // pre cache image data
-  evt.waitUntil(
-    caches.open(DATA_CACHE_NAME).then((cache) => cache.add('/api/images'))
-  );
+  // evt.waitUntil(
+  //   caches.open(DATA_CACHE_NAME).then((cache) => cache.add('/api/images'))
+  // );
   // pre cache all static assets
   evt.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES_TO_CACHE))
+    caches.open(CACHE_NAME)
+    .then((cache) => {
+      console.log({cache});
+      cache.addAll(FILES_TO_CACHE);
+    })
+    .catch((err) => {
+      console.log({err});
+    })
   );
   // tell the browser to activate this service worker immediately once it
   // has finished installing
